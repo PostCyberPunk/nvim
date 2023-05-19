@@ -53,10 +53,13 @@ return {
       { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
     },
   },
-  -- {
-  --   "nvim-telescope/telescope.nvim",
-  --   --
-  --   dependencies = { "olimorris/persisted.nvim" },
-  --   require("telescope").load_extension("persisted"),
-  -- },
+  {
+    "beauwilliams/focus.nvim",
+    keys = { { "<leader>wl", "<cmd>FocusSplitNicely<cr>", desc = "Focus Split Nicely" } },
+    cmd = { "FocusSplitNicely", "FocusSplitCycle" },
+    module = "focus",
+    config = function()
+      require("focus").setup({ hybridnumber = true, width = 120 })
+    end,
+  },
 }

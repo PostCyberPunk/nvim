@@ -68,12 +68,13 @@ return {
   },
 
   --win sep
-  -- {
-  --   "nvim-zh/colorful-winsep.nvim",
-  --   config = true,
-  --   event = { "WinNew" },
-  -- },
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = true,
+    event = { "WinNew" },
+  },
   -- #34afff
+  -- Colorizer ----------
   {
     "NvChad/nvim-colorizer.lua",
     config = true,

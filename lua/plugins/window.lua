@@ -7,16 +7,21 @@ return {
     "goolord/alpha-nvim",
     opts = function()
       local dashboard = require("alpha.themes.dashboard")
-      local findB =
-        dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"), table.insert(
-          dashboard.section.buttons.val,
-          4,
-          --   dashboard.button("k", " " .. "Change keymap", function()
-          --     require("persistence").load({ last = true })
-          --   end)
-          -- )
-          dashboard.button("k", " " .. "Change keymap", ":Telescope live_grep <CR>")
-        )
+      local button = dashboard.button("p", " " .. " Projects", ":Telescope projects <CR>")
+      button.opts.hl = "AlphaButtons"
+      table.insert(dashboard.section.buttons.val, 4, button)
     end,
+  },
+  {
+    "ahmedkhalf/project.nvim",
+    opts = {},
+    event = "VeryLazy",
+    config = function(_, opts)
+      require("project_nvim").setup(opts)
+      require("telescope").load_extension("projects")
+    end,
+    keys = {
+      { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
+    },
   },
 }

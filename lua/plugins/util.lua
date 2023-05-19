@@ -53,6 +53,7 @@ return {
       { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
     },
   },
+  --focus---
   {
     "beauwilliams/focus.nvim",
     keys = { { "<leader>wl", "<cmd>FocusToggle<cr>", desc = "Focus Split Nicely" } },
@@ -64,5 +65,17 @@ return {
         width = 120,
       })
     end,
+  },
+
+  --win sep
+  -- {
+  --   "nvim-zh/colorful-winsep.nvim",
+  --   config = true,
+  --   event = { "WinNew" },
+  -- },
+  -- #34afff
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = true,
   },
 }

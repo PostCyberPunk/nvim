@@ -17,12 +17,27 @@ return {
       table.insert(dashboard.section.buttons.val, 4, button)
     end,
   },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   opts = {
+  --     options = {
+  --       separator_style = { "thin", "thick" },
+  --     },
+  --   },
+  -- },
+  -- ---------------tokyonight-----
   {
-    "akinsho/bufferline.nvim",
-    opts = {
-      options = {
-        separator_style = { "slope", "slant" },
-      },
-    },
+    "folke/tokyonight.nvim",
+    require("tokyonight").setup({
+      -- other configs
+      -- colors
+      dim_inactive = true,
+      on_colors = function(colors)
+        colors.border = "#565f89"
+        colors.bg_visual = "#2d8fb6"
+      end,
+      -- colors
+    }),
+    opts = { styles = "moon" },
   },
 }

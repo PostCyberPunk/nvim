@@ -8,6 +8,7 @@
 
 vim.keymap.set("i", "ii", "<ESC>")
 vim.keymap.set("n", "<leader>ws", "<C-w>v", { desc = "splitright" })
+
 --window pick
 -- vim.keymap.set("n", "<leader>wp", function()
 --   local picked_window_id = require("window-picker").pick_window() or vim.api.nvim_get_current_win()

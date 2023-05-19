@@ -7,21 +7,22 @@ return {
     "goolord/alpha-nvim",
     opts = function()
       local dashboard = require("alpha.themes.dashboard")
+      local button_rs = dashboard.button("s", " " .. " Restore Session", [[:lua require("persisted").load() <cr>]])
+      button_rs.opts.hl = "AlphaButtons"
+      button_rs.opts.hl_shortcut = "AlphaShortcut"
+      dashboard.section.buttons.val[6] = button_rs
       local button = dashboard.button("p", " " .. " Projects", ":Telescope projects <CR>")
       button.opts.hl = "AlphaButtons"
+      button.opts.hl_shortcut = "AlphaShortcut"
       table.insert(dashboard.section.buttons.val, 4, button)
     end,
   },
   {
-    "ahmedkhalf/project.nvim",
-    opts = {},
-    event = "VeryLazy",
-    config = function(_, opts)
-      require("project_nvim").setup(opts)
-      require("telescope").load_extension("projects")
-    end,
-    keys = {
-      { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+        separator_style = { "slope", "slant" },
+      },
     },
   },
 }

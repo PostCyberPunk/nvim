@@ -1,4 +1,13 @@
 return {
+  -- add all opened buffers
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = { "hrsh7th/cmp-buffer" },
+    opts = function(_, opts)
+      local cmp = require("cmp")
+      opts.sources[3] = {}
+    end,
+  },
   -- override nvim-cmp and add cmp-emoji
   {
     "hrsh7th/nvim-cmp",

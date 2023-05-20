@@ -23,6 +23,7 @@ vim.keymap.set("n", "<leader>ws", "<C-w>v", { desc = "splitright" })
 map("n", "<leader><C-v>", '"+p', { desc = "Paste(system)" })
 map("v", "<leader>gc", '"+y', { desc = "Copy(system)" })
 map("n", "<leader>fm", "gg=G''", { desc = "Format this File" })
+map("n", "<leader>uN", "<cmd>Notifications<cr>", { desc = "Show All Notifications" })
 map("n", "<leader><leader>", "")
 --window pick
 

@@ -18,6 +18,9 @@ end
 vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "split down" })
 vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "split right" })
 
+map("n", "<c-j>", "<c-w>j")
+map("n", "<c-k>", "<c-w>k")
+
 map("n", "<leader><C-v>", '"+p', { desc = "Paste(system)" })
 map("v", "<leader>gc", '"+y', { desc = "Copy(system)" })
 map("n", "<leader>fm", "gg=G''", { desc = "Format this File" })

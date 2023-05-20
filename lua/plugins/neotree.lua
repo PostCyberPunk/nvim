@@ -75,6 +75,9 @@ return {
               end
             end,
             ["i"] = "open",
+            ["s"] = "",
+            ["O"] = "open_vsplit",
+            ["S"] = "",
           },
         },
       })

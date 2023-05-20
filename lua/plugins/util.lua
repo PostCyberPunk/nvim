@@ -41,6 +41,7 @@ return {
       },
     },
   },
+  -- project_nvim --------------
   {
     "ahmedkhalf/project.nvim",
     opts = {},
@@ -78,5 +79,13 @@ return {
   {
     "NvChad/nvim-colorizer.lua",
     config = true,
+  },
+  ---- flit.nvim --------------
+  {
+    "ggandor/flit.nvim",
+    -- require("flit").setup({
+    --   multiline = false,
+    -- }),
+    opts = { multiline = false },
   },
 }

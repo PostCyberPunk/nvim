@@ -116,4 +116,23 @@ return {
       },
     },
   },
+  ----Telescope---
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        vimgrep_arguments = {
+          "rg",
+          "--hidden",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--ignore-file",
+          ".gitignore",
+        },
+      },
+    },
+  },
 }

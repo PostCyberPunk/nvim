@@ -15,7 +15,8 @@ end
 
 -- vim.keymap.set("i", "ii", "<ESC>")
 
-vim.keymap.set("n", "<leader>ws", "<C-w>v", { desc = "splitright" })
+vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "split down" })
+vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "split right" })
 
 map("n", "<leader><C-v>", '"+p', { desc = "Paste(system)" })
 map("v", "<leader>gc", '"+y', { desc = "Copy(system)" })

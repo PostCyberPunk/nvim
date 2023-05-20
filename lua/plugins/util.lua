@@ -68,6 +68,27 @@ return {
     end,
   },
 
+  -- windwo picker
+  {
+    "s1n7ax/nvim-window-picker",
+    config = function()
+      require("window-picker").setup({
+        use_winbar = "smart",
+        other_win_hl_color = "#f7667b",
+        -- include_current_win = true,
+        -- selection_display = function(char)
+        --   return ":::" .. char
+        -- end,
+      })
+    end,
+    -- opts = {
+    --   use_winbar = "smart",
+    --   include_current_win = true,
+    --   selection_display = function(char)
+    --     return ":::" .. char
+    --   end,
+    -- },
+  },
   --win sep
   {
     "nvim-zh/colorful-winsep.nvim",
@@ -80,17 +101,9 @@ return {
     "NvChad/nvim-colorizer.lua",
     config = true,
   },
-  ------leap.nvim ------
-  -- {
-  --   "ggandor/leap.nvim",
-  --   init = {},
-  -- },
   ---- flit.nvim --------------
   {
     "ggandor/flit.nvim",
-    -- require("flit").setup({
-    --   multiline = false,
-    -- }),
     opts = { multiline = false },
   },
   --------treesitter -----

@@ -25,10 +25,13 @@ map("n", "<leader><C-c>", '"+y', { desc = "Copy(system)" })
 map("n", "<leader>fm", "gg=G''", { desc = "Format this File" })
 map("n", "<leader><leader>", "")
 --window pick
--- vim.keymap.set("n", "<leader>wp", function()
---   local picked_window_id = require("window-picker").pick_window() or vim.api.nvim_get_current_win()
---   vim.api.nvim_set_current_win(picked_window_id)
--- end, { desc = "Pick a window" })
+
+vim.keymap.set("n", "<leader>wp", function()
+  local picked_window_id = require("window-picker").pick_window() or vim.api.nvim_get_current_win()
+  vim.api.nvim_set_current_win(picked_window_id)
+end, { desc = "Pick a window" })
+
+--search bidirectional
 vim.keymap.set("n", "s", function()
   local current_window = vim.fn.win_getid()
   require("leap").leap({ target_windows = { current_window } })

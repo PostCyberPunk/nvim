@@ -23,6 +23,7 @@ vim.keymap.set("n", "<leader>ws", "<C-w>v", { desc = "splitright" })
 map("n", "<leader><C-v>", '"+p', { desc = "Paste(system)" })
 map("n", "<leader><C-c>", '"+y', { desc = "Copy(system)" })
 map("n", "<leader>fm", "gg=G''", { desc = "Format this File" })
+map("n", "<leader><leader>", "")
 --window pick
 -- vim.keymap.set("n", "<leader>wp", function()
 --   local picked_window_id = require("window-picker").pick_window() or vim.api.nvim_get_current_win()

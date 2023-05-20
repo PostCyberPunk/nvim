@@ -30,7 +30,7 @@ vim.keymap.set("n", "<leader>wp", function()
 end, { desc = "Pick a window" })
 
 --search bidirectional
-vim.keymap.set("n", "s", function()
+vim.keymap.set("n", "<leader><leader>s", function()
   local current_window = vim.fn.win_getid()
   require("leap").leap({ target_windows = { current_window } })
 end)

@@ -80,6 +80,14 @@ return {
             ["S"] = "",
           },
         },
+        filesystem = {
+          filtered_items = {
+            hide_by_pattern = { -- uses glob style patterns
+              "*.meta",
+              "*/src/*/tsconfig.json",
+            },
+          },
+        },
       })
     end,
   },

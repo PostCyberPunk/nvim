@@ -80,6 +80,11 @@ return {
     "NvChad/nvim-colorizer.lua",
     config = true,
   },
+  ------leap.nvim ------
+  -- {
+  --   "ggandor/leap.nvim",
+  --   init = {},
+  -- },
   ---- flit.nvim --------------
   {
     "ggandor/flit.nvim",

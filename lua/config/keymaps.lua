@@ -17,7 +17,7 @@ end
 -- vim.keymap.set("i", "<S-Tab>", "<C-p>")
 -- vim.keymap.set("i", "ii", "<ESC>")
 
-vim.keymap.set("i", "ii", "<ESC>")
+-- vim.keymap.set("i", "ii", "<ESC>")
 vim.keymap.set("n", "<leader>ws", "<C-w>v", { desc = "splitright" })
 
 map("n", "<leader><C-v>", '"+p', { desc = "Paste(system)" })

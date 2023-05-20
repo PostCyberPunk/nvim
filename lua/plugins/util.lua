@@ -109,25 +109,23 @@ return {
   --------treesitter -----
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
+    opts = function(_, opts)
+      -- add tsx and treesitter
+      vim.list_extend(opts.ensure_installed, {
         "c_sharp",
-        "bash",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
         "tsx",
         "typescript",
-        "vim",
-        "yaml",
-      },
-    },
+      })
+      opts.incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<leader>v",
+          node_incremental = "<leader>v",
+          scope_incremental = false,
+          node_decremental = "<bs>",
+        },
+      }
+    end,
   },
   ----Telescope---
   {

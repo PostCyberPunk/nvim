@@ -40,4 +40,44 @@ return {
     }),
     opts = { styles = "moon" },
   },
+  -- windwo picker
+  {
+    "s1n7ax/nvim-window-picker",
+    config = function()
+      require("window-picker").setup({
+        use_winbar = "smart",
+        other_win_hl_color = "#f7667b",
+        -- include_current_win = true,
+        -- selection_display = function(char)
+        --   return ":::" .. char
+        -- end,
+      })
+    end,
+    -- opts = {
+    --   use_winbar = "smart",
+    --   include_current_win = true,
+    --   selection_display = function(char)
+    --     return ":::" .. char
+    --   end,
+    -- },
+  },
+  --win sep
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = true,
+    event = { "WinNew" },
+  },
+  --focus---
+  {
+    "beauwilliams/focus.nvim",
+    keys = { { "<leader>wl", "<cmd>FocusToggle<cr>", desc = "Focus Split Nicely" } },
+    cmd = { "FocusToggle", "FocusSplitCycle" },
+    module = "focus",
+    config = function()
+      require("focus").setup({
+        hybridnumber = true,
+        width = 120,
+      })
+    end,
+  },
 }

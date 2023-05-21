@@ -130,20 +130,19 @@ return {
   ----Telescope---
   {
     "nvim-telescope/telescope.nvim",
-    opts = {
-      defaults = {
-        vimgrep_arguments = {
-          "rg",
-          "--hidden",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--ignore-file",
-          ".gitignore",
-        },
-      },
-    },
+    opts = function(_, opts)
+      -- opts.defaults.vimgrep_arguments = {
+      --   "rg",
+      --   "--hidden",
+      --   "--no-heading",
+      --   "--with-filename",
+      --   "--line-number",
+      --   "--column",
+      --   "--smart-case",
+      --   "--ignore-file gitignore",
+      --   ".gitignore",
+      -- }
+      opts.defaults.find_command = { "rg", "--files", "--ignore-file", ".gitignore" }
+    end,
   },
 }

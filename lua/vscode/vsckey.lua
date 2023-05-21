@@ -53,6 +53,7 @@ vskcmd("n", "<leader>e", "VSCodeNotify('workbench.explorer.fileView.focus',{'whe
 vskcmd("n", "<leader>wl", "VSCodeNotify('workbench.action.toggleEditorWidths')", opts)
 vskcmd("n", "<leader>ww", "VSCodeNotify('workbench.action.focusNextGroup')", opts)
 vskcmd("n", "<leader>w;", "VSCodeNotify('workbench.action.toggleAuxiliaryBar')", opts)
+vskcmd("n", "<leader>wq", "VSCodeNotify('workbench.action.closeActiveEditor')", opts)
 keymap("n", "H", "gT", opts)
 keymap("n", "L", "gt", opts)
 -- vskcmd(

@@ -13,7 +13,7 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
--- vim.keymap.set("i", "ii", "<ESC>")
+vim.keymap.set("i", "jj", "<ESC>")
 
 vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "split down" })
 vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "split right" })

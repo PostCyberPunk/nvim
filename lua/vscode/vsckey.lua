@@ -29,7 +29,7 @@ end, { expr = true, remap = true })
 vim.keymap.set("n", "j", function()
   return moveCursor("j")
 end, { expr = true, remap = true })
-
+--folding--
 vskcmd("n", "zM", "VSCodeNotify('editor.foldAll')", opts)
 vskcmd("n", "zR", "SCodeNotify('editor.unfoldAll')", opts)
 vskcmd("n", "zc", "VSCodeNotify('editor.fold')", opts)
@@ -37,8 +37,10 @@ vskcmd("n", "zC", "VSCodeNotify('editor.foldRecursively')", opts)
 vskcmd("n", "zo", "VSCodeNotify('editor.unfold')", opts)
 vskcmd("n", "zO", "VSCodeNotify('editor.unfoldRecursively')", opts)
 vskcmd("n", "za", "VSCodeNotify('editor.toggleFold')", opts)
+vskcmd("n", "]z", "VSCodeNotify('editor.gotoNextFold')", opts)
+vskcmd("n", "[z", "VSCodeNotify('editor.gotoPreviousFold')", opts)
 
---
+-------------find and serach -----------
 vskcmd("n", "<leader>p", "VSCodeNotify('workbench.action.showCommands')", opts)
 vskcmd("n", "<leader>/", "VSCodeNotify('workbench.action.findInFiles')", opts)
 vskcmd("n", "<leader>ff", "VSCodeNotify('workbench.action.quickOpen')", opts)

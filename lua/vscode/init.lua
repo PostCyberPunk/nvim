@@ -37,3 +37,5 @@ require("lazy").setup({
   },
 })
 vim.cmd("highlight LeapBackdrop guifg=#777777")
+require("vscode.vsckey")
+vim.cmd("set scroll=10")

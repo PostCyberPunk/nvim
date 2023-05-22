@@ -27,14 +27,14 @@ map("n", "<leader>uN", "<cmd>Notifications<cr>", { desc = "Show All Notification
 map("n", "<leader><leader>", "")
 
 --
---search bidirectional
+----------------------------------------------search bidirectional
 --
 map("n", "<leader><leader>s", function()
   local current_window = vim.fn.win_getid()
   require("leap").leap({ target_windows = { current_window } })
 end, { desc = "Search Bidirectional" })
 --
---------------------------------------------------------------------ufo folding
+----------------------------------------------ufo folding
 --
 map("n", "zp", function()
   local winid = require("ufo").peekFoldedLinesUnderCursor()

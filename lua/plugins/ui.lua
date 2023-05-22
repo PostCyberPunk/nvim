@@ -80,4 +80,32 @@ return {
       })
     end,
   },
+  ---------------------remove indentscope animation-----------
+
+  {
+    "echasnovski/mini.indentscope",
+    enabled = false,
+    config = function(_, opts)
+      -- require("mini.indentscope").gen_animation.none()
+      -- require("mini.indentscope").setup(opts)
+    end,
+  },
+
+  -- add symbols-outline
+  {
+    "stevearc/aerial.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "UIEnter" },
+    config = function(_, opts)
+      require("hlchunk").setup(opts)
+    end,
+  },
 }

@@ -47,3 +47,5 @@ map("n", "zp", function()
     vim.lsp.buf.hover()
   end
 end, { desc = "Peek inside fold" })
+-----------color picker------------
+map("n", "<leader>cp", "<cmd>PickColor<cr>", { noremap = true, silent = true })

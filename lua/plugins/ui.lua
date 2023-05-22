@@ -17,14 +17,12 @@ return {
       table.insert(dashboard.section.buttons.val, 4, button)
     end,
   },
-  -- {
-  --   "akinsho/bufferline.nvim",
-  --   opts = {
-  --     options = {
-  --       separator_style = { "thin", "thick" },
-  --     },
-  --   },
-  -- },
+  {
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = { separator_style = { "thin", "thick" } },
+    },
+  },
   -- ---------------tokyonight-----
   {
     "folke/tokyonight.nvim",
@@ -53,13 +51,6 @@ return {
         -- end,
       })
     end,
-    -- opts = {
-    --   use_winbar = "smart",
-    --   include_current_win = true,
-    --   selection_display = function(char)
-    --     return ":::" .. char
-    --   end,
-    -- },
   },
   --win sep
   {
@@ -101,6 +92,7 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
   },
+  --- hl chunk
   {
     "shellRaining/hlchunk.nvim",
     event = { "UIEnter" },
@@ -109,4 +101,53 @@ return {
     end,
   },
   { "lukas-reineke/indent-blankline.nvim", enabled = false },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function(_, opts)
+      local colors = {
+        bg = "#202328",
+        fg = "#bbc2cf",
+        yellow = "#ECBE7B",
+        cyan = "#008080",
+        darkblue = "#081633",
+        green = "#98be65",
+        orange = "#FF8800",
+        violet = "#a9a1e1",
+        magenta = "#c678dd",
+        blue = "#51afef",
+        red = "#ec5f67",
+      }
+      table.insert(opts.sections.lualine_b, 2, {
+        "diff",
+        symbols = { added = " ", modified = " ", removed = " " },
+        diff_color = {
+          added = { fg = colors.green },
+          modified = { fg = colors.orange },
+          removed = { fg = colors.red },
+        },
+      })
+      table.insert(opts.sections.lualine_c, 1, {
+        -- Lsp server name .
+        function()
+          local msg = "No Active Lsp"
+          local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+          local clients = vim.lsp.get_active_clients()
+          if next(clients) == nil then
+            return msg
+          end
+          for _, client in ipairs(clients) do
+            local filetypes = client.config.filetypes
+            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+              return client.name
+            end
+          end
+          return msg
+        end,
+        icon = ":",
+      })
+
+      opts.sections.lualine_x[5] = { "encoding" }
+      opts.sections.lualine_x[6] = { "filesize" }
+    end,
+  },
 }

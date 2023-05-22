@@ -23,21 +23,6 @@ return {
       options = { separator_style = { "thin", "thick" } },
     },
   },
-  -- ---------------tokyonight-----
-  {
-    "folke/tokyonight.nvim",
-    require("tokyonight").setup({
-      -- other configs
-      -- colors
-      dim_inactive = true,
-      on_colors = function(colors)
-        colors.border = "#565f89"
-        colors.bg_visual = "#2d8fb6"
-      end,
-      -- colors
-    }),
-    opts = { styles = "moon" },
-  },
   -- windwo picker
   {
     "s1n7ax/nvim-window-picker",

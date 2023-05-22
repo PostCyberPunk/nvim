@@ -54,4 +54,24 @@ return {
       { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
     },
   },
+  -----------welcome alpha-nvim
+  {
+    "goolord/alpha-nvim",
+    dependencies = { "olimorris/persisted.nvim" },
+    opts = function()
+      local dashboard = require("alpha.themes.dashboard")
+      local button = dashboard.button("p", " " .. " Projects", ":Telescope persisted<CR>")
+      local button_rs = dashboard.button("s", " " .. " Restore Session", [[:lua require("persisted").load() <cr>]])
+      local button_ls = dashboard.button("L", " " .. " Restore Last Session", ":SessionLoadLast<cr>")
+      button_ls.opts.hl = "AlphaButtons"
+      button_ls.opts.hl_shortcut = "AlphaShortcut"
+      button_rs.opts.hl = "AlphaButtons"
+      button_rs.opts.hl_shortcut = "AlphaShortcut"
+      button.opts.hl = "AlphaButtons"
+      button.opts.hl_shortcut = "AlphaShortcut"
+      dashboard.section.buttons.val[6] = button_rs
+      table.insert(dashboard.section.buttons.val, 6, button)
+      table.insert(dashboard.section.buttons.val, 8, button_ls)
+    end,
+  },
 }

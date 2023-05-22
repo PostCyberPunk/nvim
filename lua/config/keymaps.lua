@@ -23,7 +23,7 @@ map("n", "<c-k>", "<c-w>k")
 
 map("n", "<leader><C-v>", '"+p', { desc = "Paste(system)" })
 map("v", "<leader>gc", '"+y', { desc = "Copy(system)" })
-map("n", "<leader>fm", "gg=G''", { desc = "Format this File" })
+-- map("n", "<leader>fm", "gg=G''", { desc = "Format this File" })
 map("n", "<leader>uN", "<cmd>Notifications<cr>", { desc = "Show All Notifications" })
 map("n", "<leader><leader>", "")
 --window pick

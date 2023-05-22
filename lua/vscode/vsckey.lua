@@ -50,9 +50,9 @@ vskcmd("n", "<leader>sS", "VSCodeNotify('workbench.action.showAllSymbols')", opt
 ----------------window operetions -------------
 -- vskcmd("n", "<leader>e", "VSCodeNotify('workbench.view.explorer',{'when':'!explorerViewletVisible'})", opts)
 vskcmd("n", "<leader>e", "VSCodeNotify('workbench.explorer.fileView.focus',{'when':'!explorerViewletVisible'})", opts)
-vskcmd("n", "<leader>wl", "VSCodeNotify('workbench.action.toggleEditorWidths')", opts)
+vskcmd("n", "<leader>wa", "VSCodeNotify('workbench.action.toggleEditorWidths')", opts)
 vskcmd("n", "<leader>ww", "VSCodeNotify('workbench.action.focusNextGroup')", opts)
-vskcmd("n", "<leader>w;", "VSCodeNotify('workbench.action.toggleAuxiliaryBar')", opts)
+vskcmd("n", "<leader>w.", "VSCodeNotify('workbench.action.toggleAuxiliaryBar')", opts)
 vskcmd("n", "<leader>wq", "VSCodeNotify('workbench.action.closeActiveEditor')", opts)
 keymap("n", "H", "gT", opts)
 keymap("n", "L", "gt", opts)

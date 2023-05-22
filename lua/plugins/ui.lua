@@ -72,7 +72,7 @@ return {
   --focus---
   {
     "beauwilliams/focus.nvim",
-    keys = { { "<leader>wl", "<cmd>FocusToggle<cr>", desc = "Focus Split Nicely" } },
+    keys = { { "<leader>wa", "<cmd>FocusToggle<cr>", desc = "Focus Split Nicely" } },
     cmd = { "FocusToggle", "FocusSplitCycle" },
     module = "focus",
     config = function()

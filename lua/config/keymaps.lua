@@ -38,3 +38,12 @@ vim.keymap.set("n", "<leader><leader>s", function()
   local current_window = vim.fn.win_getid()
   require("leap").leap({ target_windows = { current_window } })
 end)
+
+--ufo folding
+map("n", "zp", function()
+  local winid = require("ufo").peekFoldedLinesUnderCursor()
+  if not winid then
+    -- vim.fn.CocActionAsync("definitionHover") -- coc.nvim
+    vim.lsp.buf.hover()
+  end
+end, { desc = "Peek inside fold" })

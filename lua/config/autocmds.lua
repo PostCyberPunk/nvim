@@ -11,6 +11,7 @@ end
 vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
   group = augroup("open_folds"),
   callback = function()
-    vim.cmd("normal zR")
+    require("ufo").openAllFolds()
+    -- vim.cmd("normal zR")
   end,
 })

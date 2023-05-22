@@ -1,6 +1,12 @@
-vim.g["nvim_home"] = "~/AppData/Local/nvim"
+--set nvim_home----------------
+if vim.fn.has("unix") == 1 then
+  vim.g["nvim_home"] = "~/.config/nvim"
+elseif vim.fn.has("win32") == 1 then
+  vim.g["nvim_home"] = "~/AppData/Local/nvim"
+end
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
+-------------lazy.vim
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -36,10 +42,11 @@ require("lazy").setup({
     },
   },
 })
+------------------require
 vim.cmd("highlight LeapBackdrop guifg=#777777")
 require("vscode.vsckey")
 require("vscode.vscautocmd")
-
+-- require("vscode.searchindex")
 ---opt
 local opt = vim.opt
 opt.ignorecase = true

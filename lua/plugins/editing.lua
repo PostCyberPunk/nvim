@@ -5,8 +5,10 @@ return {
     "NvChad/nvim-colorizer.lua",
     config = true,
   },
+  -----------Color Picker------------
   {
     "ziontee113/color-picker.nvim",
+    keys = { { "<leader>cp", "<cmd>PickColor<cr>", { noremap = true, silent = true } } },
     opts = {
       -- for changing icons & mappings
       -- ["icons"] = { "ﱢ", "" },

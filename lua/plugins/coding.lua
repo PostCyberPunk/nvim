@@ -20,6 +20,21 @@ return {
       },
     },
   },
+  ------------leap.nvim-
+  -- {
+  --   "ggandor/leap.nvim",
+  --   keys = {
+  --     {
+  --       "n",
+  --       "<leader><leader>s",
+  --       function()
+  --         local current_window = vim.fn.win_getid()
+  --         require("leap").leap({ target_windows = { current_window } })
+  --       end,
+  --       { desc = "Search Bidirectional" },
+  --     },
+  --   },
+  -- },
   ---- flit.nvim --------------
   {
     "ggandor/flit.nvim",

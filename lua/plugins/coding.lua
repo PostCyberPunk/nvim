@@ -1,4 +1,25 @@
 return {
+  ----manson--------------
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "stylua",
+        "shellcheck",
+        "shfmt",
+        "omnisharp-mono",
+        "clang-format",
+        "clangd",
+        "yaml-language-server",
+        "json-lsp",
+        "pyright",
+        "pylint",
+        "prettier",
+        -- "eslint-lsp",
+        -- "flake8", --python formater
+      },
+    },
+  },
   ---- flit.nvim --------------
   {
     "ggandor/flit.nvim",

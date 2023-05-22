@@ -20,7 +20,7 @@ require("lazy").setup({
   spec = "vscplug",
   defaults = { lazy = true, version = "*" },
   install = {},
-  checker = { enabled = true },
+  -- checker = { enabled = true },
   performance = {
     rtp = {
       disabled_plugins = {
@@ -38,4 +38,11 @@ require("lazy").setup({
 })
 vim.cmd("highlight LeapBackdrop guifg=#777777")
 require("vscode.vsckey")
-vim.cmd("set scroll=10")
+require("vscode.vscautocmd")
+
+---opt
+local opt = vim.opt
+opt.ignorecase = true
+opt.smartcase = true
+opt.termguicolors = true
+opt.scroll = 10

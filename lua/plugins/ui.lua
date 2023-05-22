@@ -96,7 +96,12 @@ return {
   -- add symbols-outline
   {
     "stevearc/aerial.nvim",
-    opts = {},
+    keys = { { "<leader>c'", "<cmd>AerialNavToggle<cr>", desc = "Code Lens(Aerial)" } },
+    opts = {
+      manage_folds = true,
+      link_folds_to_tree = true,
+      link_tree_to_folds = false,
+    },
     -- Optional dependencies
     dependencies = {
       "nvim-treesitter/nvim-treesitter",

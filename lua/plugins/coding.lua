@@ -45,6 +45,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       -- add tsx and treesitter
+      table.remove(opts.ensure_installed, 3)
+      table.remove(opts.ensure_installed, 16)
       vim.list_extend(opts.ensure_installed, {
         "c_sharp",
         "tsx",

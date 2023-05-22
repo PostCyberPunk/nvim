@@ -108,4 +108,5 @@ return {
       require("hlchunk").setup(opts)
     end,
   },
+  { "lukas-reineke/indent-blankline.nvim", enabled = false },
 }

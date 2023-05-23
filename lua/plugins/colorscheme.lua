@@ -50,3 +50,4 @@ return {
 }
 --#region
 --#region_end
+--:so $VIMRUNTIME/syntax/hitest.vim

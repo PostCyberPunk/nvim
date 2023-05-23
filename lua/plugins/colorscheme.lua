@@ -1,5 +1,33 @@
 return {
-  { "rafi/awesome-vim-colorschemes", priority = 1000 },
+  -- { "rafi/awesome-vim-colorschemes", priority = 1000 },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    opts = {
+      dim_inactive = {
+        enabled = false,
+        shade = "dark",
+        percentage = 0.15,
+      },
+      integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        telescope = true,
+        notify = true,
+        mini = true,
+      },
+      highlight_overrides = {
+        all = function(colors)
+          return {
+            Visual = { bg = "#585b70" },
+            VertSplit = { fg = "#6670b0" },
+          }
+        end,
+      },
+    },
+  },
+
   {
     "LazyVim/LazyVim",
     opts = {
@@ -20,3 +48,5 @@ return {
     config = true,
   },
 }
+--#region
+--#region_end

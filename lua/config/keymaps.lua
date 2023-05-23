@@ -18,7 +18,7 @@ vim.keymap.set("i", "jj", "<ESC>")
 -----------window operetions
 vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "Split Down" })
 vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split Right" })
-vim.keymap.set("n", "<leader>wv", "<C-w>x", { desc = "Swap windows" })
+vim.keymap.set("n", "<leader>wx", "<C-w>x", { desc = "Swap windows" })
 
 -- map("n", "<c-j>", "<c-w>j")
 -- map("n", "<c-k>", "<c-w>k")

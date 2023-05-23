@@ -29,15 +29,28 @@ return {
     "s1n7ax/nvim-window-picker",
     keys = {
       {
+        "<leader>wP",
+        function()
+          local current_buf = vim.api.nvim_get_current_buf()
+          local picked_window_id = require("window-picker").pick_window() or vim.api.nvim_get_current_win()
+          vim.api.nvim_win_close(vim.api.nvim_get_current_win(), true)
+          vim.api.nvim_set_current_win(picked_window_id)
+          vim.api.nvim_win_set_buf(picked_window_id, current_buf)
+        end,
+        "n",
+        desc = "Replace a window",
+      },
+      {
         "<leader>wp",
         function()
           local picked_window_id = require("window-picker").pick_window() or vim.api.nvim_get_current_win()
           vim.api.nvim_set_current_win(picked_window_id)
         end,
         "n",
-        { desc = "Pick a window" },
+        desc = "Pick a window",
       },
     },
+
     config = function()
       require("window-picker").setup({
         use_winbar = "smart",

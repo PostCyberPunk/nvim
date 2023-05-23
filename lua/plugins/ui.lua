@@ -107,17 +107,10 @@ return {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
       local colors = {
-        bg = "#202328",
-        fg = "#bbc2cf",
-        yellow = "#ECBE7B",
-        cyan = "#008080",
-        darkblue = "#081633",
         green = "#98be65",
         orange = "#FF8800",
-        violet = "#a9a1e1",
-        magenta = "#c678dd",
-        blue = "#51afef",
         red = "#ec5f67",
+        -- TODO: change the colors to global theme colors
       }
       table.insert(opts.sections.lualine_b, 2, {
         "diff",
@@ -126,6 +119,7 @@ return {
           added = { fg = colors.green },
           modified = { fg = colors.orange },
           removed = { fg = colors.red },
+          -- TODO
         },
       })
       table.insert(opts.sections.lualine_c, 1, {
@@ -150,6 +144,22 @@ return {
 
       opts.sections.lualine_x[5] = { "encoding" }
       opts.sections.lualine_x[6] = { "filesize" }
+    end,
+  },
+  {
+    "HiPhish/nvim-ts-rainbow2",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        rainbow = {
+          enable = true,
+          -- list of languages you want to disable the plugin for
+          disable = { "jsx", "cpp" },
+          -- Which query to use for finding delimiters
+          query = "rainbow-parens",
+          -- Highlight the entire buffer all at once
+          strategy = require("ts-rainbow").strategy.global,
+        },
+      })
     end,
   },
 }

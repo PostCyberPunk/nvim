@@ -1,6 +1,9 @@
 return {
   {
     "ggandor/leap.nvim",
+    opts = {
+      safe_labels = { "s", "z", "f", "n", "u", "t", "x", "q" },
+    },
     keys = {
       { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
       { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },

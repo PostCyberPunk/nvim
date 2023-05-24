@@ -21,20 +21,23 @@ return {
     },
   },
   ------------leap.nvim-
-  -- {
-  --   "ggandor/leap.nvim",
-  --   keys = {
-  --     {
-  --       "n",
-  --       "<leader><leader>s",
-  --       function()
-  --         local current_window = vim.fn.win_getid()
-  --         require("leap").leap({ target_windows = { current_window } })
-  --       end,
-  --       { desc = "Search Bidirectional" },
-  --     },
-  --   },
-  -- },
+  {
+    "ggandor/leap.nvim",
+    opts = {
+      safe_labels = { "s", "z", "f", "n", "u", "t", "x", "q" },
+    },
+    -- keys = {
+    --   {
+    --     "n",
+    --     "<leader><leader>s",
+    --     function()
+    --       local current_window = vim.fn.win_getid()
+    --       require("leap").leap({ target_windows = { current_window } })
+    --     end,
+    --     { desc = "Search Bidirectional" },
+    --   },
+    -- },
+  },
   ---- flit.nvim --------------
   {
     "ggandor/flit.nvim",

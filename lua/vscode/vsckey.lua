@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
-local function vskcmd(mode, key, cmds, _opts)
-  keymap(mode, key, ":call " .. cmds .. "<cr>", _opts)
+local function vskcmd(key, cmds, _opts)
+  keymap("n", key, ":call VSCodeNotify('" .. cmds .. "')<cr>", _opts)
 end
 opts.noremap = false
 
@@ -12,9 +12,9 @@ keymap("n", "<S-Tab>", ":Tabprev<CR>", opts)
 ---clipboard
 
 keymap("n", "<leader><C-v>", '"+p', opts)
-keymap("v", "<leader>gc", '"+y', opts)
+keymap("v", "<leader><C-c>", '"+y', opts)
 -------------Foldings--------------
---change the move cursor
+-----change the move cursor
 local function moveCursor(direction)
   if vim.fn.reg_recording() == "" and vim.fn.reg_executing() == "" then
     return ("g" .. direction)
@@ -30,36 +30,46 @@ vim.keymap.set("n", "j", function()
   return moveCursor("j")
 end, { expr = true, remap = true })
 --folding--
-vskcmd("n", "zM", "VSCodeNotify('editor.foldAll')", opts)
-vskcmd("n", "zR", "SCodeNotify('editor.unfoldAll')", opts)
-vskcmd("n", "zc", "VSCodeNotify('editor.fold')", opts)
-vskcmd("n", "zC", "VSCodeNotify('editor.foldRecursively')", opts)
-vskcmd("n", "zo", "VSCodeNotify('editor.unfold')", opts)
-vskcmd("n", "zO", "VSCodeNotify('editor.unfoldRecursively')", opts)
-vskcmd("n", "za", "VSCodeNotify('editor.toggleFold')", opts)
-vskcmd("n", "]z", "VSCodeNotify('editor.gotoNextFold')", opts)
-vskcmd("n", "[z", "VSCodeNotify('editor.gotoPreviousFold')", opts)
+
+vskcmd("zM", "editor.foldAll", opts)
+vskcmd("zR", "editor.unfoldAll", opts)
+vskcmd("zc", "editor.fold", opts)
+vskcmd("zC", "editor.foldRecursively", opts)
+vskcmd("zo", "editor.unfold", opts)
+vskcmd("zO", "editor.unfoldRecursively", opts)
+vskcmd("za", "editor.toggleFold", opts)
+vskcmd("]z", "editor.gotoNextFold", opts)
+vskcmd("[z", "editor.gotoPreviousFold", opts)
 
 -------------find and serach -----------
-vskcmd("n", "<leader>p", "VSCodeNotify('workbench.action.showCommands')", opts)
-vskcmd("n", "<leader>/", "VSCodeNotify('workbench.action.findInFiles')", opts)
-vskcmd("n", "<leader>ff", "VSCodeNotify('workbench.action.quickOpen')", opts)
-vskcmd("n", "<leader>fb", "VSCodeNotify('workbench.action.showAllEditors')", opts)
-vskcmd("n", "<leader>ss", "VSCodeNotify('workbench.action.gotoSymbol')", opts)
-vskcmd("n", "<leader>sS", "VSCodeNotify('workbench.action.showAllSymbols')", opts)
+vskcmd( "<leader>p", "workbench.action.showCommands", opts)
+vskcmd( "<leader>/", "workbench.action.findInFiles", opts)
+vskcmd( "<leader>ff", "workbench.action.quickOpen", opts)
+vskcmd( "<leader>fb", "workbench.action.showAllEditors", opts)
+vskcmd( "<leader>ss", "workbench.action.gotoSymbol", opts)
+vskcmd( "<leader>sS", "workbench.action.showAllSymbols", opts)
 ----------------window operetions -------------
--- vskcmd("n", "<leader>e", "VSCodeNotify('workbench.view.explorer',{'when':'!explorerViewletVisible'})", opts)
-vskcmd("n", "<leader>e", "VSCodeNotify('workbench.explorer.fileView.focus',{'when':'!explorerViewletVisible'})", opts)
-vskcmd("n", "<leader>wa", "VSCodeNotify('workbench.action.toggleEditorWidths')", opts)
-vskcmd("n", "<leader>ww", "VSCodeNotify('workbench.action.focusNextGroup')", opts)
-vskcmd("n", "<leader>w.", "VSCodeNotify('workbench.action.toggleAuxiliaryBar')", opts)
-vskcmd("n", "<leader>wq", "VSCodeNotify('workbench.action.closeActiveEditor')", opts)
+-- vskcmd("n", "<leader>e", "workbench.view.explorer',{'when':'!explorerViewletVisible'})", opts)
+vskcmd( "<leader>e", "workbench.explorer.fileView.focus',{'when':'!explorerViewletVisible'})", opts)
+vskcmd( "<leader>wa", "workbench.action.toggleEditorWidths", opts)
+vskcmd( "<leader>ww", "workbench.action.focusNextGroup", opts)
+vskcmd( "<leader>w.", "workbench.action.toggleAuxiliaryBar", opts)
+vskcmd( "<leader>wq", "workbench.action.closeActiveEditor", opts)
+vskcmd( "<leader>wQ", "workbench.action.closeActiveEditorGroup", opts)
+vskcmd( "<leader>wd", "workbench.action.closeActiveEditor", opts)
+vskcmd( "<leader>wm", "workbench.action.minimizeOtherEditors", opts)
 keymap("n", "H", "gT", opts)
 keymap("n", "L", "gt", opts)
+-------------coding -----------
+vskcmd( "<leader>cf", "editor.action.formatDocument", opts)
+vskcmd( "<leader>co", "breadcrumbs.focusAndSelect", opts)
+vskcmd( "<leader>ca", "editor.action.quickFix", opts)
+vskcmd( "<leader>xx", "workbench.panel.markers.view.focus", opts)
+vskcmd( "]e", "go-to-next-error.nextInFiles.error", opts)
 -- vskcmd(
 --   "n",
 --   "<leader>e",
---   "VSCodeNotify('workbench.action.toggleSidebarVisibility',{'when':'explorerViewletVisible'})",
+--   "workbench.action.toggleSidebarVisibility',{'when':'explorerViewletVisible'})",
 --   opts
 -- )
 

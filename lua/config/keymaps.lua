@@ -1,6 +1,7 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+local utils = require("utils")
 
 local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
@@ -28,6 +29,19 @@ map("v", "<leader>gc", '"+y', { desc = "Copy(system)" })
 map("n", "<leader>uN", "<cmd>Notifications<cr>", { desc = "Show All Notifications" })
 map("n", "<leader><leader>", "")
 
+-----------toggle term
+map("n", "<leader>tg", function()
+  utils.toggle_term_cmd({ cmd = "lazygit", direction = "tab", hidden = true })
+end, { desc = "Toggleterm lazygit" })
+map("n", "<leader>tb", function()
+  utils.toggle_term_cmd("btm")
+  -- utils.toggle_term_cmd({ "btm", "direction=tab" })
+end, { desc = "Toggleterm btm" })
+map("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", { desc = "Toggleterm Horizontal" })
+map("n", "<leader>tt", "<cmd>ToggleTerm direction=tab<cr>", { desc = "Toggleterm Horizontal" })
+map("t", "<c-q>", "<cmd>tabclose<cr>")
+-- map("t", "<c-tab>", "<cmd>echo 'hello'<cr>")
+-- vim.keymap.set("t", "<esc>", [[<cmd>tabprevious<cr>]], { buffer = 0 })
 --
 ----------------------------------------------search bidirectional
 --

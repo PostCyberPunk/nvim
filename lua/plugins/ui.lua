@@ -1,5 +1,20 @@
 return {
   {
+    "folke/which-key.nvim",
+    opts = function()
+      require("which-key").register({
+        ["<leader>f"] = { name = "󰍉 Find" },
+        ["<leader>c"] = { name = " Coding" },
+        ["<leader>u"] = { name = " UI" },
+        ["<leader>b"] = { name = "󰓩 Buffers" },
+        ["<leader>d"] = { name = " Debugger" },
+        ["<leader>g"] = { name = "󰊢 Git" },
+        ["<leader>q"] = { name = "󱂬 Session" },
+        ["<leader>t"] = { name = " Terminal" },
+      })
+    end,
+  },
+  {
     "caenrique/nvim-maximize-window-toggle",
     keys = { { "<leader>wm", "<cmd>ToggleOnly<cr>", desc = "Max/Min Window" } },
   },

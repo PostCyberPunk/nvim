@@ -42,6 +42,10 @@ require("lazy").setup({
     },
   },
 })
+---------costom cmd  revert file--
+vim.api.nvim_create_user_command("Revert", function()
+  vim.cmd("call VSCodeNotify('workbench.action.files.revert')")
+end, {})
 ------------------require
 vim.cmd("highlight LeapBackdrop guifg=#777777")
 require("vscode.vsckey")

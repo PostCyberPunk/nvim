@@ -42,9 +42,16 @@ end, { desc = "Toggleterm lazygit" })
 map("n", "<leader>tb", function()
   utils.toggle_term_cmd("btm")
 end, { desc = "Toggleterm btm" })
-map("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", { desc = "Toggleterm Horizontal" })
+map("n", "<leader>th", "<cmd>ToggleTerm size=15 direction=horizontal<cr>", { desc = "Toggleterm Horizontal" })
 map("n", "<leader>tt", "<cmd>ToggleTerm direction=tab<cr>", { desc = "Toggleterm Horizontal" })
 map("t", "<c-q>", "<cmd>tabclose<cr>")
+map("t", "<c-q>", function()
+  if vim.api.nvim_list_tabpages()[2] == nil then
+    vim.api.nvim_win_close(0, false)
+  else
+    vim.cmd("tabclose")
+  end
+end)
 -- map("t", "<c-tab>", "<cmd>echo 'hello'<cr>")
 -- vim.keymap.set("t", "<esc>", [[<cmd>tabprevious<cr>]], { buffer = 0 })
 --

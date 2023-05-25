@@ -110,11 +110,35 @@ return {
   -- add symbols-outline
   {
     "stevearc/aerial.nvim",
-    keys = { { "<leader>c'", "<cmd>AerialNavToggle<cr>", desc = "Code Lens(Aerial)" } },
+    keys = {
+      {
+        "<leader>co",
+        function()
+          require("aerial").toggle()
+        end,
+        desc = "Code Lens(Aerial)",
+      },
+    },
     opts = {
-      manage_folds = true,
-      link_folds_to_tree = true,
-      link_tree_to_folds = false,
+      buftype_exclude = {
+        "nofile",
+        "terminal",
+      },
+      attach_mode = "global",
+      use_treesitter = true,
+      backends = { "lsp", "treesitter", "markdown", "man" },
+      layout = { min_width = 28 },
+      show_guides = true,
+      filter_kind = false,
+      guides = {
+        mid_item = "├ ",
+        last_item = "└ ",
+        nested_top = "│ ",
+        whitespace = "  ",
+      },
+      -- manage_folds = true,
+      -- link_folds_to_tree = true,
+      -- link_tree_to_folds = false,
     },
     -- Optional dependencies
     dependencies = {

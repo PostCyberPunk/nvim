@@ -59,3 +59,11 @@ map("n", "zp", function()
     vim.lsp.buf.hover()
   end
 end, { desc = "Peek inside fold" })
+---------costom cmd  revert file--
+vim.api.nvim_create_user_command("Revert", function()
+  vim.cmd("earlier 1f")
+  local buf = vim.api.nvim_buf_get_name(0)
+  -- vim.api.nvim_buf_delete(0, { force = true })
+  require("mini.bufremove").delete(0, true)
+  vim.cmd("e " .. buf)
+end, {})

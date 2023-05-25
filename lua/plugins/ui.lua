@@ -164,6 +164,12 @@ return {
         red = "#ec5f67",
         -- TODO: change the colors to global theme colors
       }
+      -- opts.sections.lualine_c[4] = {
+      --   function()
+      --     return require("noice").api.status.message.get()
+      --   end,
+      --   cond = require("noice").api.status.message.has,
+      -- }
       table.insert(opts.sections.lualine_b, 2, {
         "diff",
         symbols = { added = " ", modified = " ", removed = " " },

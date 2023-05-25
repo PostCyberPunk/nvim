@@ -69,7 +69,7 @@ return {
     config = function()
       require("window-picker").setup({
         use_winbar = "smart",
-        other_win_hl_color = "#f7667b",
+        other_win_hl_color = "#B4BEFE",
         -- include_current_win = true,
         -- selection_display = function(char)
         --   return ":::" .. char

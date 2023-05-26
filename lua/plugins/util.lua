@@ -60,6 +60,28 @@ return {
     dependencies = { "olimorris/persisted.nvim" },
     opts = function()
       local dashboard = require("alpha.themes.dashboard")
+      local logo = [[
+███▄▄█▓▓█████████████████████▓▓▓██▓▄▄███
+███▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█▓█
+███ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ █▓█
+█▓█ ██▀▄ ▄▀██ ███▄▀▀▀▄▓▓██ ██▀▄ ▄▀▓▓ █▓█
+███ █▌■   ■▐█ ██▓▓▌ ▐█████ █▌■   ■▐█ █▓█
+█▓█ ▓▓▄▀ ▀▄██ █▓▓▀▄▄▄▀█▓▓█ ██▄▀ ▀▄██ █▓█
+█▓█ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ ███
+█▓█             NEOVIM               █▓█
+█▓█       Powered by Lazy.Nvim       ███
+█████▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█████
+█▓▓█▌ ▐█▀▀████████████████████▀▀█▌ ▐█▓▓█
+████  ██▄▄████████████████▓▓██▄▄██  ████
+
+   Spleen Artpack #03 ■ November 2011
+
+ ▄█ ▄█  ▓▄   ▐█ ▓▌  █████  ▄█▓▓▄  █▄ █▄
+▀▓▓▀██  ██▀  ▐█ █▌  █▓▓██  █████  ██▀▓▓▀
+  ▀  ▀  ▀     ▀ ▀   ▀▀▀▀▀   ▀▀▀   ▀  ▀
+]]
+      dashboard.section.header.val = vim.split(logo, "\n")
+      ----------button
       local button = dashboard.button("p", " " .. " Projects", ":Telescope persisted<CR>")
       local button_rs = dashboard.button("s", " " .. " Restore Session", [[:lua require("persisted").load() <cr>]])
       local button_ls = dashboard.button("L", " " .. " Restore Last Session", ":SessionLoadLast<cr>")

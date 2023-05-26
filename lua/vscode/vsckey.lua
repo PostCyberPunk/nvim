@@ -5,14 +5,15 @@ local function vskcmd(key, cmds, _opts)
 end
 opts.noremap = false
 
-keymap("n", "<Tab>", ":Tabnext<CR>", opts)
-keymap("n", "<S-Tab>", ":Tabprev<CR>", opts)
+-- keymap("n", "<Tab>", ":Tabnext<CR>", opts)
+-- keymap("n", "<S-Tab>", ":Tabprev<CR>", opts)
 -- keymap("n", "<leader><leader>", ':call VSCodeNotify("whichkey.show")<CR>', opts)
 -- keymap("", "<Space>", "<Nop>", opts)
 ---clipboard
 
 keymap("n", "<leader><C-v>", '"+p', opts)
 keymap("v", "<leader><C-c>", '"+y', opts)
+keymap("n", "<leader><c-a>", "gg<s-v>G", opts)
 -------------Foldings--------------
 -----change the move cursor
 local function moveCursor(direction)
@@ -42,30 +43,30 @@ vskcmd("]z", "editor.gotoNextFold", opts)
 vskcmd("[z", "editor.gotoPreviousFold", opts)
 
 -------------find and serach -----------
-vskcmd( "<leader>p", "workbench.action.showCommands", opts)
-vskcmd( "<leader>/", "workbench.action.findInFiles", opts)
-vskcmd( "<leader>ff", "workbench.action.quickOpen", opts)
-vskcmd( "<leader>fb", "workbench.action.showAllEditors", opts)
-vskcmd( "<leader>ss", "workbench.action.gotoSymbol", opts)
-vskcmd( "<leader>sS", "workbench.action.showAllSymbols", opts)
+vskcmd("<leader>p", "workbench.action.showCommands", opts)
+vskcmd("<leader>/", "workbench.action.findInFiles", opts)
+vskcmd("<leader>ff", "workbench.action.quickOpen", opts)
+vskcmd("<leader>fb", "workbench.action.showAllEditors", opts)
+vskcmd("<leader>ss", "workbench.action.gotoSymbol", opts)
+vskcmd("<leader>sS", "workbench.action.showAllSymbols", opts)
 ----------------window operetions -------------
 -- vskcmd("n", "<leader>e", "workbench.view.explorer',{'when':'!explorerViewletVisible'})", opts)
-vskcmd( "<leader>e", "workbench.explorer.fileView.focus',{'when':'!explorerViewletVisible'})", opts)
-vskcmd( "<leader>wa", "workbench.action.toggleEditorWidths", opts)
-vskcmd( "<leader>ww", "workbench.action.focusNextGroup", opts)
-vskcmd( "<leader>w.", "workbench.action.toggleAuxiliaryBar", opts)
-vskcmd( "<leader>wq", "workbench.action.closeActiveEditor", opts)
-vskcmd( "<leader>wQ", "workbench.action.closeActiveEditorGroup", opts)
-vskcmd( "<leader>wd", "workbench.action.closeActiveEditor", opts)
-vskcmd( "<leader>wm", "workbench.action.minimizeOtherEditors", opts)
+vskcmd("<leader>e", "workbench.explorer.fileView.focus',{'when':'!explorerViewletVisible'})", opts)
+vskcmd("<leader>wa", "workbench.action.toggleEditorWidths", opts)
+vskcmd("<leader>ww", "workbench.action.focusNextGroup", opts)
+vskcmd("<leader>w.", "workbench.action.toggleAuxiliaryBar", opts)
+vskcmd("<leader>wq", "workbench.action.closeActiveEditor", opts)
+vskcmd("<leader>wQ", "workbench.action.closeActiveEditorGroup", opts)
+vskcmd("<leader>wd", "workbench.action.closeActiveEditor", opts)
+vskcmd("<leader>wm", "workbench.action.minimizeOtherEditors", opts)
 keymap("n", "H", "gT", opts)
 keymap("n", "L", "gt", opts)
 -------------coding -----------
-vskcmd( "<leader>cf", "editor.action.formatDocument", opts)
-vskcmd( "<leader>co", "breadcrumbs.focusAndSelect", opts)
-vskcmd( "<leader>ca", "editor.action.quickFix", opts)
-vskcmd( "<leader>xx", "workbench.panel.markers.view.focus", opts)
-vskcmd( "]e", "go-to-next-error.nextInFiles.error", opts)
+vskcmd("<leader>cf", "editor.action.formatDocument", opts)
+vskcmd("<leader>co", "breadcrumbs.focusAndSelect", opts)
+vskcmd("<leader>ca", "editor.action.quickFix", opts)
+vskcmd("<leader>xx", "workbench.panel.markers.view.focus", opts)
+vskcmd("]e", "go-to-next-error.nextInFiles.error", opts)
 -- vskcmd(
 --   "n",
 --   "<leader>e",

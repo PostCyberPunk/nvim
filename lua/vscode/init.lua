@@ -48,6 +48,7 @@ vim.api.nvim_create_user_command("Revert", function()
 end, {})
 ------------------require
 vim.cmd("highlight LeapBackdrop guifg=#777777")
+vim.cmd("command! Vb execute 'normal! <C-v>'")
 require("vscode.vsckey")
 require("vscode.vscautocmd")
 -- require("vscode.searchindex")

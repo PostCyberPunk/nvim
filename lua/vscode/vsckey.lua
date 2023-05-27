@@ -60,10 +60,13 @@ vskcmd("<leader>wq", "workbench.action.closeActiveEditor", opts)
 vskcmd("<leader>wQ", "workbench.action.closeActiveEditorGroup", opts)
 vskcmd("<leader>wd", "workbench.action.closeActiveEditor", opts)
 vskcmd("<leader>wm", "workbench.action.minimizeOtherEditors", opts)
+vskcmd("<leader>wx", "workbench.action.moveActiveEditorGroupRight", opts)
+--TODO : swapwindow need refined
 keymap("n", "H", "gT", opts)
 keymap("n", "L", "gt", opts)
 -------------coding -----------
 vskcmd("<leader>cf", "editor.action.formatDocument", opts)
+vskcmd("<leader>gr", "editor.action.referenceSearch.trigger", opts)
 vskcmd("<leader>co", "breadcrumbs.focusAndSelect", opts)
 vskcmd("<leader>ca", "editor.action.quickFix", opts)
 vskcmd("<leader>xx", "workbench.panel.markers.view.focus", opts)

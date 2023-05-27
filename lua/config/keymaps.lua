@@ -25,7 +25,7 @@ vim.keymap.set("n", "<leader>wx", "<C-w>x", { desc = "Swap windows" })
 -- map("n", "<c-k>", "<c-w>k")
 
 map("n", "<leader><C-v>", '"+p', { desc = "Paste(system)" })
-map("v", "<leader>gc", '"+y', { desc = "Copy(system)" })
+map("x", "<C-c>", '"+y', { desc = "Copy(system)" })
 map("n", "<leader>uN", "<cmd>Telescope notify<cr>", { desc = "Show All Notifications" })
 map("n", "<leader><leader>", "", { desc = "More Actions" })
 map("n", "<leader><c-a>", "gg<s-v>G", { desc = "Select All" })

@@ -12,7 +12,8 @@ opts.noremap = false
 ---clipboard
 
 keymap("n", "<leader><C-v>", '"+p', opts)
-keymap("v", "<leader><C-c>", '"+y', opts)
+keymap("x", "<C-c>", '"+y', opts)
+keymap("x", "<leader>yy", '"+y', opts)
 keymap("n", "<leader><c-a>", "gg<s-v>G", opts)
 -------------Foldings--------------
 -----change the move cursor

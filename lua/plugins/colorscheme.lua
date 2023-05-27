@@ -43,6 +43,10 @@ return {
         telescope = true,
         notify = true,
         mini = true,
+        navic = {
+          enabled = true,
+          custom_bg = "NONE",
+        },
       },
       highlight_overrides = {
         all = function(colors)

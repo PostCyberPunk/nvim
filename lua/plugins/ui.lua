@@ -236,12 +236,24 @@ return {
       },
     },
   },
-  -- {
-  --   "rcarriga/nvim-notify",
-  --   config = function(_, opts)
-  --     opts.background_colour = "#a6e3a1"
-  --   end,
-  -- },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      theme = "catppuccin",
+    },
+    config = true,
+    -- config = function()
+    --   require("barbecue").setup({
+    --     theme = "catppuccin",
+    --   })
+    -- end,
+  },
   {
     "xiyaowong/transparent.nvim",
     opts = {

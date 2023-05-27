@@ -38,14 +38,23 @@ return {
       },
       integrations = {
         cmp = true,
+        aerial = true,
         gitsigns = true,
         nvimtree = true,
         telescope = true,
+        leap = true,
         notify = true,
         mini = true,
+        --TODO : Not Working??
         navic = {
           enabled = true,
           custom_bg = "NONE",
+        },
+        barbecue = {
+          -- enabled = true,
+          dim_dirname = true,
+          bold_basename = true,
+          dim_context = false,
         },
       },
       highlight_overrides = {

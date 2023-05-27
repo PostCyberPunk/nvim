@@ -158,12 +158,8 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
-      local colors = {
-        green = "#98be65",
-        orange = "#FF8800",
-        red = "#ec5f67",
-        -- TODO: change the colors to global theme colors
-      }
+      local mocha = require("catppuccin.palettes").get_palette("mocha")
+      opts.sections.lualine_c[3].color = { fg = mocha.mauve }
       -- opts.sections.lualine_c[4] = {
       --   function()
       --     return require("noice").api.status.message.get()
@@ -174,9 +170,9 @@ return {
         "diff",
         symbols = { added = " ", modified = " ", removed = " " },
         diff_color = {
-          added = { fg = colors.green },
-          modified = { fg = colors.orange },
-          removed = { fg = colors.red },
+          added = { fg = mocha.green },
+          modified = { fg = mocha.peach },
+          removed = { fg = mocha.red },
           -- TODO
         },
       })
@@ -198,10 +194,11 @@ return {
           return msg
         end,
         icon = ":",
+        color = { fg = mocha.green },
       })
 
-      opts.sections.lualine_x[5] = { "encoding" }
-      opts.sections.lualine_x[6] = { "filesize" }
+      opts.sections.lualine_x[5] = { "encoding", color = { fg = mocha.peach } }
+      opts.sections.lualine_x[6] = { "filesize", color = { fg = mocha.green } }
     end,
   },
   {
@@ -239,9 +236,21 @@ return {
       },
     },
   },
+  -- {
+  --   "rcarriga/nvim-notify",
+  --   config = function(_, opts)
+  --     opts.background_colour = "#a6e3a1"
+  --   end,
+  -- },
   {
     "xiyaowong/transparent.nvim",
+    opts = {
+      extra_groups = {
+        "NotifyBackground",
+      },
+    },
     config = function()
+      vim.api.nvim_set_hl(0, "NotifyBackground", vim.api.nvim_get_hl_by_name("Normal", true))
       vim.g.transparent_groups = vim.list_extend(
         vim.g.transparent_groups or {},
         vim.tbl_map(function(v)

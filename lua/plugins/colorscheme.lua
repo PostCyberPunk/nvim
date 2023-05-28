@@ -42,7 +42,7 @@ return {
         gitsigns = true,
         nvimtree = true,
         telescope = true,
-        leap = true,
+        -- leap = true,
         notify = true,
         mini = true,
         --TODO : Not Working??

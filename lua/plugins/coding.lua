@@ -58,8 +58,8 @@ return {
       opts.incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<leader>v",
-          node_incremental = "<leader>v",
+          init_selection = "E",
+          node_incremental = "E",
           scope_incremental = false,
           node_decremental = "<bs>",
         },

@@ -12,6 +12,7 @@ opts.noremap = false
 ---clipboard
 
 keymap("n", "<leader><C-v>", '"+p', opts)
+keymap("x", "<leader><C-v>", '"+p', opts)
 keymap("x", "<C-c>", '"+y', opts)
 keymap("x", "<leader>yy", '"+y', opts)
 keymap("n", "<leader><c-a>", "gg<s-v>G", opts)

@@ -75,6 +75,8 @@ vskcmd("<leader>co", "breadcrumbs.focusAndSelect", opts)
 vskcmd("<leader>ca", "editor.action.quickFix", opts)
 vskcmd("<leader>xx", "workbench.panel.markers.view.focus", opts)
 vskcmd("]e", "go-to-next-error.nextInFiles.error", opts)
+-- vskcmd("<leader>tr", "command-runner.run',{'command':'rider'})", opts)
+vskcmd("<leader>tr", "openwithrider.open", opts)
 -- vskcmd(
 --   "n",
 --   "<leader>e",

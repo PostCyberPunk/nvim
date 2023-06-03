@@ -1,5 +1,8 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
+local function vscall(cmds)
+  vim.cmd(":call VSCodeNotify('" .. cmds .. "')")
+end
 local function vskcmd(key, cmds, _opts)
   keymap("n", key, ":call VSCodeNotify('" .. cmds .. "')<cr>", _opts)
 end
@@ -60,16 +63,23 @@ vskcmd("<leader>ww", "workbench.action.focusNextGroup", opts)
 vskcmd("<leader>bq", "workbench.action.closeActiveEditor", opts)
 vskcmd("<leader>bd", "workbench.action.closeActiveEditor", opts)
 vskcmd("<leader>wd", "workbench.action.closeActiveEditorGroup", opts)
-vskcmd("<leader>wx", "workbench.action.moveActiveEditorGroupRight", opts)
+-- vskcmd("<leader>wx", "workbench.action.moveActiveEditorGroupRight", opts)
+vim.keymap.set("n", "<leader>wf", function()
+  vscall("workbench.action.closeSidebar")
+  vscall("workbench.action.closeAuxiliaryBar")
+  vscall("workbench.action.closePanel")
+end, opts)
 --TODO : swapwindow need refined
 -- keymap("n", "H", "gT", opts)
 -- keymap("n", "L", "gt", opts)
 vskcmd("L", "workbench.action.nextEditorInGroup", opts)
 vskcmd("H", "workbench.action.previousEditorInGroup", opts)
+
+vskcmd("<leader>un", "workbench.action.closeMessages", opts)
 -------------coding -----------
 vskcmd("<leader>cf", "editor.action.formatDocument", opts)
 vskcmd("gr", "editor.action.referenceSearch.trigger", opts)
-vskcmd("gp", "editor.action.peekDeclaration", opts)
+vskcmd("gp", "editor.action.peekDefinition", opts)
 vskcmd("gt", "editor.action.peekTypeDefinition", opts)
 vskcmd("gT", "editor.action.goToTypeDefinition", opts)
 vskcmd("<leader>co", "breadcrumbs.focusAndSelect", opts)
@@ -77,7 +87,7 @@ vskcmd("<leader>ca", "editor.action.quickFix", opts)
 vskcmd("<leader>xx", "workbench.panel.markers.view.focus", opts)
 vskcmd("]e", "go-to-next-error.nextInFiles.error", opts)
 -- vskcmd("<leader>tr", "command-runner.run',{'command':'rider'})", opts)
-vskcmd("<leader>tr", "openwithrider.open", opts)
+vskcmd("<leader>tr", "open-with-rider.open", opts)
 -- vskcmd(
 --   "n",
 --   "<leader>e",

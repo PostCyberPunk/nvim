@@ -42,6 +42,7 @@ return {
   -- windwo picker
   {
     "s1n7ax/nvim-window-picker",
+    version = "v1.*",
     keys = {
       {
         "<leader>wP",
@@ -70,6 +71,18 @@ return {
       require("window-picker").setup({
         use_winbar = "smart",
         other_win_hl_color = "#B4BEFE",
+        autoselect_one = true,
+        include_current = false,
+        filter_rules = {
+          -- filter using buffer options
+          bo = {
+            -- if the file type is one of following, the window will be ignored
+            filetype = { "neo-tree", "neo-tree-popup", "notify" },
+
+            -- if the buffer type is one of following, the window will be ignored
+            buftype = { "terminal", "quickfix" },
+          },
+        },
         -- include_current_win = true,
         -- selection_display = function(char)
         --   return ":::" .. char

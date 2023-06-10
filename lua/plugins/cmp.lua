@@ -1,4 +1,4 @@
-if false then
+if true then
   return {
     -- add all opened buffers
     -- override nvim-cmp and add cmp-emoji

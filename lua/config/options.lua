@@ -1,7 +1,7 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 --
 -- disable lazyvim automatically update;
-vim.g.lazy_nvim_auto_update = 0
+-- vim.g.lazy_nvim_auto_update = 0
 
 local opt = vim.opt
 --------------------change LeapBackdrop

@@ -5,7 +5,7 @@
 
 local opt = vim.opt
 --------------------change LeapBackdrop
-vim.cmd("highlight LeapBackdrop guifg=#777777")
+-- vim.cmd("highlight LeapBackdrop guifg=#777777")
 
 opt.clipboard = ""
 -------------folds---------------

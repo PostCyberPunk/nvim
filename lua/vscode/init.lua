@@ -47,7 +47,7 @@ vim.api.nvim_create_user_command("Revert", function()
   vim.cmd("call VSCodeNotify('workbench.action.files.revert')")
 end, {})
 ------------------require
-vim.cmd("highlight LeapBackdrop guifg=#777777")
+-- vim.cmd("highlight LeapBackdrop guifg=#777777")
 vim.cmd("command! Vb execute 'normal! <C-v>'")
 require("vscode.vsckey")
 require("vscode.vscautocmd")

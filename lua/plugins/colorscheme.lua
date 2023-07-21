@@ -42,6 +42,7 @@ return {
         gitsigns = true,
         nvimtree = true,
         telescope = true,
+        flash = false,
         -- leap = true,
         notify = true,
         mini = true,

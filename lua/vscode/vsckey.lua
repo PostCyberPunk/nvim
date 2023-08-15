@@ -95,6 +95,11 @@ vskcmd("<leader>tr", "open-with-rider.open", opts)
 --   opts
 -- )
 
+------------------exchange---------------
+vim.keymap.set("n", "gX", require("substitute.exchange").operator, { noremap = true })
+vim.keymap.set("n", "gXX", require("substitute.exchange").line, { noremap = true })
+vim.keymap.set("x", "X", require("substitute.exchange").visual, { noremap = true })
+
 -- Use VSCode Comments
 keymap("x", "gc", "<Plug>VSCodeCommentary", opts)
 keymap("n", "gc", "<Plug>VSCodeCommentary", opts)

@@ -64,4 +64,9 @@ return {
   -- },
 
   --
+  --------------exchange ------------------
+  {
+    "gbprod/substitute.nvim",
+    config = true,
+  },
 }

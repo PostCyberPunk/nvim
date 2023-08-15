@@ -38,6 +38,10 @@ map("x", "<C-c>", '"+y', { desc = "Copy(system)" })
 map("n", "<leader>uN", "<cmd>Telescope notify<cr>", { desc = "Show All Notifications" })
 map("n", "<leader><leader>", "", { desc = "More Actions" })
 map("n", "<leader><c-a>", "gg<s-v>G", { desc = "Select All" })
+------------------exchange---------------
+vim.keymap.set("n", "gX", require("substitute.exchange").operator, { noremap = true })
+vim.keymap.set("n", "gXX", require("substitute.exchange").line, { noremap = true })
+vim.keymap.set("x", "X", require("substitute.exchange").visual, { noremap = true })
 -----------utils
 map("n", "<leader>uh", function()
   utils.toggle_syntax()

@@ -91,4 +91,9 @@ return {
       require("ufo").setup(opts)
     end,
   },
+  --------------exchange ------------------
+  {
+    "gbprod/substitute.nvim",
+    config = true,
+  },
 }

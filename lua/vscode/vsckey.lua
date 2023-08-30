@@ -6,6 +6,9 @@ end
 local function vskcmd(key, cmds, _opts)
   keymap("n", key, ":call VSCodeNotify('" .. cmds .. "')<cr>", _opts)
 end
+local function vskcmdMode(mode, key, cmds, _opts)
+  vim.keymap.set(mode, key, ":call VSCodeNotify('" .. cmds .. "')<cr>", _opts)
+end
 opts.noremap = false
 
 -- keymap("n", "<Tab>", ":Tabnext<CR>", opts)
@@ -45,8 +48,8 @@ vskcmd("zm", "editor.foldRecursively", opts)
 vskcmd("zo", "editor.unfold", opts)
 vskcmd("zr", "editor.unfoldRecursively", opts)
 vskcmd("za", "editor.toggleFold", opts)
-vskcmd("]z", "editor.gotoNextFold", opts)
-vskcmd("[z", "editor.gotoPreviousFold", opts)
+vskcmdMode({ "n", "x", "o" }, "]z", "editor.gotoNextFold", opts)
+vskcmdMode({ "n", "x", "o" }, "[z", "editor.gotoPreviousFold", opts)
 
 -------------find and serach -----------
 vskcmd("<leader>:", "workbench.action.showCommands", opts)
@@ -83,11 +86,14 @@ vskcmd("gp", "editor.action.peekDefinition", opts)
 vskcmd("gt", "editor.action.peekTypeDefinition", opts)
 vskcmd("gT", "editor.action.goToTypeDefinition", opts)
 vskcmd("<leader>co", "breadcrumbs.focusAndSelect", opts)
-vskcmd("<leader>ca", "editor.action.quickFix", opts)
+vskcmdMode({ "n", "x" }, "<leader>ca", "editor.action.quickFix", opts)
+vskcmdMode({ "n", "x" }, "<leader>cr", "editor.action.refactor", opts)
+vskcmdMode({ "n", "x" }, "<leader>ud", "unity-tools.SearchDocs", opts)
 vskcmd("<leader>xx", "workbench.panel.markers.view.focus", opts)
 vskcmd("]e", "go-to-next-error.nextInFiles.error", opts)
 -- vskcmd("<leader>tr", "command-runner.run',{'command':'rider'})", opts)
 vskcmd("<leader>tr", "open-with-rider.open", opts)
+vskcmd("<leader>cp", "workbench.action.openChat.copilot", opts)
 -- vskcmd(
 --   "n",
 --   "<leader>e",
@@ -99,7 +105,6 @@ vskcmd("<leader>tr", "open-with-rider.open", opts)
 vim.keymap.set("n", "gX", require("substitute.exchange").operator, { noremap = true })
 vim.keymap.set("n", "gXX", require("substitute.exchange").line, { noremap = true })
 vim.keymap.set("x", "gX", require("substitute.exchange").visual, { noremap = true })
-
 -- Use VSCode Comments
 keymap("x", "gc", "<Plug>VSCodeCommentary", opts)
 keymap("n", "gc", "<Plug>VSCodeCommentary", opts)

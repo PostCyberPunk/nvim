@@ -17,8 +17,9 @@ opts.noremap = false
 -- keymap("", "<Space>", "<Nop>", opts)
 ---clipboard
 
-keymap("n", "<leader><C-v>", '"+p', opts)
-keymap("x", "<leader><C-v>", '"+p', opts)
+keymap("n", "<leader><C-q>", "<C-q>", opts)
+vim.keymap.set({ "n", "x" }, "<C-v>", '"+p', opts)
+vim.keymap.set({ "n", "x" }, "<leader>pp", '"+p', opts)
 keymap("x", "<C-c>", '"+y', opts)
 keymap("x", "<leader>yy", '"+y', opts)
 keymap("n", "<leader><c-a>", "gg<s-v>G", opts)

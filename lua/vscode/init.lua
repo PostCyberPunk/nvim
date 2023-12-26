@@ -53,12 +53,12 @@ require("vscode.vsckey")
 require("vscode.vscautocmd")
 -- require("vscode.searchindex")
 -------------vscode status bar change
-vim.cmd([[
-  autocmd InsertEnter * :call VSCodeNotify('neovimmodestatus.changeColor', 'insert')
-  autocmd ModeChanged *:[n]* :call VSCodeNotify('neovimmodestatus.changeColor', 'normal')
-  autocmd ModeChanged *:[vV\x16]* :call VSCodeNotify('neovimmodestatus.changeColor', 'visual')
-  autocmd ModeChanged *:[R]* :call VSCodeNotify('neovimmodestatus.changeColor', 'replace')
-]])
+-- vim.cmd([[
+--   autocmd InsertEnter * :call VSCodeNotify('neovimmodestatus.changeColor', 'insert')
+--   autocmd ModeChanged *:[n]* :call VSCodeNotify('neovimmodestatus.changeColor', 'normal')
+--   autocmd ModeChanged *:[vV\x16]* :call VSCodeNotify('neovimmodestatus.changeColor', 'visual')
+--   autocmd ModeChanged *:[R]* :call VSCodeNotify('neovimmodestatus.changeColor', 'replace')
+-- ]])
 ---opt
 local opt = vim.opt
 opt.ignorecase = true

@@ -54,7 +54,7 @@ map("n", "<leader>up", function()
 end, { desc = "Toggle AutoParits" })
 -----------toggle term
 map("n", "<leader>tg", function()
-  utils.toggle_term_cmd({ cmd = "lazygit", direction = "tab", hidden = true })
+  utils.toggle_term_cmd({ cmd = "lazygit", direction = "float", hidden = true })
 end, { desc = "Toggleterm lazygit" })
 map("n", "<leader>tb", function()
   utils.toggle_term_cmd("btm")

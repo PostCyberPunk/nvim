@@ -18,22 +18,22 @@ if true then
           },
         }
         opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
-        cmp.setup.cmdline({ "/", "?" }, {
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = {
-            { name = "buffer" },
-          },
-        })
-
-        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-        cmp.setup.cmdline(":", {
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = cmp.config.sources({
-            { name = "path" },
-          }, {
-            { name = "cmdline" },
-          }),
-        })
+        -- cmp.setup.cmdline({ "/", "?" }, {
+        --   mapping = cmp.mapping.preset.cmdline(),
+        --   sources = {
+        --     { name = "buffer" },
+        --   },
+        -- })
+        --
+        -- -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+        -- cmp.setup.cmdline(":", {
+        --   mapping = cmp.mapping.preset.cmdline(),
+        --   sources = cmp.config.sources({
+        --     { name = "path" },
+        --   }, {
+        --     { name = "cmdline" },
+        --   }),
+        -- })
       end,
     },
     -------------------TabOut

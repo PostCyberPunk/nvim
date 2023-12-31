@@ -5,7 +5,7 @@ return {
       "s1n7ax/nvim-window-picker",
     },
     ---lazykeys
-    keys = { { "<leader>fd", "<cmd>Neotree focus<CR>", desc = "Explorer NeoTree Focus" } },
+    keys = { { "<leader>E", "<cmd>Neotree reveal<CR>", desc = "Explorer NeoTree Focus" } },
     --config
     config = function()
       require("neo-tree").setup({

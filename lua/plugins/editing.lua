@@ -8,7 +8,7 @@ return {
   -----------Color Picker------------
   {
     "ziontee113/color-picker.nvim",
-    keys = { { "<leader>cp", "<cmd>PickColor<cr>", { noremap = true, silent = true } } },
+    keys = { { "<leader>cp", "<cmd>PickColor<cr>", desc = "Color picker", { noremap = true, silent = true } } },
     opts = {
       -- for changing icons & mappings
       -- ["icons"] = { "ﱢ", "" },
@@ -114,5 +114,13 @@ return {
       }
       -- opts.char.jump_labels= true
     end,
+  },
+  {
+    "AckslD/muren.nvim",
+    keys = { { "<leader>sz", "<cmd>MurenToggle<cr>", desc = "Muren Search Replace", { noremap = true, silent = true } } },
+    opts = function(_, opts)
+      opts.files='%'
+    end,
+    config = true,
   },
 }

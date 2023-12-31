@@ -32,9 +32,9 @@ vim.keymap.set("n", "<leader>wx", "<C-w>x", { desc = "Swap windows" })
 
 -- map("n", "<c-j>", "<c-w>j")
 -- map("n", "<c-k>", "<c-w>k")
-
-map("n", "<leader>pp", '"+p', { desc = "Paste(system)" })
-map("x", "<leader>pp", '"+p', { desc = "Paste(system)" })
+map({ "n", "x" }, "gh", vim.lsp.buf.hover, { desc = "Hover" })
+map({ "n", "x" }, "<leader>pp", '"+p', { desc = "Paste(system)" })
+map({ "n", "x" }, "<leader>PP", '"+P', { desc = "Paste(system) Before" })
 map("x", "<leader>yy", '"+y', { desc = "Copy(system)" })
 map("n", "<leader><C-v>", '"+p', { desc = "Paste(system)" })
 map("x", "P", '"0p', { desc = "Paste(Last Yanked)" })
@@ -46,6 +46,16 @@ map("n", "<leader><c-a>", "gg<s-v>G", { desc = "Select All" })
 vim.keymap.set("n", "gX", require("substitute.exchange").operator, { noremap = true })
 vim.keymap.set("n", "gXX", require("substitute.exchange").line, { noremap = true })
 vim.keymap.set("x", "gX", require("substitute.exchange").visual, { noremap = true })
+-----------SerachReplace(spectre)-------------
+vim.keymap.set("n", "<leader>sl", "<esc><cmd>Telescope resume<CR>", {
+  desc = "Telescope Resume Last Search",
+})
+vim.keymap.set("v", "<leader>sr", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+  desc = "Search current word",
+})
+vim.keymap.set("n", "<leader>sR", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+  desc = "Search on current file",
+})
 -----------utils
 map("n", "<leader>uh", function()
   utils.toggle_syntax()

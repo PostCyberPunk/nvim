@@ -69,6 +69,9 @@ return {
   ----Telescope---
   {
     "nvim-telescope/telescope.nvim",
+    keys = {
+      { "<leader>sR", false },
+    },
     opts = function(_, opts)
       -- opts.defaults.vimgrep_arguments = {
       --   "rg",

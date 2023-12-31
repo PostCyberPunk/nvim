@@ -9,15 +9,31 @@ if true then
       ---@param opts cmp.ConfigSchema
       opts = function(_, opts)
         local cmp = require("cmp")
-        opts.sources[3] = {
+        opts.sources[4] = {
           name = "buffer",
-          options = {
+          option = {
             get_bufnrs = function()
               return vim.api.nvim_list_bufs()
             end,
           },
         }
         opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
+        cmp.setup.cmdline({ "/", "?" }, {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = {
+            { name = "buffer" },
+          },
+        })
+
+        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline(":", {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = cmp.config.sources({
+            { name = "path" },
+          }, {
+            { name = "cmdline" },
+          }),
+        })
       end,
     },
     -------------------TabOut
@@ -43,6 +59,7 @@ if true then
             { open = "(", close = ")" },
             { open = "[", close = "]" },
             { open = "{", close = "}" },
+            { open = "<", close = ">" },
           },
           ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
           exclude = {}, -- tabout will ignore these filetypes

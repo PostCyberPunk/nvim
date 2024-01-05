@@ -7,13 +7,13 @@ return {
         "stylua",
         "shellcheck",
         "shfmt",
-        "omnisharp-mono",
+        -- "omnisharp-mono",
         "clang-format",
         "clangd",
-        "yaml-language-server",
+        -- "yaml-language-server",
         "json-lsp",
-        "pyright",
-        "pylint",
+        -- "pyright",
+        -- "pylint",
         "prettier",
         -- "eslint-lsp",
         -- "flake8", --python formater
@@ -51,7 +51,7 @@ return {
       table.remove(opts.ensure_installed, 3)
       table.remove(opts.ensure_installed, 16)
       vim.list_extend(opts.ensure_installed, {
-        "c_sharp",
+        -- "c_sharp",
         "tsx",
         "typescript",
       })

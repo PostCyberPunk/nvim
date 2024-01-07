@@ -8,8 +8,8 @@ function M.extend_tbl(default, opts)
   return default and vim.tbl_deep_extend("force", default, opts) or opts
 end
 ----------------------------toggle terms
+local terms = {}
 function M.toggle_term_cmd(opts)
-  local terms = {}
   -- if a command string is provided, create a basic table for Terminal:new() options
   if type(opts) == "string" then
     opts = { cmd = opts, hidden = true }

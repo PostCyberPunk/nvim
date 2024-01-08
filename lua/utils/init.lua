@@ -12,7 +12,9 @@ local terms = {}
 function M.toggle_term_cmd(opts)
   -- if a command string is provided, create a basic table for Terminal:new() options
   if type(opts) == "string" then
-    opts = { cmd = opts, hidden = true }
+    opts = { cmd = opts, tid = opts ,hidden = true }
+  elseif type(opts) == "table" then
+    opts = { cmd = opts.cmd, tid = opts.tid ,hidden = true }
   end
   local num = vim.v.count > 0 and vim.v.count or 1
   -- if terminal doesn't exist yet, create it

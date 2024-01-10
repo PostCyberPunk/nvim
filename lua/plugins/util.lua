@@ -33,11 +33,22 @@ return {
         desc = "Restore Last Session",
       },
       {
-        "<leader>qd",
+        "<leader>qD",
         function()
           require("persisted").stop()
         end,
         desc = "Don't Save Current Session",
+      },
+      {
+        "<leader>qd",
+        function()
+          vim.cmd("SessionSave")
+          vim.cmd("SessionStop")
+          vim.cmd("%bd")
+          vim.cmd("Alpha")
+          vim.cmd("bd#")
+        end,
+        desc = "Quit all and open alpha",
       },
     },
   },

@@ -98,6 +98,10 @@ return {
   },
   {
     "NeogitOrg/neogit",
+    keys = {
+      { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Neogit Commit", { noremap = true, silent = false } },
+      { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit", { noremap = true, silent = true } },
+    },
     dependencies = {
       "nvim-lua/plenary.nvim", -- required
       "nvim-telescope/telescope.nvim", -- optional
@@ -117,9 +121,11 @@ return {
   },
   {
     "AckslD/muren.nvim",
-    keys = { { "<leader>sz", "<cmd>MurenToggle<cr>", desc = "Muren Search Replace", { noremap = true, silent = true } } },
+    keys = {
+      { "<leader>sz", "<cmd>MurenToggle<cr>", desc = "Muren Search Replace", { noremap = true, silent = true } },
+    },
     opts = function(_, opts)
-      opts.files='%'
+      opts.files = "%"
     end,
     config = true,
   },

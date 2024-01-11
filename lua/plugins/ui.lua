@@ -100,10 +100,11 @@ return {
   {
     "beauwilliams/focus.nvim",
     keys = { { "<leader>wa", "<cmd>FocusToggle<cr>", desc = "Focus Split Nicely" } },
-    cmd = { "FocusToggle", "FocusSplitCycle" },
+    cmd = { "FocusToggle", "FocusSplitCycle", "FocusSplitNicely" },
     module = "focus",
     config = function()
       require("focus").setup({
+        enable = true,
         hybridnumber = true,
         width = 120,
       })

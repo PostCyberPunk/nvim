@@ -124,3 +124,7 @@ map("n", "<leader>tr", function()
   local col = vim.fn.virtcol(".")
   vim.cmd("!rider64 --line " .. line .. " --column " .. col .. " %")
 end, { silent = true })
+-----------Disable Term Navi-----------
+vim.keymap.set("t", "<c-j>", "<c-j>", { nowait = true })
+vim.keymap.set("t", "<c-k>", "<c-k>", { nowait = true })
+vim.keymap.set("t", "<c-l>", "<c-l>", { nowait = true })

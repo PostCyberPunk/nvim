@@ -79,6 +79,13 @@ return {
         end,
         desc = "Find Plugin File",
       },
+      {
+        "<leader>fN",
+        function()
+          require("telescope.builtin").live_grep({ cwd = "/home/buzz/Tools/nerd/lib" })
+        end,
+        desc = "Find Nerd Fonts",
+      },
     },
     opts = function(_, opts)
       -- opts.defaults.vimgrep_arguments = {

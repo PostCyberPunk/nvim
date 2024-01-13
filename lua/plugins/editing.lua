@@ -97,6 +97,19 @@ return {
     config = true,
   },
   {
+    "sindrets/diffview.nvim",
+    cmd = {
+      "DiffviewFileHistory",
+      "DiffviewOpen",
+    },
+    keys = {
+      { "<leader>gdh", "<cmd>DiffviewFileHistory %<cr>", desc = "File History", { noremap = true, silent = false } },
+      { "<leader>gdm", "<cmd>DiffviewOpen main<cr>", desc = "Diff main", { noremap = true, silent = false } },
+      { "<leader>gdd", "<cmd>DiffviewOpen dev<cr>", desc = "Diff dev", { noremap = true, silent = false } },
+    },
+    config = true,
+  },
+  {
     "NeogitOrg/neogit",
     keys = {
       { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Neogit Commit", { noremap = true, silent = false } },

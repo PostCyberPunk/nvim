@@ -18,8 +18,8 @@ return {
           ["core.defaults"] = {}, -- Loads default behaviour
           ["core.concealer"] = {
             config = {
-              icon_preset= "varied"
-            }
+              icon_preset = "varied",
+            },
           }, -- Adds pretty icons to your documents
           ["core.itero"] = {},
           ["core.dirman"] = { -- Manages Neorg workspaces
@@ -30,7 +30,6 @@ return {
               default_workspace = "notes",
             },
           },
-
         },
       })
     end,

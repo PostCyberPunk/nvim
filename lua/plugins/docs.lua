@@ -76,6 +76,11 @@ return {
               order = { { "undone", " " }, { "done", "x" } },
             },
           },
+          ["core.mode"]={
+            config={
+              current_mode="todo"
+            }
+          }
         },
       })
       require("neorg.modules.core.mode.module").public.add_mode("todo")

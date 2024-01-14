@@ -3,6 +3,14 @@ return {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
     -- tag = "*",
+    keys = {
+      { "<leader>nh", "<cmd>Neorg index<cr>", desc = "Neorg Home", { noremap = true, silent = true } },
+      { "<leader>nb", "<cmd>Neorg toc left<cr>", desc = "Neorg Toc", { noremap = true, silent = true } },
+      { "<leader>nq", "<cmd>Neorg return<cr>", desc = "Neorg Return", { noremap = true, silent = true } },
+    },
+    cmd = {
+      "Neorg",
+    },
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("neorg").setup({

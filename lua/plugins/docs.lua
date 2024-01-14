@@ -7,6 +7,7 @@ return {
       { "<leader>nh", "<cmd>Neorg index<cr>", desc = "Neorg Home", { noremap = true, silent = true } },
       { "<leader>nb", "<cmd>Neorg toc left<cr>", desc = "Neorg Toc", { noremap = true, silent = true } },
       { "<leader>nq", "<cmd>Neorg return<cr>", desc = "Neorg Return", { noremap = true, silent = true } },
+      { "<leader>nc", "<cmd>Neorg toggle-concealer<cr>", desc = "Neorg Toggle Concealer", { noremap = true, silent = true } },
     },
     cmd = {
       "Neorg",
@@ -53,6 +54,8 @@ return {
                 keybinds.remap_event("todo", "n", "K", "core.integrations.treesitter.previous.heading")
                 keybinds.remap_event("todo", "n", "go", "core.esupports.hop.hop-link")
                 keybinds.remap_event("todo", "n", "t", "core.qol.todo_items.todo.task_cycle")
+                keybinds.remap_event("todo", "n", "<C-t>", "core.promo.promote")
+                keybinds.remap_event("todo", "n", "<C-d>", "core.promo.demote")
                 keybinds.remap_event("todo", "i", "<C-t>", "core.promo.promote")
                 keybinds.remap_event("todo", "i", "<C-d>", "core.promo.demote")
                 keybinds.remap_event("todo", "i", "<M-d>", "core.tempus.insert-date-insert-mode")
@@ -62,7 +65,7 @@ return {
                 -- keybinds.remap_event("todo", "n", "<<", "core.promo.demote","nested")
                 keybinds.map("todo", "n", "o", function()
                   vim.cmd("Neorg keybind all core.itero.next-iteration")
-                  vim.cmd("startinsert")
+                  vim.api.nvim_feedkeys('A', 'n', false)
                 end)
               end,
               neorg_leader = "<leader>n",

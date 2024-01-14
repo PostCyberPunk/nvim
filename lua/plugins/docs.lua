@@ -5,7 +5,7 @@ return {
     -- tag = "*",
     keys = {
       { "<leader>nh", "<cmd>Neorg index<cr>", desc = "Neorg Home", { noremap = true, silent = true } },
-      { "<leader>nb", "<cmd>Neorg toc left<cr>", desc = "Neorg Toc", { noremap = true, silent = true } },
+      { "<leader>nb", "<cmd>Neorg toc right<cr>", desc = "Neorg Toc", { noremap = true, silent = true } },
       { "<leader>nq", "<cmd>Neorg return<cr>", desc = "Neorg Return", { noremap = true, silent = true } },
       { "<leader>nc", "<cmd>Neorg toggle-concealer<cr>", desc = "Neorg Toggle Concealer", { noremap = true, silent = true } },
     },

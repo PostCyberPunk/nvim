@@ -30,6 +30,11 @@ return {
               default_workspace = "notes",
             },
           },
+          ["core.qol.todo_items"] = {
+            config = {
+              order = { { "undone"," " }, {"done","x" }},
+            },
+          },
         },
       })
     end,

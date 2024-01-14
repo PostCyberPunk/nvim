@@ -78,4 +78,13 @@ return {
       require("neorg.modules.core.mode.module").public.add_mode("todo")
     end,
   },
+  {
+    "okuuva/auto-save.nvim",
+    cmd = "ASToggle", -- optional for lazy loading on command
+    event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
+    opts = {
+      enabled=false,
+      -- or just leave it empty :)
+    },
+  },
 }

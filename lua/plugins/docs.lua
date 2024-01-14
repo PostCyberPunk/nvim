@@ -65,7 +65,7 @@ return {
                 -- keybinds.remap_event("todo", "n", "<<", "core.promo.demote","nested")
                 keybinds.map("todo", "n", "o", function()
                   vim.cmd("Neorg keybind all core.itero.next-iteration")
-                  vim.api.nvim_feedkeys('A', 'n', false)
+                  vim.api.nvim_feedkeys("A", "n", false)
                 end)
               end,
               neorg_leader = "<leader>n",
@@ -76,11 +76,11 @@ return {
               order = { { "undone", " " }, { "done", "x" } },
             },
           },
-          ["core.mode"]={
-            config={
-              current_mode="todo"
-            }
-          }
+          ["core.mode"] = {
+            config = {
+              current_mode = "todo",
+            },
+          },
         },
       })
       require("neorg.modules.core.mode.module").public.add_mode("todo")
@@ -91,7 +91,7 @@ return {
     cmd = "ASToggle", -- optional for lazy loading on command
     event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
     opts = {
-      enabled=false,
+      enabled = false,
       -- or just leave it empty :)
     },
   },

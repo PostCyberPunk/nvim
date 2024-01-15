@@ -68,7 +68,7 @@ map("n", "<leader>up", function()
   utils.toggle_autopairs()
 end, { desc = "Toggle AutoParits" })
 -----------toggle term
-map("n", "<leader>gg", function()
+map("n", "<leader>tg", function()
   utils.toggle_term_cmd("lazygit")
 end, { desc = "Toggleterm lazygit" })
 map("n", "<leader>tl", function()

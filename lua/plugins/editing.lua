@@ -113,7 +113,7 @@ return {
     "NeogitOrg/neogit",
     keys = {
       { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Neogit Commit", { noremap = true, silent = false } },
-      { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit", { noremap = true, silent = true } },
+      { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit", { noremap = true, silent = true } },
     },
     dependencies = {
       "nvim-lua/plenary.nvim", -- required

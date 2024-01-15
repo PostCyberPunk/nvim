@@ -110,7 +110,22 @@ return {
       { "<leader>gdq", "<cmd>DiffviewClose<cr>", desc = "Diffview Close", { noremap = true, silent = false } }, --FIX:nvim_exec2 error
       { "<leader>gdr", "<cmd>DiffviewRefresh<cr>", desc = "Diffview Rfresh", { noremap = true, silent = false } },
     },
-    config = true,
+    config = function()
+      require("diffview").setup({
+        view = {
+          default = {
+            layout = "diff2_vertical",
+          },
+          merge_tool = {
+            layout = "diff2_vertical",
+            winbar_info = false,
+          },
+          file_hsitory = {
+            layout = "diff2_vertical",
+          },
+        },
+      })
+    end,
   },
   {
     "NeogitOrg/neogit",

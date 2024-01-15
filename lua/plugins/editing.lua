@@ -117,7 +117,7 @@ return {
             layout = "diff2_vertical",
           },
           merge_tool = {
-            layout = "diff2_vertical",
+            layout = "diff3_vertical",
             winbar_info = false,
           },
           file_hsitory = {
@@ -132,6 +132,16 @@ return {
     keys = {
       { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Neogit Commit", { noremap = true, silent = false } },
       { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit", { noremap = true, silent = true } },
+      {
+        "<leader>ga",
+        function()
+          vim.cmd("Gitsigns stage_hunk")
+          vim.cmd("Neogit commit")
+        end,
+        mode = {"n",'x'},
+        desc = "Stage and Commit Hunk",
+        { noremap = true, silent = false },
+      },
     },
     dependencies = {
       "nvim-lua/plenary.nvim", -- required

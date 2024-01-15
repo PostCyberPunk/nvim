@@ -59,21 +59,66 @@ return {
                 keybinds.remap_event("todo", "n", "J", "core.integrations.treesitter.next.heading")
                 keybinds.remap_event("todo", "n", "K", "core.integrations.treesitter.previous.heading")
                 keybinds.remap_event("todo", "n", "go", "core.esupports.hop.hop-link")
-                keybinds.remap_event("todo", "n", "t", "core.qol.todo_items.todo.task_cycle")
                 keybinds.remap_event("todo", "n", "<C-t>", "core.promo.promote")
                 keybinds.remap_event("todo", "n", "<C-d>", "core.promo.demote")
                 keybinds.remap_event("todo", "i", "<C-t>", "core.promo.promote")
                 keybinds.remap_event("todo", "i", "<C-d>", "core.promo.demote")
                 keybinds.remap_event("todo", "i", "<M-d>", "core.tempus.insert-date-insert-mode")
 
-                keybinds.remap_event("todo", "n", "ZU", "core.qol.todo_items.todo.task_undone",{desc = "[Neorg] Undone"})
-                keybinds.remap_event("todo", "n", "ZP", "core.qol.todo_items.todo.task_pending",{desc = "[Neorg] Pending"})
-                keybinds.remap_event("todo", "n", "ZD", "core.qol.todo_items.todo.task_done",{desc = "[Neorg] Done"})
-                keybinds.remap_event("todo", "n", "ZH", "core.qol.todo_items.todo.task_on_hold",{desc = "[Neorg] Hold"})
-                keybinds.remap_event("todo", "n", "ZC", "core.qol.todo_items.todo.task_cancelled",{desc = "[Neorg] Cancelled"})
-                keybinds.remap_event("todo", "n", "ZR", "core.qol.todo_items.todo.task_recurring",{desc = "[Neorg] Recurring"})
-                keybinds.remap_event("todo", "n", "ZI", "core.qol.todo_items.todo.task_important",{desc = "[Neorg] Important"})
-                keybinds.remap_event("todo", "n", "ZA", "core.qol.todo_items.todo.task_ambiguous",{desc = "[Neorg] Ambiguonus"})
+                keybinds.map("todo", "n", "t", function()
+                  vim.cmd("Neorg keybind all core.qol.todo_items.todo.task_cycle")
+                  vim.api.nvim_feedkeys("j", "n", false)
+                end)
+                keybinds.remap_event(
+                  "todo",
+                  "n",
+                  "ZU",
+                  "core.qol.todo_items.todo.task_undone",
+                  { desc = "[Neorg] Undone" }
+                )
+                keybinds.remap_event(
+                  "todo",
+                  "n",
+                  "ZP",
+                  "core.qol.todo_items.todo.task_pending",
+                  { desc = "[Neorg] Pending" }
+                )
+                keybinds.remap_event("todo", "n", "ZD", "core.qol.todo_items.todo.task_done", { desc = "[Neorg] Done" })
+                keybinds.remap_event(
+                  "todo",
+                  "n",
+                  "ZH",
+                  "core.qol.todo_items.todo.task_on_hold",
+                  { desc = "[Neorg] Hold" }
+                )
+                keybinds.remap_event(
+                  "todo",
+                  "n",
+                  "ZC",
+                  "core.qol.todo_items.todo.task_cancelled",
+                  { desc = "[Neorg] Cancelled" }
+                )
+                keybinds.remap_event(
+                  "todo",
+                  "n",
+                  "ZR",
+                  "core.qol.todo_items.todo.task_recurring",
+                  { desc = "[Neorg] Recurring" }
+                )
+                keybinds.remap_event(
+                  "todo",
+                  "n",
+                  "ZI",
+                  "core.qol.todo_items.todo.task_important",
+                  { desc = "[Neorg] Important" }
+                )
+                keybinds.remap_event(
+                  "todo",
+                  "n",
+                  "ZA",
+                  "core.qol.todo_items.todo.task_ambiguous",
+                  { desc = "[Neorg] Ambiguonus" }
+                )
                 -- keybinds.remap_event("todo", "n", ">>", "core.promo.promote","nested")
                 -- keybinds.remap_event("todo", "n", "<<", "core.promo.demote","nested")
                 keybinds.map("todo", "n", "o", function()

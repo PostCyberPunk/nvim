@@ -33,3 +33,13 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   group = augroup("resize_splits"),
   callback = function() end,
 })
+vim.api.nvim_create_user_command("SingleBuf", function()
+  vim.cmd([[
+    augroup close_other_buffers
+      autocmd!
+      autocmd BufNew *.norg :BufferLineCloseOthers
+      autocmd BufWinEnter *.norg :BufferLineCloseOthers
+      autocmd BufAdd *.norg :BufferLineCloseOthers
+    augroup END
+    ]])
+end, { desc = "auto close other buffer" })

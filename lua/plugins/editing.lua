@@ -120,6 +120,18 @@ return {
       "nvim-telescope/telescope.nvim", -- optional
       "sindrets/diffview.nvim", -- optional
     },
+    opts = {
+      disable_line_numbers = false,
+      mappings = {
+        commit_editor = {
+          ["<leader><CR>"] = "Submit",
+        },
+        status = {
+          ["K"] = "GoToPreviousHunkHeader",
+          ["J"] = "GoToNextHunkHeader",
+        },
+      },
+    },
     config = true,
   },
   {

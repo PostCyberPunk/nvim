@@ -125,6 +125,14 @@ return {
     },
     opts = {
       disable_line_numbers = false,
+      status = {
+        recent_commit_count = 20,
+      },
+      sections = {
+        recent = {
+          folded = false,
+        },
+      },
       mappings = {
         commit_editor = {
           ["<leader><CR>"] = "Submit",

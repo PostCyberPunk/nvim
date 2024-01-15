@@ -33,3 +33,14 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   group = augroup("resize_splits"),
   callback = function() end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "norg",
+  },
+  group = augroup("signlebuf"),
+  command = "BufferLineCloseOthers",
+  -- command = "echo 'hello'",
+  -- callback = function()
+  --   vim.cmd("BufferLineCloseOthers")
+  -- end,
+})

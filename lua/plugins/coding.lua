@@ -72,6 +72,9 @@ return {
     keys = {
       { "<leader>sR", false },
       { "<leader>gc", false },
+      { "<leader>gs", false },
+      { "<leader>gfc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+      { "<leader>gfs", "<cmd>Telescope git_status<CR>", desc = "status" },
       {
         "<leader>fP",
         function()

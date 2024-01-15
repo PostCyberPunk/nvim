@@ -57,6 +57,10 @@ vim.keymap.set("v", "<leader>sr", '<esc><cmd>lua require("spectre").open_visual(
 vim.keymap.set("n", "<leader>sR", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
   desc = "Search on current file",
 })
+-----------GitSigns
+map({ "n", "v" }, "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage Hunk" })
+map({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = " Reset Hunk" })
+map("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = "Undo Stage Hunk" })
 -----------utils
 map("n", "<leader>uh", function()
   utils.toggle_syntax()
@@ -65,7 +69,7 @@ map("n", "<leader>up", function()
   utils.toggle_autopairs()
 end, { desc = "Toggle AutoParits" })
 -----------toggle term
-map("n", "<leader>gg", function()
+map("n", "<leader>tg", function()
   utils.toggle_term_cmd("lazygit")
 end, { desc = "Toggleterm lazygit" })
 map("n", "<leader>tl", function()

@@ -104,21 +104,60 @@ return {
     },
     keys = {
       { "<leader>gdh", "<cmd>DiffviewFileHistory %<cr>", desc = "File History", { noremap = true, silent = false } },
-      { "<leader>gdm", "<cmd>DiffviewOpen main<cr>", desc = "Diff main", { noremap = true, silent = false } },
-      { "<leader>gdd", "<cmd>DiffviewOpen dev<cr>", desc = "Diff dev", { noremap = true, silent = false } },
+      { "<leader>gdM", "<cmd>DiffviewOpen main<cr>", desc = "Diff main", { noremap = true, silent = false } },
+      { "<leader>gdD", "<cmd>DiffviewOpen dev<cr>", desc = "Diff dev", { noremap = true, silent = false } },
+      { "<leader>gdd", "<cmd>DiffviewOpen<cr>", desc = "Diffview Open", { noremap = true, silent = false } },
+      { "<leader>gdq", "<cmd>DiffviewClose<cr>", desc = "Diffview Close", { noremap = true, silent = false } }, --FIX:nvim_exec2 error
+      { "<leader>gdr", "<cmd>DiffviewRefresh<cr>", desc = "Diffview Rfresh", { noremap = true, silent = false } },
     },
-    config = true,
+    config = function()
+      require("diffview").setup({
+        view = {
+          default = {
+            layout = "diff2_vertical",
+          },
+          merge_tool = {
+            layout = "diff2_vertical",
+            winbar_info = false,
+          },
+          file_hsitory = {
+            layout = "diff2_vertical",
+          },
+        },
+      })
+    end,
   },
   {
     "NeogitOrg/neogit",
     keys = {
       { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Neogit Commit", { noremap = true, silent = false } },
-      { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit", { noremap = true, silent = true } },
+      { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit", { noremap = true, silent = true } },
     },
     dependencies = {
       "nvim-lua/plenary.nvim", -- required
       "nvim-telescope/telescope.nvim", -- optional
       "sindrets/diffview.nvim", -- optional
+    },
+    opts = {
+      disable_line_numbers = false,
+      status = {
+        recent_commit_count = 20,
+      },
+      sections = {
+        recent = {
+          folded = false,
+        },
+      },
+      mappings = {
+        commit_editor = {
+          ["<leader><CR>"] = "Submit",
+          ["<leader><ESC>"] = "Abort",
+        },
+        status = {
+          ["K"] = "GoToPreviousHunkHeader",
+          ["J"] = "GoToNextHunkHeader",
+        },
+      },
     },
     config = true,
   },

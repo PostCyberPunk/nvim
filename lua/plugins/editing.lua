@@ -104,8 +104,11 @@ return {
     },
     keys = {
       { "<leader>gdh", "<cmd>DiffviewFileHistory %<cr>", desc = "File History", { noremap = true, silent = false } },
-      { "<leader>gdm", "<cmd>DiffviewOpen main<cr>", desc = "Diff main", { noremap = true, silent = false } },
-      { "<leader>gdd", "<cmd>DiffviewOpen dev<cr>", desc = "Diff dev", { noremap = true, silent = false } },
+      { "<leader>gdM", "<cmd>DiffviewOpen main<cr>", desc = "Diff main", { noremap = true, silent = false } },
+      { "<leader>gdD", "<cmd>DiffviewOpen dev<cr>", desc = "Diff dev", { noremap = true, silent = false } },
+      { "<leader>gdd", "<cmd>DiffviewOpen<cr>", desc = "Diffview Open", { noremap = true, silent = false } },
+      { "<leader>gdq", "<cmd>DiffviewClose<cr>", desc = "Diffview Close", { noremap = true, silent = false } }, --FIX:nvim_exec2 error
+      { "<leader>gdr", "<cmd>DiffviewRefresh<cr>", desc = "Diffview Rfresh", { noremap = true, silent = false } },
     },
     config = true,
   },

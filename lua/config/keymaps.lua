@@ -59,6 +59,10 @@ vim.keymap.set("n", "<leader>sR", '<cmd>lua require("spectre").open_file_search(
 })
 -----------GitSigns
 map({ "n", "v" }, "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage Hunk" })
+map({ "n", "v" }, "<leader>ga", function()
+  vim.cmd("Gitsigns stage_hunk")
+  vim.cmd("Neogit commit")
+end, { desc = "Stage and Commit" })
 map({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = " Reset Hunk" })
 map("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = "Undo Stage Hunk" })
 -----------utils

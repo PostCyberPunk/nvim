@@ -117,7 +117,7 @@ return {
             layout = "diff2_vertical",
           },
           merge_tool = {
-            layout = "diff2_vertical",
+            layout = "diff3_vertical",
             winbar_info = false,
           },
           file_hsitory = {

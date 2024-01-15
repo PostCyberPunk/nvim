@@ -57,6 +57,9 @@ vim.keymap.set("v", "<leader>sr", '<esc><cmd>lua require("spectre").open_visual(
 vim.keymap.set("n", "<leader>sR", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
   desc = "Search on current file",
 })
+-----------GitSigns
+map({ "n", "v" }, "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc ="Stage Hunk" })
+map({ "n", "v" }, "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc="Undo Stage Hunk" })
 -----------utils
 map("n", "<leader>uh", function()
   utils.toggle_syntax()

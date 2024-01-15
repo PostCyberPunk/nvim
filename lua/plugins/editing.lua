@@ -125,6 +125,7 @@ return {
       mappings = {
         commit_editor = {
           ["<leader><CR>"] = "Submit",
+          ["<leader><ESC>"] = "Abort",
         },
         status = {
           ["K"] = "GoToPreviousHunkHeader",

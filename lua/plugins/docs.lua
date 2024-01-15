@@ -65,7 +65,10 @@ return {
                 keybinds.remap_event("todo", "i", "<C-d>", "core.promo.demote")
                 keybinds.remap_event("todo", "i", "<M-d>", "core.tempus.insert-date-insert-mode")
 
-                keybinds.remap_event("todo", "n", "t", "core.qol.todo_items.todo.task_cycle")
+                keybinds.map("todo", "n", "t", function()
+                  vim.cmd("Neorg keybind all core.qol.todo_items.todo.task_cycle")
+                  vim.api.nvim_feedkeys("j", "n", false)
+                end)
                 keybinds.remap_event(
                   "todo",
                   "n",

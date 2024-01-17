@@ -138,7 +138,7 @@ return {
           vim.cmd("Gitsigns stage_hunk")
           vim.cmd("Neogit commit")
         end,
-        mode = {"n",'x'},
+        mode = { "n", "x" },
         desc = "Stage and Commit Hunk",
         { noremap = true, silent = false },
       },
@@ -149,6 +149,14 @@ return {
       "sindrets/diffview.nvim", -- optional
     },
     opts = {
+      ignored_settings = {
+        "NeogitPushPopup--force-with-lease",
+        "NeogitPushPopup--force",
+        "NeogitPullPopup--rebase",
+        "NeogitCommitPopup--allow-empty",
+        "NeogitCommitPopup--all",
+        "NeogitRevertPopup--no-edit",
+      },
       disable_line_numbers = false,
       status = {
         recent_commit_count = 20,
@@ -160,8 +168,8 @@ return {
       },
       mappings = {
         commit_editor = {
-          ["<leader><CR>"] = "Submit",
-          ["<leader><ESC>"] = "Abort",
+          ["<CR><CR>"] = "Submit",
+          ["<CR><ESC>"] = "Abort",
         },
         status = {
           ["K"] = "GoToPreviousHunkHeader",

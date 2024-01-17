@@ -64,11 +64,28 @@ return {
                 keybinds.remap_event("todo", "i", "<C-t>", "core.promo.promote")
                 keybinds.remap_event("todo", "i", "<C-d>", "core.promo.demote")
                 keybinds.remap_event("todo", "i", "<M-d>", "core.tempus.insert-date-insert-mode")
+                -- keybinds.remap_event("todo", "n", ">>", "core.promo.promote","nested")
+                -- keybinds.remap_event("todo", "n", "<<", "core.promo.demote","nested")
 
                 keybinds.map("todo", "n", "t", function()
                   vim.cmd("Neorg keybind all core.qol.todo_items.todo.task_cycle")
                   vim.api.nvim_feedkeys("j", "n", false)
                 end)
+                keybinds.map("todo", "n", "<leader>nS", function()
+                  vim.cmd("!rclone copy ~/notes/ tera:/notes")
+                end, { desc = "Sync My Notes" })
+                keybinds.map("todo", "n", "o", function()
+                  vim.cmd("Neorg keybind all core.itero.next-iteration")
+                  vim.api.nvim_feedkeys("A", "n", false)
+                end)
+                keybinds.map("todo", "n", "<leader>ns", function()
+                  vim.api.nvim_feedkeys("Egsa", "m", false)
+                end, { desc = "Neorg add surround" })
+                -- keybinds.map("todo", "x", "<leader>r", function()
+                --   vim.cmd("'<,'>s/.$/")
+                -- end, { desc = "Neorg replace" })
+
+                --#region
                 keybinds.remap_event(
                   "todo",
                   "n",
@@ -119,12 +136,7 @@ return {
                   "core.qol.todo_items.todo.task_ambiguous",
                   { desc = "[Neorg] Ambiguonus" }
                 )
-                -- keybinds.remap_event("todo", "n", ">>", "core.promo.promote","nested")
-                -- keybinds.remap_event("todo", "n", "<<", "core.promo.demote","nested")
-                keybinds.map("todo", "n", "o", function()
-                  vim.cmd("Neorg keybind all core.itero.next-iteration")
-                  vim.api.nvim_feedkeys("A", "n", false)
-                end)
+                --#endregion
               end,
               neorg_leader = "<leader>n",
             },

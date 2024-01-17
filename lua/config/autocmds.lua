@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   group = augroup("resize_splits"),
   callback = function() end,
 })
-vim.api.nvim_create_user_command("SingleBuf", function()
+vim.api.nvim_create_user_command("NeoTodo", function()
   vim.cmd([[
     augroup close_other_buffers
       autocmd!
@@ -42,4 +42,5 @@ vim.api.nvim_create_user_command("SingleBuf", function()
       autocmd BufAdd *.norg :BufferLineCloseOthers
     augroup END
     ]])
+  vim.cmd("ASToggle")
 end, { desc = "auto close other buffer" })

@@ -75,6 +75,12 @@ return {
                   vim.cmd("Neorg keybind all core.itero.next-iteration")
                   vim.api.nvim_feedkeys("A", "n", false)
                 end)
+                keybinds.map("todo", "n", "<leader>ns", function()
+                  vim.api.nvim_feedkeys("Egsa", "m", false)
+                end, { desc = "Neorg add surround" })
+                -- keybinds.map("todo", "x", "<leader>r", function()
+                --   vim.cmd("'<,'>s/.$/")
+                -- end, { desc = "Neorg replace" })
 
                 --#region
                 keybinds.remap_event(

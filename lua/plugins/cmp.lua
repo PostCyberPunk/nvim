@@ -77,6 +77,21 @@ if true then
     },
     -- -- then: setup supertab in cmp
     {
+      "echasnovski/mini.pairs",
+      enabled = false,
+    },
+    {
+      "windwp/nvim-autopairs",
+      event = "InsertEnter",
+      opts = {},
+      config = function(_, opts)
+        require("nvim-autopairs").setup(opts)
+        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+        local cmp = require("cmp")
+        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      end,
+    },
+    {
       "hrsh7th/nvim-cmp",
       dependencies = {
         "hrsh7th/cmp-emoji",
@@ -91,7 +106,6 @@ if true then
 
         local luasnip = require("luasnip")
         local cmp = require("cmp")
-
         opts.mapping = vim.tbl_extend("force", opts.mapping, {
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then

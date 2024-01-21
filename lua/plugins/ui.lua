@@ -174,6 +174,7 @@ return {
     opts = function(_, opts)
       local mocha = require("catppuccin.palettes").get_palette("mocha")
       opts.sections.lualine_c[3].color = { fg = mocha.mauve }
+      opts.sections.lualine_x[3].color = { bg = mocha.red }
       -- opts.sections.lualine_c[4] = {
       --   function()
       --     return require("noice").api.status.message.get()

@@ -29,6 +29,30 @@ return {
     config = true,
   },
   {
+    "gbprod/substitute.nvim",
+    config = true,
+  },
+  {
+    "AckslD/muren.nvim",
+    keys = {
+      { "<leader>sz", "<cmd>MurenToggle<cr>", desc = "Muren Search Replace", { noremap = true, silent = true } },
+    },
+    opts = function(_, opts)
+      opts.files = "%"
+    end,
+    config = true,
+  },
+  {
+    "nat-418/boole.nvim",
+    config = {
+      mappings = {
+        increment = "<C-a>",
+        decrement = "<C-x>",
+      },
+    },
+    -- config = true,
+  },
+  {
     "kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async",
     config = function(_, opts)
@@ -90,123 +114,5 @@ return {
 
       require("ufo").setup(opts)
     end,
-  },
-  --------------exchange ------------------
-  {
-    "gbprod/substitute.nvim",
-    config = true,
-  },
-  {
-    "sindrets/diffview.nvim",
-    cmd = {
-      "DiffviewFileHistory",
-      "DiffviewOpen",
-    },
-    keys = {
-      { "<leader>gdh", "<cmd>DiffviewFileHistory %<cr>", desc = "File History", { noremap = true, silent = false } },
-      { "<leader>gdM", "<cmd>DiffviewOpen main<cr>", desc = "Diff main", { noremap = true, silent = false } },
-      { "<leader>gdD", "<cmd>DiffviewOpen dev<cr>", desc = "Diff dev", { noremap = true, silent = false } },
-      { "<leader>gdd", "<cmd>DiffviewOpen<cr>", desc = "Diffview Open", { noremap = true, silent = false } },
-      { "<leader>gdq", "<cmd>DiffviewClose<cr>", desc = "Diffview Close", { noremap = true, silent = false } }, --FIX:nvim_exec2 error
-      { "<leader>gdr", "<cmd>DiffviewRefresh<cr>", desc = "Diffview Rfresh", { noremap = true, silent = false } },
-    },
-    config = function()
-      require("diffview").setup({
-        view = {
-          default = {
-            layout = "diff2_vertical",
-          },
-          merge_tool = {
-            layout = "diff3_vertical",
-            winbar_info = false,
-          },
-          file_hsitory = {
-            layout = "diff2_vertical",
-          },
-        },
-      })
-    end,
-  },
-  {
-    "NeogitOrg/neogit",
-    keys = {
-      { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Neogit Commit", { noremap = true, silent = false } },
-      { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit", { noremap = true, silent = true } },
-      {
-        "<leader>ga",
-        function()
-          vim.cmd("Gitsigns stage_hunk")
-          vim.cmd("Neogit commit")
-        end,
-        mode = { "n", "x" },
-        desc = "Stage and Commit Hunk",
-        { noremap = true, silent = false },
-      },
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- required
-      "nvim-telescope/telescope.nvim", -- optional
-      "sindrets/diffview.nvim", -- optional
-    },
-    opts = {
-      ignored_settings = {
-        "NeogitPushPopup--force-with-lease",
-        "NeogitPushPopup--force",
-        "NeogitPullPopup--rebase",
-        "NeogitCommitPopup--allow-empty",
-        "NeogitCommitPopup--all",
-        "NeogitRevertPopup--no-edit",
-      },
-      disable_line_numbers = false,
-      status = {
-        recent_commit_count = 20,
-      },
-      sections = {
-        recent = {
-          folded = false,
-        },
-      },
-      mappings = {
-        commit_editor = {
-          ["<CR><CR>"] = "Submit",
-          ["<CR><ESC>"] = "Abort",
-        },
-        status = {
-          ["K"] = "GoToPreviousHunkHeader",
-          ["J"] = "GoToNextHunkHeader",
-        },
-      },
-    },
-    config = true,
-  },
-  {
-    "folke/flash.nvim",
-    opts = function(_, opts)
-      opts.modes = {
-        search = { enabled = false },
-        -- char = { jump_labels = true }
-      }
-      -- opts.char.jump_labels= true
-    end,
-  },
-  {
-    "AckslD/muren.nvim",
-    keys = {
-      { "<leader>sz", "<cmd>MurenToggle<cr>", desc = "Muren Search Replace", { noremap = true, silent = true } },
-    },
-    opts = function(_, opts)
-      opts.files = "%"
-    end,
-    config = true,
-  },
-  {
-    "nat-418/boole.nvim",
-    config = {
-      mappings = {
-        increment = "<C-a>",
-        decrement = "<C-x>",
-      },
-    },
-    -- config = true,
   },
 }

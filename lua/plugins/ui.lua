@@ -130,7 +130,7 @@ return {
         function()
           require("aerial").toggle()
         end,
-        desc = "Code Lens(Aerial)",
+        desc = "Code Outline(Aerial)",
       },
     },
     opts = {

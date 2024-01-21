@@ -47,6 +47,7 @@ return {
         status = {
           ["K"] = "GoToPreviousHunkHeader",
           ["J"] = "GoToNextHunkHeader",
+          ["R"] = "RefreshBuffer"
         },
       },
     },

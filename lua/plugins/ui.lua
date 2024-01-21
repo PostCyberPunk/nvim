@@ -20,6 +20,11 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    keys = {
+      { "<leader>b,", "<cmd>BufferLineMovePrev<cr>", desc = "Move BufferLeft" },
+      { "<leader>b.", "<cmd>BufferLineMoveNext<cr>", desc = "Move BufferRight" },
+      { "<leader>bg", "<cmd>BufferLinePick<cr>", desc = "Pick Buffer Visually" },
+    },
     opts = {
       options = {
         separator_style = "slant",
@@ -102,12 +107,10 @@ return {
     keys = { { "<leader>wa", "<cmd>FocusToggle<cr>", desc = "Focus Split Nicely" } },
     cmd = { "FocusToggle", "FocusSplitCycle", "FocusSplitNicely" },
     module = "focus",
-    config = function()
-      require("focus").setup({
-        enable = true,
-        hybridnumber = true,
-        width = 120,
-      })
+    config = function(_, opts)
+      local focus = require("focus")
+      focus.setup(opts)
+      focus.focus_disable()
     end,
   },
   ---------------------remove indentscope animation-----------
@@ -293,7 +296,10 @@ return {
       table.insert(opts.routes, {
         filter = {
           event = "msg_show",
-          find = "AutoSave",
+          any = {
+            { find = "Pick window:" },
+            { find = "AutoSave" },
+          },
         },
         opts = { skip = true },
       })
@@ -304,6 +310,13 @@ return {
         },
         opts = { skip = true },
       })
+    end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    opts = function(_, opts)
+      opts.timeout = 1000
+      opts.stages = "static"
     end,
   },
 }

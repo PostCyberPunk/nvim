@@ -292,18 +292,18 @@ return {
     opts = function(_, opts)
       table.insert(opts.routes, {
         filter = {
-          event = "msg_show",
-          find = "AutoSave",
-        },
-        opts = { skip = true },
-      })
-      table.insert(opts.routes, {
-        filter = {
           event = "notify",
           find = "hlchunk",
         },
         opts = { skip = true },
       })
+    end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    opts = function(_, opts)
+      opts.timeout = 1000
+      opts.stages = "static"
     end,
   },
 }

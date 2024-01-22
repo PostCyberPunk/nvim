@@ -70,4 +70,17 @@ return {
       })
     end,
   },
+  {
+    "stevearc/oil.nvim",
+    keys = { { "<leader>o", "<cmd>Oil<cr>", desc = "Oil" } },
+    opts = {
+      keymaps = {
+        ["g."] = "actions.parent",
+        ["q"] = "actions.close",
+        ["gh"] = "actions.toggle_hidden",
+      },
+    },
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 }

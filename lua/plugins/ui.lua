@@ -319,4 +319,89 @@ return {
       opts.stages = "static"
     end,
   },
+  {
+    "anuvyklack/hydra.nvim",
+    dependencies = {
+      "mrjones2014/smart-splits.nvim",
+      "sindrets/winshift.nvim",
+    },
+    config = function()
+      local Hydra = require("hydra")
+      local splits = require("smart-splits")
+
+      local cmd = require("hydra.keymap-util").cmd
+      local pcmd = require("hydra.keymap-util").pcmd
+      local window_hint = [[
+                  Size            Move               Split
+             -------------    -----------       ---------------
+      k            K             <C-k>         s : horizontally 
+  h       l    H       L     <C-h>   <C-l>     v : vertically
+      j            J             <C-j>         q : close
+ focus        window          = : equalize                 
+                                                              
+]]
+      Hydra({
+        name = "Windows",
+        hint = "window mdoe",
+        -- hint = window_hint,
+        config = {
+          invoke_on_body = true,
+          -- hint = false,
+          hint = {
+            border = "rounded",
+            offset = -1,
+            show_name = false,
+          },
+        },
+        mode = "n",
+        body = "<leader>w;",
+        heads = {
+          { "h", "<C-w>h" },
+          { "j", "<C-w>j" },
+          { "k", pcmd("wincmd k", "E11", "close") },
+          { "l", "<C-w>l" },
+
+          { "<c-h>", cmd("WinShift left") },
+          { "<c-j>", cmd("WinShift down") },
+          { "<c-k>", cmd("WinShift up") },
+          { "<c-l>", cmd("WinShift right") },
+
+          {
+            "H",
+            function()
+              splits.resize_left(2)
+            end,
+          },
+          {
+            "J",
+            function()
+              splits.resize_down(2)
+            end,
+          },
+          {
+            "K",
+            function()
+              splits.resize_up(2)
+            end,
+          },
+          {
+            "L",
+            function()
+              splits.resize_right(2)
+            end,
+          },
+          { "=", "<C-w>=", { desc = "equalize" } },
+
+          { "s", pcmd("split", "E36") },
+          { "v", pcmd("vsplit", "E36") },
+
+          { "q", pcmd("close", "E444"), { desc = "close window" } },
+          { "<C-c>", pcmd("close", "E444"), { desc = false } },
+          { "<C-q>", pcmd("close", "E444"), { desc = false } },
+
+          { "<Esc>", nil, { exit = true, desc = false } },
+        },
+      })
+    end,
+  },
 }

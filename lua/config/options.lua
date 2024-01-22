@@ -8,6 +8,7 @@ local opt = vim.opt
 -- vim.cmd("highlight LeapBackdrop guifg=#777777")
 
 opt.clipboard = ""
+opt.expandtab = false
 -------------folds---------------
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"

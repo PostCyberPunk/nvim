@@ -5,7 +5,7 @@ return {
     opts = function(_, opts)
       opts.modes = {
         search = { enabled = false },
-        -- char = { jump_labels = true }
+        char = { jump_labels = true, multi_line = false },
       }
       -- opts.char.jump_labels= true
     end,

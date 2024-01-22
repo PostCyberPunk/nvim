@@ -291,7 +291,10 @@ return {
       table.insert(opts.routes, {
         filter = {
           event = "msg_show",
-          find = "Pick window:",
+          any = {
+            { find = "Pick window:" },
+            { find = "AutoSave" },
+          },
         },
         opts = { skip = true },
       })

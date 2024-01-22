@@ -20,6 +20,11 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    keys = {
+      { "<leader>b,", "<cmd>BufferLineMovePrev<cr>", desc = "Move BufferLeft" },
+      { "<leader>b.", "<cmd>BufferLineMoveNext<cr>", desc = "Move BufferRight" },
+      { "<leader>bg", "<cmd>BufferLinePick<cr>", desc = "Pick Buffer Visually" },
+    },
     opts = {
       options = {
         separator_style = "slant",

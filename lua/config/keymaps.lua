@@ -35,7 +35,6 @@ vim.keymap.set("n", "<leader>wx", "<C-w>x", { desc = "Swap windows" })
 map({ "n", "x" }, "gh", vim.lsp.buf.hover, { desc = "Hover" })
 -------------- Copy and Paste
 map("n", "<leader><c-a>", "gg<s-v>G", { desc = "Select All" })
-map("x", "P", '"0p', { desc = "Paste(Last Yanked)" })
 map({ "n", "x" }, "<c-v>", '"+p', { desc = "Paste(system)" })
 -- map({ "i" }, "<c-v>", "<c-r>+", { desc = "Paste(system)" })
 map({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste(system)" })

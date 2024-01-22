@@ -102,12 +102,10 @@ return {
     keys = { { "<leader>wa", "<cmd>FocusToggle<cr>", desc = "Focus Split Nicely" } },
     cmd = { "FocusToggle", "FocusSplitCycle", "FocusSplitNicely" },
     module = "focus",
-    config = function()
-      require("focus").setup({
-        enable = true,
-        hybridnumber = true,
-        width = 120,
-      })
+    config = function(_, opts)
+      local focus = require("focus")
+      focus.setup(opts)
+      focus.focus_disable()
     end,
   },
   ---------------------remove indentscope animation-----------

@@ -290,6 +290,13 @@ return {
     opts = function(_, opts)
       table.insert(opts.routes, {
         filter = {
+          event = "msg_show",
+          find = "Pick window:",
+        },
+        opts = { skip = true },
+      })
+      table.insert(opts.routes, {
+        filter = {
           event = "notify",
           find = "hlchunk",
         },

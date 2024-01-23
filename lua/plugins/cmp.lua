@@ -5,7 +5,7 @@ if true then
     {
       "hrsh7th/nvim-cmp",
       -- keys = { { "<Tab>", "<C-n>" }, { "<S-Tab>", "<C-p>" } },
-      dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-buffer" },
+      dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp-signature-help" },
       ---@param opts cmp.ConfigSchema
       opts = function(_, opts)
         local cmp = require("cmp")
@@ -17,7 +17,26 @@ if true then
             end,
           },
         }
-        opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
+        opts.sources = cmp.config.sources(
+          vim.list_extend(opts.sources, { { name = "emoji" }, { name = "nvim_lsp_signature_help" } })
+        )
+        -- opts.formatting = {
+        --   fields = { "abbr", "kind", "menu" },
+        --   format = function(entry, vim_item)
+        --     local icons = require("lazyvim.config").icons.kinds
+        --     if icons[vim_item.kind] then
+        --       vim_item.kind = icons[vim_item.kind] .. vim_item.kind
+        --     end
+        --     vim_item.menu = ({
+        --       luasnip = "[SNP]",
+        --       buffer = "[BUF]",
+        --       path = "[PTH]",
+        --       nvim_lsp = "[LSP]",
+        --       nvim_lua = "[LUA]",
+        --     })[entry.source.name]
+        --     return vim_item
+        --   end,
+        -- }
         -- cmp.setup.cmdline({ "/", "?" }, {
         --   mapping = cmp.mapping.preset.cmdline(),
         --   sources = {

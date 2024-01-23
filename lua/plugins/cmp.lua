@@ -71,6 +71,15 @@ if true then
     -- first: disable default <tab> and <s-tab> behavior in LuaSnip
     {
       "L3MON4D3/LuaSnip",
+      dependencies = {
+        {
+          "rafamadriz/friendly-snippets",
+          config = function()
+            require("luasnip").filetype_extend("cs", { "unity" })
+            require("luasnip.loaders.from_vscode").lazy_load()
+          end,
+        },
+      },
       keys = function()
         return {}
       end,

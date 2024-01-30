@@ -68,9 +68,6 @@ map({ "n", "v" }, "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage 
 map({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = " Reset Hunk" })
 map("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = "Undo Stage Hunk" })
 -----------utils
-map("n", "<leader>uh", function()
-  utils.toggle_syntax()
-end, { desc = "Toggle Syntax Highlight" })
 map("n", "<leader>up", function()
   utils.toggle_autopairs()
 end, { desc = "Toggle AutoParits" })

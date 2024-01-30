@@ -44,12 +44,14 @@ function M.notify(msg, type, opts)
 end
 ------------------------- Toggle autopairs
 function M.toggle_autopairs()
-  if vim.g.minipairs_disable then
-    vim.g.minipairs_disable = false
+  if vim.g.autopairs_disable then
+    require("nvim-autopairs").enable()
+    vim.g.autopairs_disable = false
   else
-    vim.g.minipairs_disable = true
+    vim.g.autopairs_disable = true
+    require("nvim-autopairs").disable()
   end
-  M.notify(string.format("autopairs %s", bool2str(not vim.g.minipairs_disable)))
+  M.notify(string.format("autopairs %s", bool2str(not vim.g.autopairs_disable)))
 end
 -- Toggle syntax highlighting and treesitter
 function M.toggle_syntax()

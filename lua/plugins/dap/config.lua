@@ -1,4 +1,4 @@
-if false then
+if require("pcp.extra").imports.dap then
   return {
     {
       "mfussenegger/nvim-dap",
@@ -41,6 +41,6 @@ if false then
       end,
     },
   }
-  else
-  return{}
+else
+  return {}
 end

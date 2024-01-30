@@ -140,6 +140,13 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
+      local function format_toggle()
+        if vim.g.autoformat then
+          return [[♥]]
+        else
+          return [[]]
+        end
+      end
       local mocha = require("catppuccin.palettes").get_palette("mocha")
       opts.sections.lualine_c[3].color = { fg = mocha.mauve }
       opts.sections.lualine_x[3].color = { bg = mocha.red }
@@ -180,8 +187,9 @@ return {
         color = { fg = mocha.green },
       })
 
-      opts.sections.lualine_x[5] = { "encoding", color = { fg = mocha.peach } }
-      opts.sections.lualine_x[6] = { "filesize", color = { fg = mocha.green } }
+      opts.sections.lualine_x[5] = { "filetype", icon_only = true, separator = "", color = { fg = mocha.peach } }
+      opts.sections.lualine_x[6] = { "filesize", separator = "", color = { fg = mocha.green } }
+      opts.sections.lualine_x[7] = { format_toggle, separator = "", color = { fg = mocha.mauve } }
     end,
   },
   {

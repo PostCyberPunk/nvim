@@ -8,7 +8,7 @@ return {
   -----------Color Picker------------
   {
     "ziontee113/color-picker.nvim",
-    keys = { { "<leader>cp", "<cmd>PickColor<cr>", desc = "Color picker", { noremap = true, silent = true } } },
+    keys = { { "<leader>cP", "<cmd>PickColor<cr>", desc = "Color picker", { noremap = true, silent = true } } },
     opts = {
       -- for changing icons & mappings
       -- ["icons"] = { "ﱢ", "" },
@@ -124,6 +124,7 @@ return {
         function()
           require("telescope").extensions.yank_history.yank_history({})
         end,
+        mode = { "n", "x" },
         desc = "Open Yank History",
       },
     },

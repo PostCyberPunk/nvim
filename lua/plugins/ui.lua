@@ -127,6 +127,10 @@ return {
   --- hl chunk
   {
     "shellRaining/hlchunk.nvim",
+    keys = {
+      { "<leader>uuH", "<cmd>EnableHL<CR>", { desc = "EnableHL" } },
+      { "<leader>uuh", "<cmd>DisableHL<CR>", { desc = "DisableHL" } },
+    },
     event = { "UIEnter" },
     config = function(_, opts)
       require("hlchunk").setup(opts)
@@ -200,8 +204,30 @@ return {
     "akinsho/toggleterm.nvim",
     version = "*",
     cmd = { "ToggleTerm", "TermExec" },
+    keys = {
+      { "<leader>th", "<cmd>ToggleTerm size=15 direction=horizontal name=ht<cr>", desc = "Toggleterm Horizontal" },
+      { "<leader>tv", "<cmd>ToggleTerm direction=vertical name=vt<cr>", desc = "Toggleterm Horizontal" },
+      { "<leader>tt", "<cmd>ToggleTerm direction=float name=ft<cr>", desc = "Toggleterm Floating" },
+      { "<leader>tcc", "<cmd>ToggleTermSendCurrentLine<cr>", desc = "Term exec Current Line" },
+      {
+        "<leader>tcy",
+        function()
+          require("toggleterm").exec(vim.fn.getreg("+"))
+        end,
+        desc = "Term exec clipboard",
+      },
+      { "<leader>tcc", "<cmd>ToggleTermSendVisualSelection<cr>", mode = { "x" }, desc = "Term exec Current Selection" },
+    },
     opts = {
-      size = 10,
+      size = function(term)
+        if term.direction == "horizontal" then
+          return 10
+        elseif term.direction == "vertical" then
+          return vim.o.columns * 0.4
+        else
+          return 20
+        end
+      end,
       on_create = function()
         vim.opt.foldcolumn = "0"
         vim.opt.signcolumn = "no"
@@ -209,7 +235,7 @@ return {
       -- shell="fish",
       open_mapping = [[<F7>]],
       shading_factor = 2,
-      direction = "float",
+      direction = "horizontal",
       float_opts = {
         border = "curved",
         highlights = { border = "Normal", background = "Normal" },

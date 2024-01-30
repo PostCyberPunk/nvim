@@ -56,7 +56,6 @@ return {
             ["i"] = "open",
             ["s"] = "",
             ["O"] = "open_vsplit",
-            ["S"] = "",
           },
         },
         filesystem = {

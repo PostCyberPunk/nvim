@@ -80,8 +80,13 @@ return {
       local SymbolKind = vim.lsp.protocol.SymbolKind
       opts.target_symbol_kinds =
         { SymbolKind.Function, SymbolKind.Method, SymbolKind.Interface, SymbolKind.Field, SymbolKind.Property }
-      opts.wrapper_symbol_kinds = { SymbolKind.Class, SymbolKind.Struct ,SymbolKind.Interface}
+      opts.wrapper_symbol_kinds = { SymbolKind.Class, SymbolKind.Struct, SymbolKind.Interface }
       require("lsp-lens").setup(opts)
     end,
+  },
+  {
+    dir = "~/Repos/UniVim.nvim",
+    ft = "cs",
+    config = true,
   },
 }

@@ -16,6 +16,8 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     { import = "plugins" },
+    { import = "plugins/dap" },
+    { import = "plugins/unity" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -44,3 +46,6 @@ require("lazy").setup({
     },
   },
 })
+if require("pcp.extra").imports.unity then
+  require("config.UnityIDE")
+end

@@ -128,8 +128,21 @@ return {
   {
     "shellRaining/hlchunk.nvim",
     keys = {
-      { "<leader>uuH", "<cmd>EnableHL<CR>", { desc = "EnableHL" } },
-      { "<leader>uuh", "<cmd>DisableHL<CR>", { desc = "DisableHL" } },
+      -- { "<leader>uuH", "<cmd>EnableHL<CR>", desc = "EnableHL" },
+      -- { "<leader>uuh", "<cmd>DisableHL<CR>", desc = "DisableHL" },
+      {
+        "<leader>uuh",
+        function()
+          if vim.g.hlchunk then
+            vim.cmd("DisableHL")
+            vim.g.hlchunk = false
+          else
+            vim.cmd("EnableHL")
+            vim.g.hlchunk = true
+          end
+        end,
+         desc = "ToggleHLchunk" ,
+      },
     },
     event = { "UIEnter" },
     config = function(_, opts)

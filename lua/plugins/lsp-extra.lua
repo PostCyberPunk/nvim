@@ -50,4 +50,42 @@ return {
     },
     config = true,
   },
+  {
+    "stevearc/aerial.nvim",
+    keys = {
+      {
+        "<leader>co",
+        function()
+          require("aerial").toggle()
+        end,
+        desc = "Code Outline(Aerial)",
+      },
+    },
+    opts = {
+      buftype_exclude = {
+        "nofile",
+        "terminal",
+      },
+      attach_mode = "global",
+      use_treesitter = true,
+      backends = { "lsp", "treesitter", "markdown", "man" },
+      layout = { min_width = 28 },
+      show_guides = true,
+      filter_kind = false,
+      guides = {
+        mid_item = "├ ",
+        last_item = "└ ",
+        nested_top = "│ ",
+        whitespace = "  ",
+      },
+      -- manage_folds = true,
+      -- link_folds_to_tree = true,
+      -- link_tree_to_folds = false,
+    },
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
 }

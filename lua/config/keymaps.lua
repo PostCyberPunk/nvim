@@ -24,6 +24,7 @@ require("which-key").register({
   ["<leader>g"] = { name = "󰊢 Git" },
   ["<leader>q"] = { name = "󱂬 Session" },
   ["<leader>t"] = { name = " Terminal" },
+  ["<leader>uu"] = { name = "++More" },
 })
 -----------window operetions
 vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "Split Down" })
@@ -44,9 +45,8 @@ map("x", "<leader>y", '"+y', { desc = "Copy(system)" })
 map("x", "<C-c>", '"+y', { desc = "Copy(system)" })
 
 ------------------exchange---------------
-vim.keymap.set("n", "gX", require("substitute.exchange").operator, { noremap = true })
-vim.keymap.set("n", "gXX", require("substitute.exchange").line, { noremap = true })
-vim.keymap.set("x", "gX", require("substitute.exchange").visual, { noremap = true })
+vim.keymap.set("n", "<leader>mx", require("substitute.exchange").operator, { noremap = true })
+vim.keymap.set("x", "<leader>mx", require("substitute.exchange").visual, { noremap = true })
 -----------SerachReplace(spectre)-------------
 vim.keymap.set("n", "<leader>sl", "<esc><cmd>Telescope resume<CR>", {
   desc = "Telescope Resume Last Search",
@@ -81,8 +81,8 @@ end, { desc = "Toggleterm lf " })
 map("n", "<leader>tb", function()
   utils.toggle_term_cmd("btm")
 end, { desc = "Toggleterm btm" })
-map("n", "<leader>th", "<cmd>ToggleTerm size=15 direction=horizontal<cr>", { desc = "Toggleterm Horizontal" })
-map("n", "<leader>tt", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggleterm Floating" })
+-----------Term Navi-----------
+vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], { nowait = true })
 map("t", "<c-q>", "<cmd>tabclose<cr>")
 map("t", "<c-q>", function()
   if vim.api.nvim_list_tabpages()[2] == nil then
@@ -91,11 +91,11 @@ map("t", "<c-q>", function()
     vim.cmd("tabclose")
   end
 end)
+vim.keymap.set("t", "<c-j>", "<c-j>", { nowait = true })
+vim.keymap.set("t", "<c-k>", "<c-k>", { nowait = true })
+vim.keymap.set("t", "<c-l>", "<c-l>", { nowait = true })
 ----------Misc
 map("n", "<leader>snn", "<cmd>Telescope notify<cr>", { desc = "Show All Notifications" })
-map("n", "<leader><leader>", "", { desc = "More Actions" })
-map("n", "<leader><leader>H", "<cmd>EnableHL<CR>", { desc = "EnableHL" })
-map("n", "<leader><leader>h", "<cmd>DisableHL<CR>", { desc = "DisableHL" })
 -- map("t", "<c-tab>", "<cmd>echo 'hello'<cr>")
 -- vim.keymap.set("t", "<esc>", [[<cmd>tabprevious<cr>]], { buffer = 0 })
 --
@@ -128,9 +128,5 @@ end, {})
 map("n", "<leader>tr", function()
   local line = vim.fn.line(".")
   local col = vim.fn.virtcol(".")
-  vim.cmd("!rider64 --line " .. line .. " --column " .. col .. " %")
-end, { silent = true })
------------Disable Term Navi-----------
-vim.keymap.set("t", "<c-j>", "<c-j>", { nowait = true })
-vim.keymap.set("t", "<c-k>", "<c-k>", { nowait = true })
-vim.keymap.set("t", "<c-l>", "<c-l>", { nowait = true })
+  vim.cmd("!rider --line " .. line .. " --column " .. col .. " %")
+end, { silent = true, desc = "Open With Rider" })

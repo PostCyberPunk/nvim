@@ -43,7 +43,7 @@ return {
       {
         "<leader>fN",
         function()
-          require("telescope.builtin").live_grep({ cwd = "/home/buzz/Tools/nerd/lib" })
+          require("telescope.builtin").live_grep({ cwd = "~/Tool/Nerd/lib" })
         end,
         desc = "Find Nerd Fonts",
       },

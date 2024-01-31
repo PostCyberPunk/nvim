@@ -4,23 +4,6 @@
 local utils = require("utils")
 
 vim.keymap.set("i", "jj", "<ESC>")
-require("which-key").register({
-  ["<leader>s"] = { name = "󰍉 Search" },
-  ["<leader>f"] = { name = "󰜏 file/find" },
-  ["<leader>x"] = { name = " Diagnosing" },
-  ["<leader>c"] = { name = " Coding" },
-  ["<leader>u"] = { name = " UI" },
-  ["<leader>b"] = { name = "󰓩 Buffers" },
-  ["<leader>w"] = { name = "󰨡 Windows" },
-  ["<leader><tab>"] = { name = "󰌕Tabs" },
-  ["<leader>d"] = { name = " Debugger" },
-  ["<leader>g"] = { name = "󰊢 Git" },
-  ["<leader>q"] = { name = "󱂬 Session" },
-  ["<leader>t"] = { name = " Terminal" },
-  ["<leader>uu"] = { name = "烙More" },
-  ["<leader>m"] = { name = "烙More" },
-  ["<leader>n"] = { name = "󰽱Notes" },
-})
 -----------window operetions
 vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "Split Down" })
 vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split Right" })

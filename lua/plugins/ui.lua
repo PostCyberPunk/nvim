@@ -109,4 +109,26 @@ return {
       opts.stages = "static"
     end,
   },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      defaults = {
+        ["<leader>s"] = { name = "󰍉 Search" },
+        ["<leader>f"] = { name = "󰜏 file/find" },
+        ["<leader>x"] = { name = " Diagnosing" },
+        ["<leader>c"] = { name = " Coding" },
+        ["<leader>u"] = { name = " UI" },
+        ["<leader>b"] = { name = "󰓩 Buffers" },
+        ["<leader>w"] = { name = "󰨡 Windows" },
+        ["<leader><tab>"] = { name = "󰌕Tabs" },
+        ["<leader>d"] = { name = " Debugger" },
+        ["<leader>g"] = { name = "󰊢 Git" },
+        ["<leader>q"] = { name = "󱂬 Session" },
+        ["<leader>t"] = { name = " Terminal" },
+        ["<leader>uu"] = { name = "烙More" },
+        ["<leader>m"] = { name = "烙More" },
+        ["<leader>n"] = { name = "󰽱Notes" },
+      },
+    },
+  },
 }

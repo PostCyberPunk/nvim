@@ -43,6 +43,9 @@ vim.keymap.set("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = 
 vim.keymap.set("n", "<leader>up", function()
   utils.toggle_autopairs()
 end, { desc = "Toggle AutoParits" })
+vim.keymap.set("n", "<leader>ua", function()
+  utils.toggle_signcolumn()
+end, { desc = "Toggle Signcolumn" })
 -----------toggle term
 vim.keymap.set("n", "<leader>tg", function()
   utils.toggle_term_cmd("lazygit")

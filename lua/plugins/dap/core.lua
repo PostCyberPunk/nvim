@@ -53,18 +53,6 @@ if require("pcp.extra").imports.dap then
         "theHamsta/nvim-dap-virtual-text",
         opts = {},
       },
-
-      -- which key integration
-      {
-        "folke/which-key.nvim",
-        optional = true,
-        opts = {
-          defaults = {
-            ["<leader>d"] = { name = " Debugger" },
-          },
-        },
-      },
-
       -- mason.nvim integration
       {
         "jay-babu/mason-nvim-dap.nvim",

@@ -3,17 +3,6 @@
 -- Add any additional keymaps here
 local utils = require("utils")
 
-local function map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
-  ---@cast keys LazyKeysHandler
-  -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
-end
-
 vim.keymap.set("i", "jj", "<ESC>")
 require("which-key").register({
   ["<leader>s"] = { name = "󰍉 Search" },
@@ -37,18 +26,18 @@ vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "Split Down" })
 vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split Right" })
 vim.keymap.set("n", "<leader>wx", "<C-w>x", { desc = "Swap windows" })
 
--- map("n", "<c-j>", "<c-w>j")
--- map("n", "<c-k>", "<c-w>k")
-map({ "n", "x" }, "gh", vim.lsp.buf.hover, { desc = "Hover" })
+-- vim.keymap.set("n", "<c-j>", "<c-w>j")
+-- vim.keymap.set("n", "<c-k>", "<c-w>k")
+vim.keymap.set({ "n", "x" }, "gh", vim.lsp.buf.hover, { desc = "Hover" })
 -------------- Copy and Paste
-map("n", "<leader><c-a>", "gg<s-v>G", { desc = "Select All" })
-map({ "n", "x" }, "<c-v>", '"+p', { desc = "Paste(system)" })
--- map({ "i" }, "<c-v>", "<c-r>+", { desc = "Paste(system)" })
-map({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste(system)" })
-map({ "n", "x" }, "<leader>P", '"+P', { desc = "Paste(system) Before" })
-map("x", "Y", '"+y', { desc = "Copy(system)" })
-map("x", "<leader>y", '"+y', { desc = "Copy(system)" })
-map("x", "<C-c>", '"+y', { desc = "Copy(system)" })
+vim.keymap.set("n", "<leader><c-a>", "gg<s-v>G", { desc = "Select All" })
+vim.keymap.set({ "n", "x" }, "<c-v>", '"+p', { desc = "Paste(system)" })
+-- vim.keymap.set({ "i" }, "<c-v>", "<c-r>+", { desc = "Paste(system)" })
+vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste(system)" })
+vim.keymap.set({ "n", "x" }, "<leader>P", '"+P', { desc = "Paste(system) Before" })
+vim.keymap.set("x", "Y", '"+y', { desc = "Copy(system)" })
+vim.keymap.set("x", "<leader>y", '"+y', { desc = "Copy(system)" })
+vim.keymap.set("x", "<C-c>", '"+y', { desc = "Copy(system)" })
 
 ------------------exchange---------------
 vim.keymap.set("n", "<leader>mx", require("substitute.exchange").operator, { noremap = true })
@@ -64,30 +53,30 @@ vim.keymap.set("n", "<leader>sR", '<cmd>lua require("spectre").open_file_search(
   desc = "Search on current file",
 })
 -----------GitSigns
-map({ "n", "v" }, "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage Hunk" })
-map({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = " Reset Hunk" })
-map("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = "Undo Stage Hunk" })
+vim.keymap.set({ "n", "v" }, "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage Hunk" })
+vim.keymap.set({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = " Reset Hunk" })
+vim.keymap.set("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = "Undo Stage Hunk" })
 -----------utils
-map("n", "<leader>up", function()
+vim.keymap.set("n", "<leader>up", function()
   utils.toggle_autopairs()
 end, { desc = "Toggle AutoParits" })
 -----------toggle term
-map("n", "<leader>tg", function()
+vim.keymap.set("n", "<leader>tg", function()
   utils.toggle_term_cmd("lazygit")
 end, { desc = "Toggleterm lazygit" })
-map("n", "<leader>tl", function()
+vim.keymap.set("n", "<leader>tl", function()
   utils.toggle_term_cmd("lf")
 end, { desc = "Toggleterm lf " })
-map("n", "<leader>tL", function()
+vim.keymap.set("n", "<leader>tL", function()
   utils.toggle_term_cmd({ cmd = "lf " .. vim.fn.getreg("%"), tid = "lffile" })
 end, { desc = "Toggleterm lf " })
-map("n", "<leader>tb", function()
+vim.keymap.set("n", "<leader>tb", function()
   utils.toggle_term_cmd("btm")
 end, { desc = "Toggleterm btm" })
 -----------Term Navi-----------
 vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], { nowait = true })
-map("t", "<c-q>", "<cmd>tabclose<cr>")
-map("t", "<c-q>", function()
+vim.keymap.set("t", "<c-q>", "<cmd>tabclose<cr>")
+vim.keymap.set("t", "<c-q>", function()
   if vim.api.nvim_list_tabpages()[2] == nil then
     vim.api.nvim_win_close(0, false)
   else
@@ -98,20 +87,20 @@ vim.keymap.set("t", "<c-j>", "<c-j>", { nowait = true })
 vim.keymap.set("t", "<c-k>", "<c-k>", { nowait = true })
 vim.keymap.set("t", "<c-l>", "<c-l>", { nowait = true })
 ----------Misc
-map("n", "<leader>snn", "<cmd>Telescope notify<cr>", { desc = "Show All Notifications" })
--- map("t", "<c-tab>", "<cmd>echo 'hello'<cr>")
+vim.keymap.set("n", "<leader>snn", "<cmd>Telescope notify<cr>", { desc = "Show All Notifications" })
+-- vim.keymap.set("t", "<c-tab>", "<cmd>echo 'hello'<cr>")
 -- vim.keymap.set("t", "<esc>", [[<cmd>tabprevious<cr>]], { buffer = 0 })
 --
 ----------------------------------------------search bidirectional
 --
--- map("n", "<leader><leader>s", function()
+-- vim.keymap.set("n", "<leader><leader>s", function()
 --   local current_window = vim.fn.win_getid()
 --   require("leap").leap({ target_windows = { current_window } })
 -- end, { desc = "Search Bidirectional" })
 --
 ----------------------------------------------ufo folding
 --
-map("n", "zp", function()
+vim.keymap.set("n", "zp", function()
   local winid = require("ufo").peekFoldedLinesUnderCursor()
   if not winid then
     -- vim.fn.CocActionAsync("definitionHover") -- coc.nvim
@@ -128,7 +117,7 @@ vim.api.nvim_create_user_command("Revert", function()
   utils.notify("Revert file:" .. buf)
 end, {})
 ------------open with rider -----
-map("n", "<leader>tr", function()
+vim.keymap.set("n", "<leader>tr", function()
   local line = vim.fn.line(".")
   local col = vim.fn.virtcol(".")
   vim.cmd("!rider --line " .. line .. " --column " .. col .. " %")

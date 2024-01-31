@@ -10,15 +10,6 @@ if require("pcp.extra").imports.unity then
       },
       config = true,
     },
-    {
-      "folke/which-key.nvim",
-      optional = true,
-      opts = {
-        defaults = {
-          ["<leader>U"] = { name = " Unity" },
-        },
-      },
-    },
   }
 else
   return {}

@@ -128,6 +128,7 @@ return {
         ["<leader>uu"] = { name = "烙More" },
         ["<leader>m"] = { name = "烙More" },
         ["<leader>n"] = { name = "󰽱Notes" },
+        ["<leader>U"] = { name = " Unity" },
       },
     },
   },

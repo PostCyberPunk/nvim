@@ -1,13 +1,37 @@
-return {
+local cmp = require("cmp")
+local cmp_off = {
+  {
+    "hrsh7th/nvim-cmp",
+    enabled = false,
+  },
+}
+local cmp_on = {
   -- add all opened buffers
   -- override nvim-cmp and add cmp-emoji
   {
     "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
+    keys = {
+      {
+        "<leader>uuc",
+        function()
+          local buf = vim.api.nvim_get_current_buf()
+          if vim.b[buf].cmp_disable then
+            cmp.setup.buffer({ enabled = true })
+            vim.b[buf].cmp_disable = false
+          else
+            cmp.setup.buffer({ enabled = false })
+            vim.b[buf].cmp_disable = true
+          end
+        end,
+        desc = "Toggle Auto Compilation(buffer)",
+      },
+    },
     -- keys = { { "<Tab>", "<C-n>" }, { "<S-Tab>", "<C-p>" } },
-    dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp-signature-help" },
+		-- stylua: ignore
+    dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp-signature-help" ,"hrsh7th/cmp-cmdline"},
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      local cmp = require("cmp")
       opts.sources[4] = {
         name = "buffer",
         option = {
@@ -16,8 +40,77 @@ return {
           end,
         },
       }
+      -- `:` cmdline setup.
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          {
+            name = "cmdline",
+            option = {
+              ignore_cmds = { "Man", "!" },
+            },
+          },
+        }),
+      }) -- `/` cmdline setup.
+      cmp.setup.cmdline("/", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
+        },
+      })
       opts.sources =
         cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" }, { name = "nvim_lsp_signature_help" } }))
+
+      ---tabout and lua snip
+      local luasnip = require("luasnip")
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+            -- they way you will only jump inside the snippet region
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+            -- elseif has_words_before() then
+            --   cmp.complete()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+
+        ------- custom completion ------
+        ["<space>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.confirm()
+            vim.api.nvim_feedkeys(" ", "n", true)
+          else
+            fallback()
+          end
+        end, { "i", "c" }),
+        ["."] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.confirm()
+            vim.api.nvim_feedkeys(".", "n", true)
+          else
+            fallback()
+          end
+        end, { "i" }),
+      })
+
+      ------autopairs
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
   -------------------TabOut
@@ -70,56 +163,10 @@ return {
       return {}
     end,
   },
-  -- -- then: setup supertab in cmp
-  {
-    "echasnovski/mini.pairs",
-    enabled = false,
-  },
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {},
-    config = function(_, opts)
-      require("nvim-autopairs").setup(opts)
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      local cmp = require("cmp")
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-    end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-emoji",
-    },
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-
-      local luasnip = require("luasnip")
-      local cmp = require("cmp")
-      opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-            -- they way you will only jump inside the snippet region
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-            -- elseif has_words_before() then
-            --   cmp.complete()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-      })
-    end,
-  },
 }
+
+if require("pcp.extra").imports.cmp then
+  return cmp_on
+else
+  return cmp_off
+end

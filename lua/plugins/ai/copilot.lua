@@ -40,6 +40,15 @@ if require("pcp.extra").imports.ai then
           group_index = 1,
           priority = 100,
         })
+        vim.keymap.set("n", "<leader>uuC", function()
+          if vim.g.copilot_pcp_disabled then
+            vim.cmd("Copilot enable")
+            vim.g.copilot_pcp_disabled = false
+          else
+            vim.cmd("Copilot disable")
+            vim.g.copilot_pcp_disabled = true
+          end
+        end, { desc = "Toggle Copilot completion" })
       end,
     },
     {

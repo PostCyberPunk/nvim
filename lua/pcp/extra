@@ -4,5 +4,6 @@ M.imports = {
   dap = false,
   fancylsp = false,
   ai = false,
+  doc = false,
 }
 return M

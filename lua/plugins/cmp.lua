@@ -1,4 +1,10 @@
-return {
+local cmp_off = {
+  {
+    "hrsh7th/nvim-cmp",
+    enabled = false,
+  },
+}
+local cmp_on = {
   -- add all opened buffers
   -- override nvim-cmp and add cmp-emoji
   {
@@ -119,3 +125,9 @@ return {
     end,
   },
 }
+
+if require("pcp.extra").imports.cmp then
+  return cmp_on
+else
+  return cmp_off
+end

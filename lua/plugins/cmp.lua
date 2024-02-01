@@ -71,6 +71,24 @@ local cmp_on = {
             fallback()
           end
         end, { "i", "s" }),
+
+        ------- custom completion ------
+        ["<space>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.confirm()
+            vim.api.nvim_feedkeys(" ", "n", true)
+          else
+            fallback()
+          end
+        end, { "i", "c" }),
+        ["."] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.confirm()
+            vim.api.nvim_feedkeys(".", "n", true)
+          else
+            fallback()
+          end
+        end, { "i" }),
       })
 
       ------autopairs

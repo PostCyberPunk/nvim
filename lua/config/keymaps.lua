@@ -85,7 +85,15 @@ vim.keymap.set("n", "<leader>snn", "<cmd>Telescope notify<cr>", { desc = "Show A
 -- end, { desc = "Search Bidirectional" })
 --
 ----------------------------------------------ufo folding
---
+vim.keymap.set("n", "z;", function()
+  local count = vim.v.count1
+  vim.api.nvim_feedkeys("zM", "n", false)
+  local i = 1
+  while i <= count do
+    vim.api.nvim_feedkeys("zr", "n", false)
+    i = i + 1
+  end
+end, { desc = "Fold At level [count]" })
 vim.keymap.set("n", "zp", function()
   local winid = require("ufo").peekFoldedLinesUnderCursor()
   if not winid then

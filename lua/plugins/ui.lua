@@ -100,6 +100,15 @@ return {
         },
         opts = { skip = true },
       })
+      opts.cmdline = {
+        opts = { popupmenu = { backend = cmp } }, -- global options for the cmdline. See section on views
+      }
+      opts.presets = {
+        bottom_search = true,
+        command_palette = false,
+        long_message_to_split = true,
+        inc_rename = true,
+      }
     end,
   },
   {

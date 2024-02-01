@@ -4,7 +4,8 @@ return {
   {
     "hrsh7th/nvim-cmp",
     -- keys = { { "<Tab>", "<C-n>" }, { "<S-Tab>", "<C-p>" } },
-    dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp-signature-help" },
+		-- stylua: ignore
+    dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp-signature-help" ,"hrsh7th/cmp-cmdline"},
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
@@ -16,6 +17,26 @@ return {
           end,
         },
       }
+      -- `:` cmdline setup.
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          {
+            name = "cmdline",
+            option = {
+              ignore_cmds = { "Man", "!" },
+            },
+          },
+        }),
+      }) -- `/` cmdline setup.
+      cmp.setup.cmdline("/", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
+        },
+      })
       opts.sources =
         cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" }, { name = "nvim_lsp_signature_help" } }))
     end,

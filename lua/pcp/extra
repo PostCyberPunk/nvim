@@ -3,5 +3,7 @@ M.imports = {
   unity = false,
   dap = false,
   fancylsp = false,
+  ai = false,
+  doc = false,
 }
 return M

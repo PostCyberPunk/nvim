@@ -29,3 +29,4 @@ git clone https://github.com/postcypunk/LazyVim $env:LOCALAPPDATA\nvim
 git clone https://github.com/postcypunk/LazyVim ~/.config/nvim
 cp ~/.config/nvim/lua/pcp/extra ~/.config/nvim/lua/pcp/extra.lua
 ```
+<!-- TODO: use .git/info/exclude/ for extra.lua at somepoint -->

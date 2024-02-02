@@ -65,11 +65,39 @@ return {
     "beauwilliams/focus.nvim",
     keys = { { "<leader>wa", "<cmd>FocusToggle<cr>", desc = "Focus Split Nicely" } },
     cmd = { "FocusToggle", "FocusSplitCycle", "FocusSplitNicely" },
-    module = "focus",
     config = function(_, opts)
       local focus = require("focus")
       focus.setup(opts)
       focus.focus_disable()
+      ---- disable focus on certain file and buf types
+      local ignore_filetypes = { "neo-tree" }
+      local ignore_buftypes = { "nofile", "prompt", "popup" }
+
+      local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
+
+      vim.api.nvim_create_autocmd("WinEnter", {
+        group = augroup,
+        callback = function(_)
+          if vim.tbl_contains(ignore_buftypes, vim.bo.buftype) then
+            vim.w.focus_disable = true
+          else
+            vim.w.focus_disable = false
+          end
+        end,
+        desc = "Disable focus autoresize for BufType",
+      })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        group = augroup,
+        callback = function(_)
+          if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
+            vim.b.focus_disable = true
+          else
+            vim.b.focus_disable = false
+          end
+        end,
+        desc = "Disable focus autoresize for FileType",
+      })
     end,
   },
   {

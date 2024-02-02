@@ -7,5 +7,6 @@ M.imports = {
   doc = false,
   cmp = true,
   coq = false,
+  rust = false,
 }
 return M

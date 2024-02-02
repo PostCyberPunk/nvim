@@ -86,7 +86,7 @@ if require("pcp.extra").imports.ai then
         { "<leader>cc<cr>", "V<cmd>CCContinue<cr>", mode = { "x", "n" }, desc = "CopilotChat - Continue This line" },
         -- Those are available only on canary branch
         {
-          "<leader>ccV",
+          "<leader>ccv",
           ":CopilotChatVsplitVisual",
           mode = "x",
           desc = "CopilotChat - Open in vertical split",

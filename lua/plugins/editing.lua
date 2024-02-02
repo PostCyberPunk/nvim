@@ -123,6 +123,11 @@ return {
         desc = "Open Yank History",
       },
     },
+    opts = function(_, opts)
+      opts.system_clipboard = {
+        sync_with_ring = false,
+      }
+    end,
   },
 	---- auto  pairs ----
   {

@@ -6,5 +6,6 @@ M.imports = {
   ai = false,
   doc = false,
   cmp = true,
+  coq = false,
 }
 return M

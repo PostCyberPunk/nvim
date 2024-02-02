@@ -129,7 +129,7 @@ return {
       }
     end,
   },
-	---- auto  pairs ----
+  ---- auto  pairs ----
   {
     "echasnovski/mini.pairs",
     enabled = false,
@@ -137,6 +137,11 @@ return {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    opts = {},
+    opts = function(_, opts)
+      if require("pcp.extra").imports.coq then
+        opts.map_bs = false
+        opts.map_cr = false
+      end
+    end,
   },
 }

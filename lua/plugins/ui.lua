@@ -1,14 +1,45 @@
+local mocha = require("catppuccin.palettes").get_palette("mocha")
 return {
   {
     "akinsho/bufferline.nvim",
     keys = {
       { "<leader>b,", "<cmd>BufferLineMovePrev<cr>", desc = "Move BufferLeft" },
       { "<leader>b.", "<cmd>BufferLineMoveNext<cr>", desc = "Move BufferRight" },
-      { "<leader>bg", "<cmd>BufferLinePick<cr>", desc = "Pick Buffer Visually" },
+      { "<leader>bs", "<cmd>BufferLinePick<cr>", desc = "Select Buffer Visually" },
+      { "<leader>bn", "<cmd>enew<cr>", desc = "new Buffer" },
     },
     opts = {
+      highlights = {
+        fill = { bg = mocha.mantle},
+        separator = { fg = mocha.overlay0,bold=true},
+
+        separator_selected = { fg = mocha.mauve, bg = mocha.red, sp = mocha.mauve, underline = true },
+        indicator_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+        buffer_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true, italic = false },
+        close_button_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+
+        hint_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+        hint_diagnostic_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+        info_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+        info_diagnostic_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+        warning_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+        warning_diagnostic_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+        error_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+        modified_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+        error_diagnostic_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+        diagnostic_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+        duplicate_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
+        -- background = { bg = mocha.base },
+        -- close_button = { bg = mocha.base },
+        tab_selected = { fg = mocha.peach, sp = mocha.peach, underline = true },
+      },
       options = {
-        separator_style = "slant",
+        -- separator_style = "padded_slant",
+        separator_style = { "|", "|" },
+        -- indicator = { icon = "", style = "icon" },
+				tab_size=16,
+        indicator = {  style = "none" },
+        buffer_close_icon = "",
         diagnostics = "nvim_lsp",
         diagnostics_update_in_insert = false,
         diagnostics_indicator = function(count, level, diagnostics_dict, context)

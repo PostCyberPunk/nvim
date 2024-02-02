@@ -1,3 +1,4 @@
+local cmp = require("cmp")
 local cmp_off = {
   {
     "hrsh7th/nvim-cmp",
@@ -10,12 +11,27 @@ local cmp_on = {
   {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
+    keys = {
+      {
+        "<leader>uuc",
+        function()
+          local buf = vim.api.nvim_get_current_buf()
+          if vim.b[buf].cmp_disable then
+            cmp.setup.buffer({ enabled = true })
+            vim.b[buf].cmp_disable = false
+          else
+            cmp.setup.buffer({ enabled = false })
+            vim.b[buf].cmp_disable = true
+          end
+        end,
+        desc = "Toggle Auto Compilation(buffer)",
+      },
+    },
     -- keys = { { "<Tab>", "<C-n>" }, { "<S-Tab>", "<C-p>" } },
 		-- stylua: ignore
     dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp-signature-help" ,"hrsh7th/cmp-cmdline"},
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      local cmp = require("cmp")
       opts.sources[4] = {
         name = "buffer",
         option = {

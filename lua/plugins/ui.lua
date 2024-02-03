@@ -10,8 +10,8 @@ return {
     },
     opts = {
       highlights = {
-        fill = { bg = mocha.mantle},
-        separator = { fg = mocha.overlay0,bold=true},
+        fill = { bg = mocha.mantle },
+        separator = { fg = mocha.overlay0, bold = true },
 
         separator_selected = { fg = mocha.mauve, bg = mocha.red, sp = mocha.mauve, underline = true },
         indicator_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
@@ -37,8 +37,8 @@ return {
         -- separator_style = "padded_slant",
         separator_style = { "|", "|" },
         -- indicator = { icon = "", style = "icon" },
-				tab_size=16,
-        indicator = {  style = "none" },
+        tab_size = 16,
+        indicator = { style = "none" },
         buffer_close_icon = "",
         diagnostics = "nvim_lsp",
         diagnostics_update_in_insert = false,

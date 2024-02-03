@@ -66,7 +66,9 @@ return {
           return [[]]
         end
       end
-      local mocha = require("catppuccin.palettes").get_palette("mocha")
+      opts.options.component_separators = { left = "|", right = "|" }
+      opts.options.section_separators = { left = "", right = "" }
+      -- opts.options.section_separators = { left = "", right = "" }
       opts.sections.lualine_c[3].color = { fg = mocha.mauve }
       opts.sections.lualine_x[3].color = { bg = mocha.red }
       -- opts.sections.lualine_c[4] = {
@@ -83,9 +85,10 @@ return {
           modified = { fg = mocha.peach },
           removed = { fg = mocha.red },
           -- TODO
+          separator = "",
         },
       })
-      table.insert(opts.sections.lualine_c, 1, {
+      opts.sections.lualine_x[4] = {
         -- Lsp server name .
         function()
           local msg = "No LSP"
@@ -104,7 +107,8 @@ return {
         end,
         icon = ":",
         color = { fg = mocha.green },
-      })
+        separator = "",
+      }
 
       opts.sections.lualine_x[5] = { "filetype", icon_only = true, separator = "", color = { fg = mocha.peach } }
       opts.sections.lualine_x[6] = { "filesize", separator = "", color = { fg = mocha.green } }

@@ -134,6 +134,7 @@ if require("pcp.extra").imports.ai then
             local status = require("copilot.api").status.data
             return colors[status.status] or colors[""]
           end,
+          separator = "",
         })
       end,
     },

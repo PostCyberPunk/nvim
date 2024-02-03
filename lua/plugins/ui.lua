@@ -10,8 +10,8 @@ return {
     },
     opts = {
       highlights = {
-        fill = { bg = mocha.mantle},
-        separator = { fg = mocha.overlay0,bold=true},
+        fill = { bg = mocha.mantle },
+        separator = { fg = mocha.overlay0, bold = true },
 
         separator_selected = { fg = mocha.mauve, bg = mocha.red, sp = mocha.mauve, underline = true },
         indicator_selected = { bg = mocha.surface0, sp = mocha.mauve, underline = true },
@@ -37,8 +37,8 @@ return {
         -- separator_style = "padded_slant",
         separator_style = { "|", "|" },
         -- indicator = { icon = "", style = "icon" },
-				tab_size=16,
-        indicator = {  style = "none" },
+        tab_size = 16,
+        indicator = { style = "none" },
         buffer_close_icon = "",
         diagnostics = "nvim_lsp",
         diagnostics_update_in_insert = false,
@@ -66,7 +66,13 @@ return {
           return [[]]
         end
       end
-      local mocha = require("catppuccin.palettes").get_palette("mocha")
+      opts.options.component_separators = { left = "|", right = "|" }
+      opts.options.section_separators = { left = "", right = "" }
+      -- opts.options.section_separators = { left = "", right = "" }
+      --    local custom_theme = require("lualine.themes.catppuccin")
+      --    custom_theme.normal.a.bg = mocha.lavender
+      -- opts.options.theme = custom_theme
+
       opts.sections.lualine_c[3].color = { fg = mocha.mauve }
       opts.sections.lualine_x[3].color = { bg = mocha.red }
       -- opts.sections.lualine_c[4] = {
@@ -83,9 +89,10 @@ return {
           modified = { fg = mocha.peach },
           removed = { fg = mocha.red },
           -- TODO
+          separator = "",
         },
       })
-      table.insert(opts.sections.lualine_c, 1, {
+      opts.sections.lualine_x[4] = {
         -- Lsp server name .
         function()
           local msg = "No LSP"
@@ -104,7 +111,8 @@ return {
         end,
         icon = ":",
         color = { fg = mocha.green },
-      })
+        separator = "",
+      }
 
       opts.sections.lualine_x[5] = { "filetype", icon_only = true, separator = "", color = { fg = mocha.peach } }
       opts.sections.lualine_x[6] = { "filesize", separator = "", color = { fg = mocha.green } }

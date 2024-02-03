@@ -97,7 +97,7 @@ local cmp_on = {
           else
             fallback()
           end
-        end, { "i", "c" }),
+        end, { "c" }),
         ["."] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.confirm()

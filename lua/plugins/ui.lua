@@ -69,6 +69,10 @@ return {
       opts.options.component_separators = { left = "|", right = "|" }
       opts.options.section_separators = { left = "", right = "" }
       -- opts.options.section_separators = { left = "", right = "" }
+      --    local custom_theme = require("lualine.themes.catppuccin")
+      --    custom_theme.normal.a.bg = mocha.lavender
+      -- opts.options.theme = custom_theme
+
       opts.sections.lualine_c[3].color = { fg = mocha.mauve }
       opts.sections.lualine_x[3].color = { bg = mocha.red }
       -- opts.sections.lualine_c[4] = {

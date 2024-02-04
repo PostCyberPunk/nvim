@@ -10,7 +10,7 @@ return {
     },
     opts = {
       highlights = {
-        -- fill = { bg = mocha.mantle },
+        fill = { bg = mocha.mantle },
         separator = { fg = mocha.overlay0, bold = true },
 
         separator_selected = { fg = mocha.mauve, bg = mocha.red, sp = mocha.mauve, underline = true },
@@ -32,8 +32,6 @@ return {
         -- background = { bg = mocha.base },
         -- close_button = { bg = mocha.base },
         tab_selected = { fg = mocha.peach, sp = mocha.peach, underline = true },
-        tab_separator = { fg = mocha.mantle },
-        tab_separator_selected = { fg = mocha.mantle },
       },
       options = {
         -- separator_style = "padded_slant",

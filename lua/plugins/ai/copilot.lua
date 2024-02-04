@@ -59,11 +59,6 @@ if require("pcp.extra").imports.ai then
         mode = "split", -- newbuffer or split, default: newbuffer
         show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
         prompts = {
-          Neovim = "In Neovim.",
-          Help = "Help me with this.",
-          Shell = "Write a shell scipt for me.",
-          Optimize = "Optimize the code to improve perfomance.",
-          Review = "Review the following code and provide concise suggestions.",
           Continue = ",",
         },
       },
@@ -74,20 +69,15 @@ if require("pcp.extra").imports.ai then
         end, 3000)
       end,
       event = "VeryLazy",
-      keys = {
-        { "<leader>cce", "<cmd>CCExplain<cr>", mode = { "x", "n" }, desc = "CopilotChat - Explain code" },
-        { "<leader>cct", "<cmd>CCTests<cr>", mode = { "x", "n" }, desc = "CopilotChat - Generate tests" },
-        { "<leader>ccn", "<cmd>CCNeovim<cr>", mode = { "x", "n" }, desc = "CopilotChat - Ask about neovim" },
-        { "<leader>cch", "<cmd>CCHelp<cr>", mode = { "x", "n" }, desc = "CopilotChat - Help" },
-        { "<leader>ccs", "<cmd>CCShell<cr>", mode = { "x", "n" }, desc = "CopilotChat - Write shell script" },
-        { "<leader>cco", "<cmd>CCOptimize<cr>", mode = { "x", "n" }, desc = "CopilotChat - Optimize" },
-        { "<leader>ccr", "<cmd>CCReview<cr>", mode = { "x", "n" }, desc = "CopilotChat - Review" },
-        { "<leader>ccc", "<cmd>CCContinue<cr>", mode = { "x", "n" }, desc = "CopilotChat - Continue" },
-        { "<leader>cc<cr>", "V<cmd>CCContinue<cr>", mode = { "x", "n" }, desc = "CopilotChat - Continue This line" },
+			-- stylua: ignore
+      keys =
+				function()
+					local keybinds={
+        { "<leader>cc<cr>", "V<cmd>CopilotChatVisualContinue<cr>", mode = { "x", "n" }, desc = "CopilotChat - Continue This line" },
         -- Those are available only on canary branch
         {
           "<leader>ccv",
-          ":CopilotChatVsplitVisual",
+          ":CopilotChatVisual",
           mode = "x",
           desc = "CopilotChat - Open in vertical split",
         },
@@ -96,8 +86,22 @@ if require("pcp.extra").imports.ai then
           ":CopilotChatInPlace<cr>",
           mode = "x",
           desc = "CopilotChat - Run in-place code",
-        },
-      },
+        },}
+					local my_prompts = {
+						{prompt = "In Neovim.",desc = "Neovim",key = "n"},
+						{prompt = "Help with this",desc = "Help",key = "h"},
+						{prompt = "Simplify and imporve readablilty",desc = "Simplify",key = "s"},
+						{prompt = "Optimize the code to improve perfomance and readablilty.",desc = "Optimize",key = "o"},
+						{prompt = "Find possible errors and fix them for me",desc = "Fix",key = "f"},
+						{prompt = "Explain in detail",desc = "Explain",key = "e"},
+						{prompt = "Write a shell scirpt",desc = "Shell",key = "S"},
+					}
+					for _,v in pairs(my_prompts) do
+						table.insert(keybinds,{ "<leader>cc"..v.key, ":CopilotChatVisual "..v.prompt.."<cr>", mode = "x", desc = "CopilotChat - "..v.desc })
+						table.insert(keybinds,{ "<leader>cc"..v.key, "<cmd>CopilotChat "..v.prompt.."<cr>", desc = "CopilotChat - "..v.desc })
+					end
+					return keybinds
+				end,
     },
     {
       "nvim-lualine/lualine.nvim",

@@ -98,14 +98,14 @@ local cmp_on = {
             fallback()
           end
         end, { "c" }),
-        ["."] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.confirm()
-            vim.api.nvim_feedkeys(".", "n", true)
-          else
-            fallback()
-          end
-        end, { "i" }),
+        -- ["."] = cmp.mapping(function(fallback)
+        --   if cmp.visible() then
+        --     cmp.confirm()
+        --     vim.api.nvim_feedkeys(".", "n", true)
+        --   else
+        --     fallback()
+        --   end
+        -- end, { "i" }),
       })
 
       ------autopairs

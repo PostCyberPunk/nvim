@@ -47,13 +47,13 @@ return {
         status = {
           ["K"] = "GoToPreviousHunkHeader",
           ["J"] = "GoToNextHunkHeader",
-          ["R"] = "RefreshBuffer"
+          ["R"] = "RefreshBuffer",
         },
       },
     },
     config = true,
   },
-------diffview
+  ------diffview
   {
     "sindrets/diffview.nvim",
     cmd = {

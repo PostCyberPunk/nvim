@@ -54,6 +54,13 @@ return {
         end,
         desc = "Term exec clipboard",
       },
+      {
+        "<leader>tcr",
+        function()
+          require("toggleterm").exec("cargo run")
+        end,
+        desc = "Term - cargo run",
+      },
       { "<leader>tcc", "<cmd>ToggleTermSendVisualSelection<cr>", mode = { "x" }, desc = "Term exec Current Selection" },
     },
     opts = {

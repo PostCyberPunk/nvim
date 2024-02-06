@@ -62,6 +62,7 @@ return {
         desc = "Term - cargo run",
       },
       { "<leader>tcc", "<cmd>ToggleTermSendVisualSelection<cr>", mode = { "x" }, desc = "Term exec Current Selection" },
+      { "<leader>tr", ":Translate<cr>", mode = "x", desc = "Translate" },
     },
     opts = {
       size = function(term)

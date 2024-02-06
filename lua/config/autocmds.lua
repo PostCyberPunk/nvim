@@ -55,3 +55,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
+vim.api.nvim_create_user_command("Translate", function()
+  local selected = require("utils").get_selected_text()
+  local _cmd = "trans -b '" .. selected .. "'|bat --paging=always"
+  local opts = { cmd = _cmd, tid = "trans", hidden = true, size = 40, direction = "float" }
+  local term = require("toggleterm.terminal").Terminal:new(opts)
+  term:toggle()
+end, { range = true })

@@ -15,7 +15,7 @@ vim.keymap.set({ "n", "x" }, "gh", vim.lsp.buf.hover, { desc = "Hover" })
 -------------- Copy and Paste
 vim.keymap.set("n", "<leader><c-a>", "gg<s-v>G", { desc = "Select All" })
 vim.keymap.set({ "n", "x" }, "<c-v>", '"+p', { desc = "Paste(system)" })
--- vim.keymap.set({ "i" }, "<c-v>", "<c-r>+", { desc = "Paste(system)" })
+vim.keymap.set({ "i" }, "<c-v>", "<c-r>+", { desc = "Paste(system)" })
 vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste(system)" })
 vim.keymap.set({ "n", "x" }, "<leader>P", '"+P', { desc = "Paste(system) Before" })
 vim.keymap.set("x", "Y", '"+y', { desc = "Copy(system)" })

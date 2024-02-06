@@ -48,7 +48,7 @@ end, { desc = "auto close other buffer" })
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("user_close_with_q"),
   pattern = {
-    "dap-float"
+    "dap-float",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false

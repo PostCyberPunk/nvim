@@ -4,7 +4,9 @@ return {
   { "lukas-reineke/indent-blankline.nvim", enabled = false },
   --- hl chunk
   {
-    "shellRaining/hlchunk.nvim",
+    -- "shellRaining/hlchunk.nvim",
+    dir = "~/Repos/hlchunk.nvim",
+    -- enabled = true,
     keys = {
       -- { "<leader>uuH", "<cmd>EnableHL<CR>", desc = "EnableHL" },
       -- { "<leader>uuh", "<cmd>DisableHL<CR>", desc = "DisableHL" },
@@ -24,6 +26,12 @@ return {
     },
     event = { "UIEnter" },
     config = function(_, opts)
+      local line_count = 1000
+      opts.blank = { choke_at_linecount = line_count }
+      opts.chunk = { choke_at_linecount = line_count }
+      opts.indent = { choke_at_linecount = line_count }
+      opts.blank = { choke_at_linecount = line_count }
+      opts.line_num = { choke_at_linecount = line_count }
       require("hlchunk").setup(opts)
     end,
   },

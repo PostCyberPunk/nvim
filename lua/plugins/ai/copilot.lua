@@ -73,8 +73,16 @@ if require("pcp.extra").imports.ai then
       keys =
 				function()
 					local keybinds={
-        { "<leader>cc<cr>", "V<cmd>CopilotChatVisualContinue<cr>", mode = { "x", "n" }, desc = "CopilotChat - Continue This line" },
-        -- Those are available only on canary branch
+        { "<leader>cc<cr>", "V<cmd>CopilotChatVisua<cr>", mode = { "x", "n" }, desc = "CopilotChat - Ask This line" },
+			-- Create input for CopilotChat
+				{ "<leader>cci", function()
+						local input = vim.fn.input("Ask Copilot: ")
+						if input ~= "" then
+							vim.cmd("CopilotChat " .. input)
+						end
+					end,
+					desc = "CopilotChat - Ask input",
+				},
         {
           "<leader>ccv",
           ":CopilotChatVisual",

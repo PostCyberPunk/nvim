@@ -7,6 +7,11 @@ return {
         -- search = { enabled = false },
         char = { jump_labels = true, multi_line = false },
       }
+      opts.label = {
+				current = false,
+        after = false,
+				before = {0,0,1},
+      }
       -- opts.char.jump_labels= true
     end,
   },

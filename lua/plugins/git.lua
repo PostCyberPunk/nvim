@@ -82,8 +82,15 @@ return {
             layout = "diff2_vertical",
           },
         },
+        keymaps = {
+          file_panel = {
+            { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+          },
+          file_history_panel = {
+            { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+          },
+        },
       })
     end,
   },
-
 }

@@ -35,7 +35,13 @@ function M.toggle_term_cmd(opts)
   -- toggle the terminal
   terms[opts.cmd][num]:toggle()
 end
-
+function M.ask_term_run()
+  local input = vim.fn.input("Term arg: ")
+  if input ~= "" then
+    vim.g.term_run = input
+    require("toggleterm").exec(input)
+  end
+end
 -----------------------notify-
 function M.notify(msg, type, opts)
   vim.schedule(function()

@@ -1,3 +1,4 @@
+local utils = require("utils")
 return {
   -----------Telescope
   {
@@ -61,7 +62,30 @@ return {
         end,
         desc = "Term - cargo run",
       },
-      { "<leader>tcc", "<cmd>ToggleTermSendVisualSelection<cr>", mode = { "x" }, desc = "Term exec Current Selection" },
+      {
+        "<leader>tcc",
+        function()
+          if vim.g.term_run then
+            require("toggleterm").exec(vim.g.term_run)
+          else
+            utils.ask_term_run()
+          end
+        end,
+        desc = "Term - Run input",
+      },
+      {
+        "<leader>tcC",
+        function()
+          utils.ask_term_run()
+        end,
+        desc = "Term - Set input",
+      },
+      {
+        "<leader>tc<cr>",
+        "<cmd>ToggleTermSendVisualSelection<cr>",
+        mode = { "x" },
+        desc = "Term exec Current Selection",
+      },
       { "<leader>tr", ":Translate<cr>", mode = "x", desc = "Translate" },
     },
     opts = {

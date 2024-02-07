@@ -13,7 +13,7 @@ opt.expandtab = false
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldenable = false
-vim.g.autoformat = false
+vim.g.autoformat = true
 vim.g.python3_host_prog = "~/.mlib/pynvim/bin/python3"
 -----------setup default term = powershell
 if (vim.fn.has("win32")==1) then

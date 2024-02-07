@@ -30,6 +30,7 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    flavour = "mocha",
     opts = {
       dim_inactive = {
         enabled = false,

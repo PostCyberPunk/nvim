@@ -36,7 +36,7 @@ return {
     "hrsh7th/nvim-cmp",
     lazy = false,
 		-- stylua: ignore
-    dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-buffer" ,"hrsh7th/cmp-cmdline"},
+    dependencies = {"hrsh7th/cmp-buffer" ,"hrsh7th/cmp-cmdline"},
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })

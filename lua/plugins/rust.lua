@@ -46,7 +46,7 @@ local m_rust_ace = {
 
   {
     "mrcjkb/rustaceanvim",
-    version = "^3", -- Recommended
+    version = "^4", -- Recommended
     ft = { "rust" },
     opts = {
       server = {

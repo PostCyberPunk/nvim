@@ -1,8 +1,7 @@
 return {
   -------------neogit
   {
-    -- "NeogitOrg/neogit",
-    dir = "~/Repos/neogit/",
+    "NeogitOrg/neogit",
     keys = {
       { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Neogit Commit", { noremap = true, silent = false } },
       { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit", { noremap = true, silent = true } },

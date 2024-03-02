@@ -54,7 +54,6 @@ return {
         end,
       },
     },
-    config = true,
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -140,7 +139,7 @@ return {
         opts = { skip = true },
       })
       opts.cmdline = {
-        opts = { popupmenu = { backend = cmp } }, -- global options for the cmdline. See section on views
+        opts = { popupmenu = { backend = "cmp" } }, -- global options for the cmdline. See section on views
       }
       opts.presets = {
         bottom_search = true,

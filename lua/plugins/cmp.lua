@@ -32,7 +32,7 @@ local cmp_on = {
     dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp-signature-help" ,"hrsh7th/cmp-cmdline"},
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      opts.sources[4] = {
+      opts.sources[3] = {
         name = "buffer",
         option = {
           get_bufnrs = function()
@@ -116,9 +116,13 @@ local cmp_on = {
   -------------------TabOut
   {
     "abecodes/tabout.nvim",
-    -- dependencies = { "nvim-treesitter", "nvim-cmp" },
-    wants = { "nvim-treesitter" },
-    after = { "nvim-cmp" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "L3MON4D3/LuaSnip",
+      "hrsh7th/nvim-cmp",
+    },
+    event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
+    priority = 1000,
     config = function()
       require("tabout").setup({
         tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
@@ -148,19 +152,13 @@ local cmp_on = {
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   {
     "L3MON4D3/LuaSnip",
-    dependencies = {
-      {
-        "rafamadriz/friendly-snippets",
-        config = function()
-          if require("pcp.extra").imports.unity then
-            require("luasnip").filetype_extend("cs", { "unity" })
-          end
-          require("luasnip.loaders.from_vscode").lazy_load()
-        end,
-      },
-    },
     keys = function()
       return {}
+    end,
+    config = function(_, opts)
+      if require("pcp.extra").imports.unity then
+        require("luasnip").filetype_extend("cs", { "unity" })
+      end
     end,
   },
 }

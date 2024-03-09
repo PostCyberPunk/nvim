@@ -2,7 +2,7 @@ if require("pcp.extra").imports.dap then
   return {
     {
       "mfussenegger/nvim-dap",
-      config = function(_, opts)
+      opts = function(_, opts)
         local dap = require("dap")
         -- old unity debugger
         dap.adapters.unity = {

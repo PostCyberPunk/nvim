@@ -1,4 +1,4 @@
-if require("pcp.extra").imports.dap then
+if require("pcp.extra").imports.unity then
   return {
     {
       "mfussenegger/nvim-dap",
@@ -8,6 +8,7 @@ if require("pcp.extra").imports.dap then
         dap.adapters.unity = {
           type = "executable",
           command = "/usr/bin/mono",
+          -- FIX: use the correct path for the UnityDebug.exe
           args = { os.getenv("HOME") .. "/.vscode/extensions/deitry.unity-debug-3.0.11/bin/UnityDebug.exe" },
         }
         dap.configurations.cs = {

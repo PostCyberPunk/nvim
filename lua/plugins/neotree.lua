@@ -7,66 +7,72 @@ return {
     ---lazykeys
     keys = { { "<leader>E", "<cmd>Neotree reveal<CR>", desc = "Explorer NeoTree Focus" } },
     --config
-    config = function()
-      require("neo-tree").setup({
-        close_if_last_window = true,
-        source_selector = {
-          winbar = true,
-          statusline = true,
-        },
-        window = {
-          mappings = {
-            --Navigation with HJKL
-            ["h"] = function(state)
-              local node = state.tree:get_node()
-              if node.type == "directory" and node:is_expanded() then
+    opts = function(_, opts)
+      opts.close_if_last_window = true
+      opts.source_selector = {
+        winbar = true,
+        statusline = true,
+      }
+      opts.window = {
+        mappings = {
+          --Navigation with HJKL
+          ["h"] = function(state)
+            local node = state.tree:get_node()
+            if node.type == "directory" and node:is_expanded() then
+              require("neo-tree.sources.filesystem").toggle_directory(state, node)
+            else
+              require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
+            end
+          end,
+          ["l"] = function(state)
+            local node = state.tree:get_node()
+            if node.type == "directory" then
+              if not node:is_expanded() then
                 require("neo-tree.sources.filesystem").toggle_directory(state, node)
-              else
-                require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
+              elseif node:has_children() then
+                require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1])
               end
-            end,
-            ["l"] = function(state)
-              local node = state.tree:get_node()
-              if node.type == "directory" then
-                if not node:is_expanded() then
-                  require("neo-tree.sources.filesystem").toggle_directory(state, node)
-                elseif node:has_children() then
-                  require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1])
-                end
-              else
-                state.commands["open"](state)
-                vim.cmd("Neotree close")
-              end
-            end,
-            ["<tab>"] = function(state)
+            else
               state.commands["open"](state)
-              vim.cmd("Neotree reveal")
-            end,
-            ["<cr>"] = function(state)
-              local node = state.tree:get_node()
-              if node.type == "directory" then
-                if not node:is_expanded() then
-                  require("neo-tree.sources.filesystem").toggle_directory(state, node)
-                end
-              else
-                state.commands["open"](state)
-                vim.cmd("Neotree close")
+              vim.cmd("Neotree close")
+            end
+          end,
+          ["<tab>"] = function(state)
+            state.commands["open"](state)
+            vim.cmd("Neotree reveal")
+          end,
+          ["<cr>"] = function(state)
+            local node = state.tree:get_node()
+            if node.type == "directory" then
+              if not node:is_expanded() then
+                require("neo-tree.sources.filesystem").toggle_directory(state, node)
               end
+            else
+              state.commands["open"](state)
+              vim.cmd("Neotree close")
+            end
+          end,
+          ["i"] = "open",
+          ["s"] = "",
+          ["O"] = "open_vsplit",
+          ["Y"] = {
+            function(state)
+              local node = state.tree:get_node()
+              local path = node:get_id()
+              vim.fn.setreg("+", path, "c")
             end,
-            ["i"] = "open",
-            ["s"] = "",
-            ["O"] = "open_vsplit",
+            desc = "copy path to clipboard",
           },
         },
-        filesystem = {
-          filtered_items = {
-            hide_by_pattern = { -- uses glob style patterns
-              "*.meta",
-              "*/src/*/tsconfig.json",
-            },
+      }
+      opts.filesystem = {
+        filtered_items = {
+          hide_by_pattern = { -- uses glob style patterns
+            "*.meta",
+            "*/src/*/tsconfig.json",
           },
         },
-      })
+      }
     end,
   },
   {

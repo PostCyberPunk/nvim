@@ -104,8 +104,17 @@ return {
       },
       {
         "<leader>tc<cr>",
-        "<cmd>ToggleTermSendVisualSelection<cr>",
-        mode = { "x" },
+        function()
+          local mode = vim.api.nvim_get_mode().mode
+          if mode == "n" then
+            vim.cmd("'<','>ToggleTermSendVisualSelection")
+          else
+            if mode == "V" then
+              vim.cmd("'<,'>ToggleTermSendVisualLines")
+            end
+          end
+        end,
+        mode = { "v" },
         desc = "Term exec Current Selection",
       },
       {

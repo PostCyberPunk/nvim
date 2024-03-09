@@ -56,6 +56,15 @@ return {
         desc = "Term exec clipboard",
       },
       {
+        "<leader>tcY",
+        function()
+          local cp = vim.fn.getreg("+")
+          vim.g.term_run = cp
+          require("toggleterm").exec(cp)
+        end,
+        desc = "Term exec clipboard",
+      },
+      {
         "<leader>tcr",
         function()
           require("toggleterm").exec("cargo run")

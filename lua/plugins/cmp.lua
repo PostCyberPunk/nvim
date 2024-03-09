@@ -148,19 +148,13 @@ local cmp_on = {
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   {
     "L3MON4D3/LuaSnip",
-    dependencies = {
-      {
-        "rafamadriz/friendly-snippets",
-        config = function()
-          if require("pcp.extra").imports.unity then
-            require("luasnip").filetype_extend("cs", { "unity" })
-          end
-          require("luasnip.loaders.from_vscode").lazy_load()
-        end,
-      },
-    },
     keys = function()
       return {}
+    end,
+    config = function(_, opts)
+      if require("pcp.extra").imports.unity then
+        require("luasnip").filetype_extend("cs", { "unity" })
+      end
     end,
   },
 }

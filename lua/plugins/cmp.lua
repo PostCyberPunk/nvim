@@ -98,6 +98,16 @@ local cmp_on = {
             fallback()
           end
         end, { "c" }),
+        ["<CR>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.confirm({ select = true })
+            if vim.fn.mode() == "c" then
+              vim.api.nvim_feedkeys("\n", "n", true)
+            end
+          else
+            fallback()
+          end
+        end, { "c", "i" }),
         -- ["."] = cmp.mapping(function(fallback)
         --   if cmp.visible() then
         --     cmp.confirm()

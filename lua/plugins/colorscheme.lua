@@ -30,8 +30,8 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    flavour = "mocha",
     opts = {
+      flavour = "mocha",
       dim_inactive = {
         enabled = false,
         shade = "dark",

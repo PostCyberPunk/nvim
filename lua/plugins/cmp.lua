@@ -108,6 +108,20 @@ local cmp_on = {
             fallback()
           end
         end, { "c", "i" }),
+        ["<Up>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            fallback()
+          end
+        end, { "c", "i" }),
+        ["<Down>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            fallback()
+          end
+        end, { "c", "i" }),
         -- ["."] = cmp.mapping(function(fallback)
         --   if cmp.visible() then
         --     cmp.confirm()

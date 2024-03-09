@@ -108,6 +108,11 @@ return {
         mode = { "x" },
         desc = "Term exec Current Selection",
       },
+      {
+        "<leader>tc<cr>",
+        "<cmd>ToggleTermSendCurrentLine<cr>",
+        desc = "Term exec Current Line",
+      },
       { "<leader>tr", ":Translate<cr>", mode = "x", desc = "Translate" },
     },
     opts = {

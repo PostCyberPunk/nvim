@@ -32,7 +32,7 @@ local cmp_on = {
     dependencies = { "hrsh7th/cmp-emoji", "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp-signature-help" ,"hrsh7th/cmp-cmdline"},
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      opts.sources[4] = {
+      opts.sources[3] = {
         name = "buffer",
         option = {
           get_bufnrs = function()

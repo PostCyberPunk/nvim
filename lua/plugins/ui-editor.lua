@@ -5,7 +5,8 @@ return {
   --- hl chunk
   {
     -- "shellRaining/hlchunk.nvim",
-    dir = "~/Repos/hlchunk.nvim",
+    "postcyberpunk/hlchunk.nvim",
+    -- dir = "~/Repos/hlchunk.nvim",
     -- enabled = true,
     keys = {
       -- { "<leader>uuH", "<cmd>EnableHL<CR>", desc = "EnableHL" },

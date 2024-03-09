@@ -116,9 +116,13 @@ local cmp_on = {
   -------------------TabOut
   {
     "abecodes/tabout.nvim",
-    -- dependencies = { "nvim-treesitter", "nvim-cmp" },
-    wants = { "nvim-treesitter" },
-    after = { "nvim-cmp" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "L3MON4D3/LuaSnip",
+      "hrsh7th/nvim-cmp",
+    },
+    event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
+    priority = 1000,
     config = function()
       require("tabout").setup({
         tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable

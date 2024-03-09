@@ -90,6 +90,19 @@ return {
         desc = "Term - Set input",
       },
       {
+        "<leader>tcc",
+        function()
+          local tt = require("toggleterm")
+          local selected = require("utils").get_selected_text()
+          if selected then
+            vim.g.term_run = selected
+            tt.exec(selected)
+          end
+        end,
+        mode = { "v" },
+        desc = "Term exec Current Selection(set)",
+      },
+      {
         "<leader>tc<cr>",
         "<cmd>ToggleTermSendVisualSelection<cr>",
         mode = { "x" },

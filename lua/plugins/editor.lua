@@ -103,6 +103,14 @@ return {
         desc = "Term exec Current Selection(set)",
       },
       {
+        "<leader>tcl",
+        function()
+          local cmd = vim.fn.system("history | head -n 1")
+          require("toggleterm").exec(cmd)
+        end,
+        desc = "Term exec last fish command",
+      },
+      {
         "<leader>tc<cr>",
         function()
           local mode = vim.api.nvim_get_mode().mode

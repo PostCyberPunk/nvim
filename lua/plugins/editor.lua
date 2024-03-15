@@ -111,6 +111,25 @@ return {
         desc = "Term exec last fish command",
       },
       {
+        "<leader>tcj",
+        function()
+          local current_directory = vim.fn.getcwd()
+          local termrun_file = current_directory .. "/.termrun"
+
+          -- Check if the file exists
+          local file = io.open(termrun_file, "r")
+          if file then
+            -- If the file exists, read the first line
+            local first_line = file:read("*l")
+            file:close()
+            require("toggleterm").exec(first_line)
+          else
+            print(".termrun file not found")
+          end
+        end,
+        desc = "Term exec last fish command",
+      },
+      {
         "<leader>tc<cr>",
         function()
           local mode = vim.api.nvim_get_mode().mode

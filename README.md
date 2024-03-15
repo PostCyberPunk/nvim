@@ -1,7 +1,3 @@
-# 💤 LazyVim
-
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
 
 ## Back up
 ### windows
@@ -22,11 +18,11 @@ mv ~/.cache/nvim{,.bak}
 ## Installl
 ### windows
 ```sh
-git clone https://github.com/postcypunk/LazyVim $env:LOCALAPPDATA\nvim
+git clone https://github.com/postcyberpunk/nvim $env:LOCALAPPDATA\nvim
 ```
 ### linux
 ```sh
-git clone https://github.com/postcypunk/LazyVim ~/.config/nvim
+git clone https://github.com/postcyberpunk/nvim ~/.config/nvim
 cp ~/.config/nvim/lua/pcp/extra ~/.config/nvim/lua/pcp/extra.lua
 ```
 <!-- TODO: use .git/info/exclude/ for extra.lua at somepoint -->

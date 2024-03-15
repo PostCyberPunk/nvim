@@ -111,6 +111,15 @@ return {
         desc = "Term exec last fish command",
       },
       {
+        "<leader>tcL",
+        function()
+          local cmd = vim.fn.system("history | head -n 1")
+          require("toggleterm").exec(cmd)
+          vim.g.term_run = cmd
+        end,
+        desc = "Term exec last fish command",
+      },
+      {
         "<leader>tcj",
         function()
           local current_directory = vim.fn.getcwd()

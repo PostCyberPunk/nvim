@@ -5,7 +5,8 @@ if require("pcp.extra").imports.fancylsp then
       init = function()
         local keys = require("lazyvim.plugins.lsp.keymaps").get()
         -- change a keymap
-        keys[1] = { "<leader>cL", "<cmd>LspInfo<cr>", desc = "Lsp Info" }
+        -- keys[1] = { "<leader>cL", "<cmd>LspInfo<cr>", desc = "Lsp Info" }
+        keys[1] = { "<leader>cL", false }
         keys[#keys + 1] = { "gr", false }
         keys[#keys + 1] = { "gi", false }
         keys[#keys + 1] = { "gd", false }
@@ -15,7 +16,7 @@ if require("pcp.extra").imports.fancylsp then
     },
     {
       "VidocqH/lsp-lens.nvim",
-      keys = { { "<leader>cl", "<cmd>LspLensToggle<cr>", desc = "Toggle LspLens" } },
+      keys = { { "<leader>cL", "<cmd>LspLensToggle<cr>", desc = "Toggle LspLens" } },
       opts = {
         sections = {
           enable = false,

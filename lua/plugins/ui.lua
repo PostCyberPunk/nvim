@@ -164,6 +164,7 @@ return {
         ["<leader>f"] = { name = "󰜏 file/find" },
         ["<leader>x"] = { name = " Diagnosing" },
         ["<leader>c"] = { name = " Coding" },
+        ["<leader>cl"] = { name = " LSP" },
         ["<leader>u"] = { name = " UI" },
         ["<leader>b"] = { name = "󰓩 Buffers" },
         ["<leader>w"] = { name = "󰨡 Windows" },

@@ -116,3 +116,8 @@ vim.keymap.set("n", "<leader>tr", function()
   local col = vim.fn.virtcol(".")
   vim.cmd("!rider --line " .. line .. " --column " .. col .. " %")
 end, { silent = true, desc = "Open With Rider" })
+-------------LSP CONTROL----------
+vim.keymap.set("n", "<leader>clq", "<cmd>LspStop<cr>", { silent = true, desc = "LSP Stop" })
+vim.keymap.set("n", "<leader>clg", "<cmd>LspStart<cr>", { silent = true, desc = "LSP Start" })
+vim.keymap.set("n", "<leader>cli", "<cmd>LspInfo<cr>", { silent = true, desc = "LSP Info" })
+vim.keymap.set("n", "<leader>cll", "<cmd>LspLog<cr>", { silent = true, desc = "LSP Log" })

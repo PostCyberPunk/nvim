@@ -4,9 +4,9 @@ if require("pcp.extra").imports.unity then
       dir = "~/Repos/UniVim.nvim",
       ft = "cs",
       keys = {
-        { "<leader>UU", "<cmd>UnivimQutiPlayMode<cr>", desc = "Unity enter play Mode" },
-        { "<leader>UQ", "<cmd>UnivimQutiPlayMode<cr>", desc = "Unity quit play Mode" },
-        { "<leader>UP", "<cmd>UnivimPausePlayMode<cr>", desc = "Unity quit play Mode" },
+        { "<leader>UU", "<cmd>UnivimEnterPlayMode<cr>", desc = "Unity Enter Play Mode" },
+        { "<leader>UQ", "<cmd>UnivimQutiPlayMode<cr>", desc = "Unity Quit Play Mode" },
+        { "<leader>UP", "<cmd>UnivimPausePlayMode<cr>", desc = "Unity Pause Play Mode" },
       },
       config = true,
     },

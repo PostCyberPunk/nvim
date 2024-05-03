@@ -13,7 +13,7 @@ local cmp_on = {
     event = { "InsertEnter", "CmdlineEnter" },
     keys = {
       {
-        "<leader>uuc",
+        "<leader>uuC",
         function()
           local buf = vim.api.nvim_get_current_buf()
           if vim.b[buf].cmp_disable then

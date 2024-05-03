@@ -40,7 +40,7 @@ if require("pcp.extra").imports.ai then
           group_index = 1,
           priority = 100,
         })
-        vim.keymap.set("n", "<leader>uuC", function()
+        vim.keymap.set("n", "<leader>uuc", function()
           if vim.g.copilot_pcp_disabled then
             vim.cmd("Copilot enable")
             vim.g.copilot_pcp_disabled = false

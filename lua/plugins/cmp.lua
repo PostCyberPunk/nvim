@@ -40,6 +40,9 @@ local cmp_on = {
           end,
         },
       }
+      opts.experimental = {
+        ghost_text = false,
+      }
       -- `:` cmdline setup.
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),

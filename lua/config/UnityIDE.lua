@@ -11,6 +11,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.api.nvim_create_user_command("UnityStart", function()
       vim.cmd("echo serverstart('/tmp/univimIDE')")
       vim.g.autoformat = true
+      vim.cmd([[autocmd BufWritePost *.cs UnivimCompile]])
     end, { desc = "Start UnityIDE" })
 
     vim.api.nvim_create_user_command("HyprFocusMe", function()

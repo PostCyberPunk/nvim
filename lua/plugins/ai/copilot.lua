@@ -4,43 +4,27 @@ if require("pcp.extra").imports.ai then
       "zbirenbaum/copilot.lua",
       cmd = "Copilot",
       build = ":Copilot auth",
+      -- event = { "InsertEnter" },
+      lazy = false,
       opts = {
-        suggestion = { enabled = false },
-        panel = { enabled = false },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          keymap = {
+            accept = "<C-l>",
+            dismiss = "<M-e>",
+          },
+        },
+        panel = { enabled = true },
         filetypes = {
           markdown = true,
           help = true,
         },
       },
-    },
-    {
-      "nvim-cmp",
-      dependencies = {
-        {
-          "zbirenbaum/copilot-cmp",
-          dependencies = "copilot.lua",
-          opts = {},
-          config = function(_, opts)
-            local copilot_cmp = require("copilot_cmp")
-            copilot_cmp.setup(opts)
-            -- attach cmp source whenever copilot attaches
-            -- fixes lazy-loading issues with the copilot cmp source
-            require("lazyvim.util").lsp.on_attach(function(client)
-              if client.name == "copilot" then
-                copilot_cmp._on_insert_enter({})
-              end
-            end)
-          end,
-        },
-      },
-      ---@param opts cmp.ConfigSchema
-      opts = function(_, opts)
-        table.insert(opts.sources, 4, {
-          name = "copilot",
-          group_index = 1,
-          priority = 100,
-        })
-        vim.keymap.set("n", "<leader>uuC", function()
+      config = function(_, opts)
+        --TODO: toggle cmp ghost text here
+        require("copilot").setup(opts)
+        vim.keymap.set("n", "<leader>uuc", function()
           if vim.g.copilot_pcp_disabled then
             vim.cmd("Copilot enable")
             vim.g.copilot_pcp_disabled = false
@@ -51,6 +35,44 @@ if require("pcp.extra").imports.ai then
         end, { desc = "Toggle Copilot completion" })
       end,
     },
+    -- {
+    --   "nvim-cmp",
+    --   dependencies = {
+    --     {
+    --       "zbirenbaum/copilot-cmp",
+    --       dependencies = "copilot.lua",
+    --       opts = {},
+    --       config = function(_, opts)
+    --         local copilot_cmp = require("copilot_cmp")
+    --         copilot_cmp.setup(opts)
+    --         -- attach cmp source whenever copilot attaches
+    --         -- fixes lazy-loading issues with the copilot cmp source
+    --         require("lazyvim.util").lsp.on_attach(function(client)
+    --           if client.name == "copilot" then
+    --             copilot_cmp._on_insert_enter({})
+    --           end
+    --         end)
+    --       end,
+    --     },
+    --   },
+    --   ---@param opts cmp.ConfigSchema
+    --   opts = function(_, opts)
+    --     table.insert(opts.sources, 4, {
+    --       name = "copilot",
+    --       group_index = 1,
+    --       priority = 100,
+    --     })
+    --     vim.keymap.set("n", "<leader>uuc", function()
+    --       if vim.g.copilot_pcp_disabled then
+    --         vim.cmd("Copilot enable")
+    --         vim.g.copilot_pcp_disabled = false
+    --       else
+    --         vim.cmd("Copilot disable")
+    --         vim.g.copilot_pcp_disabled = true
+    --       end
+    --     end, { desc = "Toggle Copilot completion" })
+    --   end,
+    -- },
     {
       -- dir = "~/Repos/CopilotChat.nvim",
       "jellydn/CopilotChat.nvim",

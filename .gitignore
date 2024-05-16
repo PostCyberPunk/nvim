@@ -8,3 +8,4 @@ foo.*
 data
 lazy-lock.json
 lua/pcp/extra.lua
+lazyvim.json

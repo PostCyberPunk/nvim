@@ -3,7 +3,10 @@ if require("pcp.extra").imports.doc then
     {
       "nvim-neorg/neorg",
       build = ":Neorg sync-parsers",
+      -- FIXME: disable lazy before isntall
+      -- lazy = false,
       -- tag = "*",
+      version = "v7.0.0",
       keys = {
         { "<leader>nh", "<cmd>Neorg index<cr>", desc = "Neorg Home", { noremap = true, silent = true } },
         { "<leader>nb", "<cmd>Neorg toc right<cr>", desc = "Neorg Toc", { noremap = true, silent = true } },
@@ -90,56 +93,56 @@ if require("pcp.extra").imports.doc then
                   keybinds.remap_event(
                     "todo",
                     "n",
-                    "ZU",
+                    "<leader>ntu",
                     "core.qol.todo_items.todo.task_undone",
                     { desc = "[Neorg] Undone" }
                   )
                   keybinds.remap_event(
                     "todo",
                     "n",
-                    "ZP",
+                    "<leader>ntp",
                     "core.qol.todo_items.todo.task_pending",
                     { desc = "[Neorg] Pending" }
                   )
                   keybinds.remap_event(
                     "todo",
                     "n",
-                    "ZD",
+                    "<leader>ntd",
                     "core.qol.todo_items.todo.task_done",
                     { desc = "[Neorg] Done" }
                   )
                   keybinds.remap_event(
                     "todo",
                     "n",
-                    "ZH",
+                    "<leader>nth",
                     "core.qol.todo_items.todo.task_on_hold",
                     { desc = "[Neorg] Hold" }
                   )
                   keybinds.remap_event(
                     "todo",
                     "n",
-                    "ZC",
+                    "<leader>ntc",
                     "core.qol.todo_items.todo.task_cancelled",
                     { desc = "[Neorg] Cancelled" }
                   )
                   keybinds.remap_event(
                     "todo",
                     "n",
-                    "ZR",
+                    "<leader>ntr",
                     "core.qol.todo_items.todo.task_recurring",
                     { desc = "[Neorg] Recurring" }
                   )
                   keybinds.remap_event(
                     "todo",
                     "n",
-                    "ZI",
+                    "<leader>nti",
                     "core.qol.todo_items.todo.task_important",
                     { desc = "[Neorg] Important" }
                   )
                   keybinds.remap_event(
                     "todo",
                     "n",
-                    "ZA",
+                    "<leader>nta",
                     "core.qol.todo_items.todo.task_ambiguous",
                     { desc = "[Neorg] Ambiguonus" }
                   )
@@ -160,7 +163,8 @@ if require("pcp.extra").imports.doc then
             },
           },
         })
-        require("neorg.modules.core.mode.module").public.add_mode("todo")
+        -- require("neorg.modules.core.mode.module").public.add_mode("todo")
+        require("neorg").modules.get_module("core.mode").add_mode("todo")
       end,
     },
     {

@@ -6,7 +6,7 @@ return {
       { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Neogit Commit", { noremap = true, silent = false } },
       { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit", { noremap = true, silent = true } },
       {
-        "<leader>ga",
+        "<leader>g<cr>",
         function()
           vim.cmd("Gitsigns stage_hunk")
           vim.cmd("Neogit commit")

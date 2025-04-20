@@ -112,12 +112,12 @@ return {
   },
   {
     "gbprod/yanky.nvim",
+    dependencies = { "folke/snacks.nvim" },
     keys = {
-        -- stylua: ignore
       {
         "<leader>sp",
         function()
-          require("telescope").extensions.yank_history.yank_history({})
+          Snacks.picker.yanky()
         end,
         mode = { "n", "x" },
         desc = "Open Yank History",

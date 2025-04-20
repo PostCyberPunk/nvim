@@ -1,44 +1,44 @@
 local utils = require("utils")
 return {
   -----------Telescope
-  {
-    "nvim-telescope/telescope.nvim",
-    keys = {
-      { "<leader>sR", false },
-      { "<leader>gc", false },
-      { "<leader>gs", false },
-      { "<leader>gfc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-      { "<leader>gfs", "<cmd>Telescope git_status<CR>", desc = "status" },
-      {
-        "<leader>fP",
-        function()
-          require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
-        end,
-        desc = "Find Plugin File",
-      },
-      {
-        "<leader>fN",
-        function()
-          require("telescope.builtin").live_grep({ cwd = "~/Tool/Nerd/lib" })
-        end,
-        desc = "Find Nerd Fonts",
-      },
-    },
-    opts = function(_, opts)
-      -- opts.defaults.vimgrep_arguments = {
-      --   "rg",
-      --   "--hidden",
-      --   "--no-heading",
-      --   "--with-filename",
-      --   "--line-number",
-      --   "--column",
-      --   "--smart-case",
-      --   "--ignore-file gitignore",
-      --   ".gitignore",
-      -- }
-      opts.defaults.find_command = { "rg", "--files", "--ignore-file", ".gitignore" }
-    end,
-  },
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   keys = {
+  --     { "<leader>sR", false },
+  --     { "<leader>gc", false },
+  --     { "<leader>gs", false },
+  --     { "<leader>gfc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+  --     { "<leader>gfs", "<cmd>Telescope git_status<CR>", desc = "status" },
+  --     {
+  --       "<leader>fP",
+  --       function()
+  --         require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
+  --       end,
+  --       desc = "Find Plugin File",
+  --     },
+  --     {
+  --       "<leader>fN",
+  --       function()
+  --         require("telescope.builtin").live_grep({ cwd = "~/Tool/Nerd/lib" })
+  --       end,
+  --       desc = "Find Nerd Fonts",
+  --     },
+  --   },
+  --   opts = function(_, opts)
+  --     -- opts.defaults.vimgrep_arguments = {
+  --     --   "rg",
+  --     --   "--hidden",
+  --     --   "--no-heading",
+  --     --   "--with-filename",
+  --     --   "--line-number",
+  --     --   "--column",
+  --     --   "--smart-case",
+  --     --   "--ignore-file gitignore",
+  --     --   ".gitignore",
+  --     -- }
+  --     opts.defaults.find_command = { "rg", "--files", "--ignore-file", ".gitignore" }
+  --   end,
+  -- },
   {
     "akinsho/toggleterm.nvim",
     version = "*",

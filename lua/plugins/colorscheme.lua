@@ -29,6 +29,7 @@ return {
   -- crust  #DCE0E8 #232634 #181926 #11111B Darkest bg
   {
     "catppuccin/nvim",
+    version = "0b2437",
     name = "catppuccin",
     opts = {
       flavour = "mocha",
@@ -42,7 +43,6 @@ return {
         aerial = true,
         gitsigns = true,
         nvimtree = true,
-        telescope = true,
         flash = false,
         -- leap = true,
         notify = true,

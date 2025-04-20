@@ -26,8 +26,8 @@ vim.keymap.set("x", "<C-c>", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("n", "<leader>mx", require("substitute.exchange").operator, { noremap = true })
 vim.keymap.set("x", "<leader>mx", require("substitute.exchange").visual, { noremap = true })
 -----------SerachReplace(spectre)-------------
-vim.keymap.set("n", "<leader>sl", "<esc><cmd>Telescope resume<CR>", {
-  desc = "Telescope Resume Last Search",
+vim.keymap.set("n", "<leader>sL", "<esc><cmd>FzfLua resume<CR>", {
+  desc = "FzfLua Resume Last Search",
 })
 vim.keymap.set("v", "<leader>sr", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
   desc = "Search current word",
@@ -73,7 +73,7 @@ vim.keymap.set("t", "<c-j>", "<c-j>", { nowait = true })
 vim.keymap.set("t", "<c-k>", "<c-k>", { nowait = true })
 vim.keymap.set("t", "<c-l>", "<c-l>", { nowait = true })
 ----------Misc
-vim.keymap.set("n", "<leader>snn", "<cmd>Telescope notify<cr>", { desc = "Show All Notifications" })
+-- vim.keymap.set("n", "<leader>snn", "<leader>snt<cr>", { desc = "Show All Notifications" })
 -- vim.keymap.set("t", "<c-tab>", "<cmd>echo 'hello'<cr>")
 -- vim.keymap.set("t", "<esc>", [[<cmd>tabprevious<cr>]], { buffer = 0 })
 --
@@ -105,8 +105,8 @@ end, { desc = "Peek inside fold" })
 vim.api.nvim_create_user_command("Revert", function()
   vim.cmd("earlier 1f")
   local buf = vim.api.nvim_buf_get_name(0)
-  -- vim.api.nvim_buf_delete(0, { force = true })
-  require("mini.bufremove").delete(0, true)
+  vim.api.nvim_buf_delete(0, { force = true })
+  -- require("mini.bufremove").delete(0, true)
   vim.cmd("e " .. buf)
   utils.notify("Revert file:" .. buf)
 end, {})

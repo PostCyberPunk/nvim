@@ -10,7 +10,7 @@ return {
       require("persisted").setup({
         autosave = true,
       })
-      require("telescope").load_extension("persisted")
+      -- require("telescope").load_extension("persisted")
     end,
     keys = {
       {

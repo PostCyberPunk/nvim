@@ -15,8 +15,8 @@ return {
     keys = {
       {
         "<leader>qp",
-        "<cmd>Telescope persisted<cr>",
-        desc = "Telescope Sessions",
+        "<cmd>SessionSelect<cr>",
+        desc = "Search Sessions",
       },
       {
         "<leader>qs",

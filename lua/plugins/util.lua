@@ -45,10 +45,10 @@ return {
           vim.cmd("SessionSave")
           vim.cmd("SessionStop")
           vim.cmd("%bd")
-          vim.cmd("Alpha")
+          Snacks.dashboard.open()
           vim.cmd("bd#")
         end,
-        desc = "Quit all and open alpha",
+        desc = "Quit all and open dashboard",
       },
     },
   },

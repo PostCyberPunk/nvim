@@ -43,7 +43,6 @@ return {
         aerial = true,
         gitsigns = true,
         nvimtree = true,
-        telescope = true,
         flash = false,
         -- leap = true,
         notify = true,

@@ -6,7 +6,7 @@
 local opt = vim.opt
 --------------------change LeapBackdrop
 -- vim.cmd("highlight LeapBackdrop guifg=#777777")
-
+opt.signcolumn = "auto"
 opt.clipboard = ""
 opt.expandtab = false
 -------------folds---------------
@@ -16,7 +16,7 @@ opt.foldenable = false
 vim.g.autoformat = true
 vim.g.python3_host_prog = "~/.mlib/pynvim/bin/python3"
 -----------setup default term = powershell
-if (vim.fn.has("win32")==1) then
+if vim.fn.has("win32") == 1 then
   local powershell_options = {
     shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
     shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",

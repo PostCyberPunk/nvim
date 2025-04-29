@@ -3,7 +3,6 @@ return {
   {
     "NeogitOrg/neogit",
     keys = {
-      { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Neogit Commit", { noremap = true, silent = false } },
       { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit", { noremap = true, silent = true } },
       {
         "<leader>ga",
@@ -18,7 +17,6 @@ return {
     },
     dependencies = {
       "nvim-lua/plenary.nvim", -- required
-      -- "nvim-telescope/telescope.nvim", -- optional
       "sindrets/diffview.nvim", -- optional
     },
     opts = {

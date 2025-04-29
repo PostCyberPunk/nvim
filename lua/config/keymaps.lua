@@ -21,13 +21,21 @@ vim.keymap.set({ "n", "x" }, "<leader>P", '"+P', { desc = "Paste(system) Before"
 vim.keymap.set("x", "Y", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("x", "<leader>y", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("x", "<C-c>", '"+y', { desc = "Copy(system)" })
+vim.keymap.set("n", "gV", "`[v`]", { desc = "Select last Paste" })
 
 ------------------exchange---------------
 vim.keymap.set("n", "<leader>mx", require("substitute.exchange").operator, { noremap = true })
 vim.keymap.set("x", "<leader>mx", require("substitute.exchange").visual, { noremap = true })
 -----------SerachReplace(spectre)-------------
-vim.keymap.set("n", "<leader>sL", "<esc><cmd>FzfLua resume<CR>", {
-  desc = "FzfLua Resume Last Search",
+vim.keymap.set("n", "<leader>sL", function()
+  Snacks.picker.loclist()
+end, {
+  desc = "Search loclist",
+})
+vim.keymap.set("n", "<leader>sl", function()
+  Snacks.picker.resume()
+end, {
+  desc = "Resume Last Search",
 })
 vim.keymap.set("v", "<leader>sr", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
   desc = "Search current word",
@@ -43,7 +51,7 @@ vim.keymap.set("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = 
 vim.keymap.set("n", "<leader>up", function()
   utils.toggle_autopairs()
 end, { desc = "Toggle AutoParits" })
-vim.keymap.set("n", "<leader>ua", function()
+vim.keymap.set("n", "<leader>u0", function()
   utils.toggle_signcolumn()
 end, { desc = "Toggle Signcolumn" })
 -----------toggle term
@@ -101,11 +109,12 @@ vim.keymap.set("n", "zp", function()
     vim.lsp.buf.hover()
   end
 end, { desc = "Peek inside fold" })
----------costom cmd  revert file--
+---------custom cmd  revert file--
 vim.api.nvim_create_user_command("Revert", function()
   vim.cmd("earlier 1f")
   local buf = vim.api.nvim_buf_get_name(0)
-  vim.api.nvim_buf_delete(0, { force = true })
+  Snacks.bufdelete.delete({ force = true })
+  -- vim.api.nvim_buf_delete(0, { force = true })
   -- require("mini.bufremove").delete(0, true)
   vim.cmd("e " .. buf)
   utils.notify("Revert file:" .. buf)

@@ -10,15 +10,15 @@ if require("pcp.extra").imports.unity then
                 return require("omnisharp_extended").handler(...)
               end,
             },
-            -- keys = {
-            --   {
-            --     "gd",
-            --     function()
-            --       require("omnisharp_extended").telescope_lsp_definitions()
-            --     end,
-            --     desc = "Goto Definition",
-            --   },
-            -- },
+            keys = {
+              {
+                "gd",
+                function()
+                  Snacks.picker.lsp_definitions()
+                end,
+                desc = "Goto Definition",
+              },
+            },
             enable_roslyn_analyzers = true,
             enable_import_completion = true,
           },

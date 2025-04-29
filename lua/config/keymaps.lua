@@ -21,6 +21,7 @@ vim.keymap.set({ "n", "x" }, "<leader>P", '"+P', { desc = "Paste(system) Before"
 vim.keymap.set("x", "Y", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("x", "<leader>y", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("x", "<C-c>", '"+y', { desc = "Copy(system)" })
+vim.keymap.set("n", "gV", "`[v`]", { desc = "Select last Paste" })
 
 ------------------exchange---------------
 vim.keymap.set("n", "<leader>mx", require("substitute.exchange").operator, { noremap = true })

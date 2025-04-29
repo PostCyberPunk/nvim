@@ -115,10 +115,8 @@ return {
     dependencies = { "folke/snacks.nvim" },
     keys = {
       {
-        "<leader>sp",
-        function()
-          Snacks.picker.yanky()
-        end,
+        "<leader>sy",
+        "<cmd>YankyRingHistory<cr>",
         mode = { "n", "x" },
         desc = "Open Yank History",
       },

@@ -3,29 +3,16 @@ return {
   {
     "snacks.nvim",
     dependencies = { "olimorris/persisted.nvim" },
+    -- stylua: ignore
     keys = {
+      -----picker
+      { "<leader>sL", function() Snacks.picker.loclist() end,  desc = "Search loclist" },
+      { "<leader>sl", function() Snacks.picker.resume() end,  desc = "Resume Last Search" },
+      -----gig_picker
       { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Neogit Commit", { noremap = true, silent = false } },
-      {
-        "<leader>g?",
-        function()
-          Snacks.picker.git_status()
-        end,
-        desc = "status",
-      },
-      {
-        "<leader>fN",
-        function()
-          Snacks.picker.files({ cwd = "~/Tools/nerd/lib" })
-        end,
-        desc = "Find Nerd Fonts",
-      },
-      {
-        "<leader>qh",
-        function()
-          Snacks.dashboard.open()
-        end,
-        desc = "Open Dashboard",
-      },
+      { "<leader>g?", function() Snacks.picker.git_status() end, desc = "status", },
+      -----dashboard
+      { "<leader>qh", function() Snacks.dashboard.open() end, desc = "Open Dashboard", },
     },
     opts = function(_, opts)
       opts.dashboard = {

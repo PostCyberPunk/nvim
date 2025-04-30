@@ -27,17 +27,6 @@ vim.keymap.set("n", "gV", "`[v`]", { desc = "Select last Paste" })
 vim.keymap.set("n", "<leader>mx", require("substitute.exchange").operator, { noremap = true })
 vim.keymap.set("x", "<leader>mx", require("substitute.exchange").visual, { noremap = true })
 -----------SerachReplace(spectre)-------------
-vim.keymap.set("n", "<leader>sL", function()
-  Snacks.picker.loclist()
-end, {
-  desc = "Search loclist",
-})
-vim.keymap.set("n", "<leader>sl", function()
-  Snacks.picker.resume()
-end, {
-  desc = "Resume Last Search",
-})
-
 vim.keymap.set({ "x" }, "<leader>sr", function()
   require("grug-far").open({ visualSelectionUsage = "prefill-search", prefills = { paths = vim.fn.expand("%") } })
 end, { desc = "Search and Replace with this word" })
@@ -93,13 +82,6 @@ vim.keymap.set("t", "<c-l>", "<c-l>", { nowait = true })
 -- vim.keymap.set("t", "<c-tab>", "<cmd>echo 'hello'<cr>")
 -- vim.keymap.set("t", "<esc>", [[<cmd>tabprevious<cr>]], { buffer = 0 })
 --
-----------------------------------------------search bidirectional
---
--- vim.keymap.set("n", "<leader><leader>s", function()
---   local current_window = vim.fn.win_getid()
---   require("leap").leap({ target_windows = { current_window } })
--- end, { desc = "Search Bidirectional" })
---
 ----------------------------------------------ufo folding
 vim.keymap.set("n", "z;", function()
   local count = vim.v.count1
@@ -117,16 +99,6 @@ vim.keymap.set("n", "zp", function()
     vim.lsp.buf.hover()
   end
 end, { desc = "Peek inside fold" })
----------custom cmd  revert file--
-vim.api.nvim_create_user_command("Revert", function()
-  vim.cmd("earlier 1f")
-  local buf = vim.api.nvim_buf_get_name(0)
-  Snacks.bufdelete.delete({ force = true })
-  -- vim.api.nvim_buf_delete(0, { force = true })
-  -- require("mini.bufremove").delete(0, true)
-  vim.cmd("e " .. buf)
-  utils.notify("Revert file:" .. buf)
-end, {})
 ------------open with rider -----
 vim.keymap.set("n", "<leader>tr", function()
   local line = vim.fn.line(".")

@@ -44,7 +44,7 @@ vim.keymap.set("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = 
 vim.keymap.set("n", "<leader>up", function()
   utils.toggle_autopairs()
 end, { desc = "Toggle AutoParits" })
-vim.keymap.set("n", "<leader>ua", function()
+vim.keymap.set("n", "<leader>u0", function()
   utils.toggle_signcolumn()
 end, { desc = "Toggle Signcolumn" })
 -----------toggle term

@@ -1,7 +1,4 @@
 return {
-  ---------------------remove indentscope animation-----------
-  { "echasnovski/mini.indentscope", enabled = false },
-  { "lukas-reineke/indent-blankline.nvim", enabled = false },
   --- hl chunk
   {
     -- "shellRaining/hlchunk.nvim",

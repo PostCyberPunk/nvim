@@ -4,6 +4,21 @@ return {
     "snacks.nvim",
     dependencies = { "olimorris/persisted.nvim" },
     keys = {
+      { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Neogit Commit", { noremap = true, silent = false } },
+      {
+        "<leader>g?",
+        function()
+          Snacks.picker.git_status()
+        end,
+        desc = "status",
+      },
+      {
+        "<leader>fN",
+        function()
+          Snacks.picker.files({ cwd = "~/Tools/nerd/lib" })
+        end,
+        desc = "Find Nerd Fonts",
+      },
       {
         "<leader>qh",
         function()

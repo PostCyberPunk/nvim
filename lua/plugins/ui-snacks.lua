@@ -45,6 +45,8 @@ return {
         },
         },
       }
+      opts.indent = { enabled = false }
+      opts.scope = { enabled = false }
     end,
   },
 }

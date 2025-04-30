@@ -28,16 +28,6 @@ return {
     config = true,
   },
   {
-    "AckslD/muren.nvim",
-    keys = {
-      { "<leader>sz", "<cmd>MurenToggle<cr>", desc = "Muren Search Replace", { noremap = true, silent = true } },
-    },
-    opts = function(_, opts)
-      opts.files = "%"
-    end,
-    config = true,
-  },
-  {
     "nat-418/boole.nvim",
     opts = {
       mappings = {

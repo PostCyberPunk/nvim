@@ -2,6 +2,7 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
+local utils = require("utils")
 --function
 local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
@@ -56,7 +57,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 vim.api.nvim_create_user_command("Translate", function()
-  local selected = require("utils").get_selected_text()
+  local selected = utils.get_selected_text()
   local _cmd = "trans -b '" .. selected .. "'|bat --paging=always"
   local opts = { cmd = _cmd, tid = "trans", hidden = true, size = 40, direction = "float" }
   local term = require("toggleterm.terminal").Terminal:new(opts)

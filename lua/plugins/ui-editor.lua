@@ -33,22 +33,34 @@ return {
       require("hlchunk").setup(opts)
     end,
   },
-  -- {
-  --   "HiPhish/nvim-ts-rainbow2",
-  --   config = function()
-  --     require("nvim-treesitter.configs").setup({
-  --       rainbow = {
-  --         enable = true,
-  --         -- list of languages you want to disable the plugin for
-  --         disable = { "jsx", "cpp" },
-  --         -- Which query to use for finding delimiters
-  --         query = "rainbow-parens",
-  --         -- Highlight the entire buffer all at once
-  --         strategy = require("ts-rainbow").strategy.global,
-  --       },
-  --     })
-  --   end,
-  -- },
+  {
+    "hiphish/rainbow-delimiters.nvim", -- Powered by Tree-sitter
+    submodules = false,
+    opts = {
+      strategy = {
+        [""] = "rainbow-delimiters.strategy.global",
+        vim = "rainbow-delimiters.strategy.local",
+      },
+      query = {
+        [""] = "rainbow-delimiters",
+        lua = "rainbow-blocks",
+      },
+      priority = {
+        [""] = 110,
+        lua = 210,
+      },
+      highlight = {
+        "RainbowDelimiterRed",
+        "RainbowDelimiterYellow",
+        "RainbowDelimiterBlue",
+        "RainbowDelimiterOrange",
+        "RainbowDelimiterGreen",
+        "RainbowDelimiterViolet",
+        "RainbowDelimiterCyan",
+      },
+    },
+    main = "rainbow-delimiters.setup", -- Required. Defaults to the repository name if not set.
+  },
   {
     "utilyre/barbecue.nvim",
     name = "barbecue",

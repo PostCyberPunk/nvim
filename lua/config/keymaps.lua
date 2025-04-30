@@ -27,8 +27,15 @@ vim.keymap.set("n", "gV", "`[v`]", { desc = "Select last Paste" })
 vim.keymap.set("n", "<leader>mx", require("substitute.exchange").operator, { noremap = true })
 vim.keymap.set("x", "<leader>mx", require("substitute.exchange").visual, { noremap = true })
 -----------SerachReplace(spectre)-------------
-vim.keymap.set("n", "<leader>sL", "<esc><cmd>FzfLua resume<CR>", {
-  desc = "FzfLua Resume Last Search",
+vim.keymap.set("n", "<leader>sL", function()
+  Snacks.picker.loclist()
+end, {
+  desc = "Search loclist",
+})
+vim.keymap.set("n", "<leader>sl", function()
+  Snacks.picker.resume()
+end, {
+  desc = "Resume Last Search",
 })
 vim.keymap.set("v", "<leader>sr", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
   desc = "Search current word",

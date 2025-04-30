@@ -6,8 +6,10 @@ return {
     -- stylua: ignore
     keys = {
       -----picker
+      { "<leader>snn", function() Snacks.picker.notifications() end,  desc = "Notifications History" },
       { "<leader>sL", function() Snacks.picker.loclist() end,  desc = "Search loclist" },
       { "<leader>sl", function() Snacks.picker.resume() end,  desc = "Resume Last Search" },
+      { "<leader>fP", function() Snacks.picker.files({ cwd = require("lazy.core.config").options.root }) end, desc = "Find Plugin File", },
       -----gig_picker
       { "<leader>gc", "<cmd>Neogit commit<cr>", desc = "Neogit Commit", { noremap = true, silent = false } },
       { "<leader>g?", function() Snacks.picker.git_status() end, desc = "status", },

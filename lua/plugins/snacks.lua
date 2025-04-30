@@ -29,6 +29,11 @@ return {
     },
     opts = function(_, opts)
       opts.dashboard = {
+        formats = {
+          key = function(item)
+            return { { "[", hl = "special" }, { item.key, hl = "key" }, { "]", hl = "special" } }
+          end,
+        },
         preset = {
           pick = function(cmd, opts2)
             return LazyVim.pick(cmd, opts2)()

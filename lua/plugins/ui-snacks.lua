@@ -3,8 +3,8 @@ return {
   {
     "snacks.nvim",
     dependencies = { "olimorris/persisted.nvim" },
-    opts = {
-      dashboard = {
+    opts = function(_, opts)
+      opts.dashboard = {
         preset = {
           pick = function(cmd, opts)
             return LazyVim.pick(cmd, opts)()
@@ -44,7 +44,7 @@ return {
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
         },
-      },
-    },
+      }
+    end,
   },
 }

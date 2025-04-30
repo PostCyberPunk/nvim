@@ -4,7 +4,7 @@ return {
     "folke/flash.nvim",
     opts = function(_, opts)
       opts.modes = {
-        -- search = { enabled = false },
+        search = { enabled = true },
         char = { jump_labels = true, multi_line = false },
       }
       opts.label = {

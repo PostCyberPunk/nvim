@@ -3,11 +3,20 @@ return {
   {
     "snacks.nvim",
     dependencies = { "olimorris/persisted.nvim" },
+    keys = {
+      {
+        "<leader>qh",
+        function()
+          Snacks.dashboard.open()
+        end,
+        desc = "Open Dashboard",
+      },
+    },
     opts = function(_, opts)
       opts.dashboard = {
         preset = {
-          pick = function(cmd, opts)
-            return LazyVim.pick(cmd, opts)()
+          pick = function(cmd, opts2)
+            return LazyVim.pick(cmd, opts2)()
           end,
           header = [[
 ███▄▄█▓▓█████████████████████▓▓▓██▓▄▄███

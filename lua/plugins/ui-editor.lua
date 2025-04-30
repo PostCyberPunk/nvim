@@ -79,9 +79,4 @@ return {
     --   })
     -- end,
   },
-  -- Colorizer ----------
-  {
-    "NvChad/nvim-colorizer.lua",
-    config = true,
-  },
 }

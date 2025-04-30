@@ -37,10 +37,18 @@ vim.keymap.set("n", "<leader>sl", function()
 end, {
   desc = "Resume Last Search",
 })
-vim.keymap.set("v", "<leader>sr", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
-  desc = "Search current word",
-})
-vim.keymap.set("n", "<leader>sR", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+
+vim.keymap.set({ "x" }, "<leader>sr", function()
+  require("grug-far").open({ visualSelectionUsage = "prefill-search", prefills = { paths = vim.fn.expand("%") } })
+end, { desc = "Search and Replace with this word" })
+
+vim.keymap.set({ "x" }, "<leader>sI", function()
+  require("grug-far").open({ visualSelectionUsage = "operate-within-range" })
+end, { desc = "Search within range" })
+
+vim.keymap.set("n", "<leader>sR", function()
+  require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
+end, {
   desc = "Search on current file",
 })
 -----------GitSigns

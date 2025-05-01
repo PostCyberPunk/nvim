@@ -86,6 +86,7 @@ return {
       }
       opts.indent = { enabled = false }
       opts.scope = { enabled = false }
+      opts.notifier = { timeout = 1000 }
     end,
   },
 }

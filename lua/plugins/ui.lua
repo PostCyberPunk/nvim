@@ -151,13 +151,6 @@ return {
     end,
   },
   {
-    "rcarriga/nvim-notify",
-    opts = function(_, opts)
-      opts.timeout = 1000
-      opts.stages = "static"
-    end,
-  },
-  {
     "folke/which-key.nvim",
     opts = {
       defaults = {},

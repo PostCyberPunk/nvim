@@ -4,8 +4,8 @@ M.imports = {
   dap = false,
   fancylsp = false,
   ai = false,
-  doc = false,
-  cmp = true,
+  neorg = false,
+  cmp = false,
   coq = false,
   rust = false,
 }

@@ -22,10 +22,6 @@ vim.keymap.set("x", "Y", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("x", "<leader>y", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("x", "<C-c>", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("n", "gV", "`[v`]", { desc = "Select last Paste" })
-
-------------------exchange---------------
-vim.keymap.set("n", "<leader>mx", require("substitute.exchange").operator, { noremap = true })
-vim.keymap.set("x", "<leader>mx", require("substitute.exchange").visual, { noremap = true })
 -----------SerachReplace(spectre)-------------
 vim.keymap.set({ "x" }, "<leader>sr", function()
   require("grug-far").open({ visualSelectionUsage = "prefill-search", prefills = { paths = vim.fn.expand("%") } })

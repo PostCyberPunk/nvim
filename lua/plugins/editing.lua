@@ -23,9 +23,14 @@ return {
     },
     config = true,
   },
+  --TODO: highlight will cause an error
   {
     "gbprod/substitute.nvim",
-    config = true,
+    config = function()
+      require("substitute").setup()
+      vim.keymap.set("n", "<leader>mx", require("substitute.exchange").operator, { noremap = true })
+      vim.keymap.set("x", "<leader>mx", require("substitute.exchange").visual, { noremap = true })
+    end,
   },
   {
     "kevinhwang91/nvim-ufo",

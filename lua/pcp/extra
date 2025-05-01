@@ -5,7 +5,7 @@ M.imports = {
   fancylsp = false,
   ai = false,
   doc = false,
-  cmp = true,
+  cmp = false,
   coq = false,
   rust = false,
 }

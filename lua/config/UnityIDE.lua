@@ -16,6 +16,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.api.nvim_create_user_command("HyprFocusMe", function()
       vim.cmd("!hyprctl dispatch focuswindow pid:$KITTY_PID")
       vim.cmd("!~/.config/hypr/scripts/RunCMD.sh close_special")
+      vim.cmd([[autocmd BufWritePost *.cs UnivimCompile]])
     end, { desc = "use hyprctl to focus this nvim" })
 
     vim.keymap.set("n", "<leader>US", "<cmd>UnityStart<cr>", { desc = "Start Unity IDE server" })

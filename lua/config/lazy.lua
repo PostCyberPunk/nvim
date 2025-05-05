@@ -1,3 +1,6 @@
+if vim.g.isnix == 1 then
+  return
+end
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim

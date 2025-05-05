@@ -1,5 +1,4 @@
 require("lazy").setup({
-  defaults = { lazy = true },
   dev = {
     -- reuse files from pkgs.vimPlugins.*
     path = vim.g.plugin_path,
@@ -38,6 +37,7 @@ require("lazy").setup({
       end,
     },
   },
+  defaults = { lazy = true },
   opts = {
     colorscheme = "catppuccin",
   },

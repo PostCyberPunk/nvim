@@ -46,7 +46,7 @@
                 let g:treesitter_path = "${treesitterPath}"
                 let g:isnix = 1
                 " Begin initialization
-                source ${./init.lua}
+                source ${./nixinit.lua}
               '';
               packages.all.start = [ pkgs.vimPlugins.lazy-nvim ];
             };

@@ -5,7 +5,6 @@
 
 local opt = vim.opt
 --------------------change LeapBackdrop
--- vim.cmd("highlight LeapBackdrop guifg=#777777")
 opt.signcolumn = "auto"
 opt.clipboard = ""
 opt.expandtab = false

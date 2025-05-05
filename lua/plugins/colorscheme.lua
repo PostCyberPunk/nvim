@@ -70,12 +70,6 @@ return {
     },
   },
 
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
-  },
   -- ---------------tokyonight-----
   -- {
   --   "folke/tokyonight.nvim",

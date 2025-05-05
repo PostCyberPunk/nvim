@@ -1,8 +1,4 @@
 return {
-  {
-    "caenrique/nvim-maximize-window-toggle",
-    keys = { { "<leader>wm", "<cmd>ToggleOnly<cr>", desc = "Max/Min Window" } },
-  },
   -- windwo picker
   {
     "s1n7ax/nvim-window-picker",

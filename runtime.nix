@@ -18,12 +18,12 @@ let
     fi
   '';
 
-  make-lazy = pkg: bin: pkgs.writeShellScriptBin "${bin}" ''
-    nix shell nixpkgs#${pkg} --command ${bin} "$@"
-  '';
-in
-# Link together all runtime dependencies into one derivation
-pkgs.symlinkJoin {
+  make-lazy = pkg: bin:
+    pkgs.writeShellScriptBin "${bin}" ''
+      nix shell nixpkgs#${pkg} --command ${bin} "$@"
+    '';
+  # Link together all runtime dependencies into one derivation
+in pkgs.symlinkJoin {
   name = "lazyvim-nix-runtime";
   paths = with pkgs; [
     # LazyVim dependencies

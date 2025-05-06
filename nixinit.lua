@@ -39,7 +39,7 @@ require("lazy").setup({
   },
   defaults = { lazy = true },
   opts = {
-    colorscheme = "catppuccin",
+    colorscheme = "catppuccin-mocha",
   },
   performance = {
     rtp = {
@@ -58,3 +58,4 @@ require("lazy").setup({
     },
   },
 })
+vim.cmd([[colorscheme catppuccin-mocha]])

@@ -22,6 +22,17 @@ let
     src = inputs.hlchunk-nvim;
     doCheck = false;
   };
+  # find sha256 nix-prefetch-url --unpack https://github.com/catppuccin/nvim/archive/0b2437bcc12b4021614dc41fcea9d0f136d94063.tar.gz
+  catppuccin-nvim-patch = pkgs.vimUtils.buildVimPlugin {
+    name = "catppuccin-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "nvim";
+      rev = "0b2437bcc12b4021614dc41fcea9d0f136d94063";
+      sha256 = "0zai4prpvcm6s2mnsfbg96pn21nvgrd13b2li19a9676v430rk64";
+    };
+    doCheck = false;
+  };
 
   mkEntryFromDrv = drv:
     if lib.isDerivation drv then {
@@ -123,7 +134,7 @@ let
     }
     {
       name = "catppuccin";
-      path = catppuccin-nvim;
+      path = catppuccin-nvim-patch;
     }
     {
       name = "barbecue";

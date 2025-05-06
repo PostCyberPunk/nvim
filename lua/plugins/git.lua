@@ -5,7 +5,7 @@ return {
     keys = {
       { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit", { noremap = true, silent = true } },
       {
-        "<leader>ga<cr>",
+        "<leader>g<cr>",
         function()
           vim.cmd("Gitsigns stage_hunk")
           vim.cmd("Neogit commit")

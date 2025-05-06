@@ -9,6 +9,10 @@
     # neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
 
     # Plugins not available in nixpkgs
+    hlchunk-nvim = {
+      url = "github:postcyberpunk/hlchunk.nvim?ref=pcp-fix";
+      flake = false;
+    };
     cmake-tools-nvim = {
       url = "github:Civitasv/cmake-tools.nvim";
       flake = false;

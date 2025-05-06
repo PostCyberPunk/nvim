@@ -84,6 +84,23 @@
         "type": "github"
       }
     },
+    "hlchunk-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1746532323,
+        "narHash": "sha256-92WEefXv038Xp98sC94yyrdX7ztc5z27G6FRYykO42I=",
+        "owner": "postcyberpunk",
+        "repo": "hlchunk.nvim",
+        "rev": "b3950b3f2fd46ba8706fe9893c1aeb2f765a03d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "postcyberpunk",
+        "ref": "pcp-fix",
+        "repo": "hlchunk.nvim",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1746328495,
@@ -107,6 +124,7 @@
         "color-picker-nvim": "color-picker-nvim",
         "colorful-winsep-nvim": "colorful-winsep-nvim",
         "flake-parts": "flake-parts",
+        "hlchunk-nvim": "hlchunk-nvim",
         "nixpkgs": "nixpkgs"
       }
     }

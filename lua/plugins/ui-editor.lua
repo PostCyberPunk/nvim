@@ -3,6 +3,7 @@ return {
   {
     -- "shellRaining/hlchunk.nvim",
     "postcyberpunk/hlchunk.nvim",
+    branch = "pcp-fix",
     -- dir = "~/Repos/hlchunk.nvim",
     -- enabled = true,
     lazy = vim.g.isnix ~= 1,

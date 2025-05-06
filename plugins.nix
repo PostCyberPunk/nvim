@@ -17,6 +17,11 @@ let
     name = "colorful-winsep-nvim";
     src = inputs.colorful-winsep-nvim;
   };
+  hlchunk-nvim-my = pkgs.vimUtils.buildVimPlugin {
+    name = "hlchunk-nvim-my";
+    src = inputs.hlchunk-nvim;
+    doCheck = false;
+  };
 
   mkEntryFromDrv = drv:
     if lib.isDerivation drv then {
@@ -96,7 +101,11 @@ let
     color-picker-nvim
     colorful-winsep-nvim
     diffview-nvim
-    hlchunk-nvim
+    {
+
+      name = "hlchunk.nvim";
+      path = hlchunk-nvim-my;
+    }
     neogit
     nvim-autopairs
     nvim-navic

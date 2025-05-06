@@ -1,15 +1,28 @@
 { pkgs, inputs, lib, ... }:
 let
   # Build plugins from github
-  cmake-tools-nvim = pkgs.vimUtils.buildVimPlugin { name = "cmake-tools.nvim"; src = inputs.cmake-tools-nvim; };
-  cmake-gtest-nvim = pkgs.vimUtils.buildVimPlugin { name = "cmake-gtest.nvim"; src = inputs.cmake-gtest-nvim; };
-  color-picker-nvim = pkgs.vimUtils.buildVimPlugin { name = "color-picker-nvim"; src = inputs.color-picker-nvim; };
-  colorful-winsep-nvim = pkgs.vimUtils.buildVimPlugin { name = "colorful-winsep-nvim"; src = inputs.colorful-winsep-nvim; };
+  cmake-tools-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "cmake-tools.nvim";
+    src = inputs.cmake-tools-nvim;
+  };
+  cmake-gtest-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "cmake-gtest.nvim";
+    src = inputs.cmake-gtest-nvim;
+  };
+  color-picker-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "color-picker-nvim";
+    src = inputs.color-picker-nvim;
+  };
+  colorful-winsep-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "colorful-winsep-nvim";
+    src = inputs.colorful-winsep-nvim;
+  };
 
   mkEntryFromDrv = drv:
-    if lib.isDerivation drv then
-      { name = "${lib.getName drv}"; path = drv; }
-    else
+    if lib.isDerivation drv then {
+      name = "${lib.getName drv}";
+      path = drv;
+    } else
       drv;
 
   plugins = with pkgs.vimPlugins; [
@@ -93,24 +106,65 @@ let
     toggleterm-nvim
     nvim-spider
     substitute-nvim
-		smear-cursor-nvim
-		tabout-nvim
-    { name = "LuaSnip"; path = luasnip; }
-    { name = "catppuccin"; path = catppuccin-nvim; }
-		{ name = "barbecue"; path = barbecue-nvim; }
-		{ name = "color-picker.nvim"; path = color-picker-nvim; }
-		{ name = "colorful-winsep.nvim"; path = colorful-winsep-nvim; }
+    smear-cursor-nvim
+    tabout-nvim
+    {
+      name = "LuaSnip";
+      path = luasnip;
+    }
+    {
+      name = "catppuccin";
+      path = catppuccin-nvim;
+    }
+    {
+      name = "barbecue";
+      path = barbecue-nvim;
+    }
+    {
+      name = "color-picker.nvim";
+      path = color-picker-nvim;
+    }
+    {
+      name = "colorful-winsep.nvim";
+      path = colorful-winsep-nvim;
+    }
     # { name = "cmake-tools.nvim"; path = cmake-tools-nvim; }
-    { name = "mini.ai"; path = mini-nvim; }
-    { name = "mini.bufremove"; path = mini-nvim; }
-    { name = "mini.comment"; path = mini-nvim; }
-    { name = "mini.indentscope"; path = mini-nvim; }
-    { name = "mini.pairs"; path = mini-nvim; }
-    { name = "mini.surround"; path = mini-nvim; }
-    { name = "mini.hipatterns"; path = mini-nvim; }
-    { name = "mini.icons"; path = mini-nvim; }
-    { name = "yanky.nvim"; path = yanky-nvim; }
+    {
+      name = "mini.ai";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.bufremove";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.comment";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.indentscope";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.pairs";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.surround";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.hipatterns";
+      path = mini-nvim;
+    }
+    {
+      name = "mini.icons";
+      path = mini-nvim;
+    }
+    {
+      name = "yanky.nvim";
+      path = yanky-nvim;
+    }
   ];
-in
-# Link together all plugins into a single derivation
-pkgs.linkFarm "lazyvim-nix-plugins" (builtins.map mkEntryFromDrv plugins)
+  # Link together all plugins into a single derivation
+in pkgs.linkFarm "lazyvim-nix-plugins" (builtins.map mkEntryFromDrv plugins)

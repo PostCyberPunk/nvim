@@ -5,6 +5,7 @@ return {
     "postcyberpunk/hlchunk.nvim",
     -- dir = "~/Repos/hlchunk.nvim",
     -- enabled = true,
+    lazy = vim.g.isnix ~= 1,
     keys = {
       -- { "<leader>uuH", "<cmd>EnableHL<CR>", desc = "EnableHL" },
       -- { "<leader>uuh", "<cmd>DisableHL<CR>", desc = "DisableHL" },
@@ -36,6 +37,7 @@ return {
   {
     "hiphish/rainbow-delimiters.nvim", -- Powered by Tree-sitter
     submodules = false,
+    lazy = vim.g.isnix ~= 1,
     opts = {
       strategy = {
         [""] = "rainbow-delimiters.strategy.global",
@@ -63,6 +65,7 @@ return {
   },
   {
     "utilyre/barbecue.nvim",
+    lazy = vim.g.isnix ~= 1,
     name = "barbecue",
     version = "*",
     dependencies = {

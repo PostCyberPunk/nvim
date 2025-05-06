@@ -58,9 +58,7 @@
     gitsigns-nvim
     headlines-nvim
     indent-blankline-nvim
-    kanagawa-nvim
     lualine-nvim
-    marks-nvim
     neo-tree-nvim
     neoconf-nvim
     neodev-nvim
@@ -117,10 +115,11 @@
     color-picker-nvim
     colorful-winsep-nvim
     diffview-nvim
-    {
-      name = "hlchunk.nvim";
-      path = hlchunk-nvim-my;
-    }
+    hlchunk-nvim
+    # {
+    #   name = "hlchunk.nvim";
+    #   path = hlchunk-nvim-my;
+    # }
     neogit
     nvim-autopairs
     nvim-navic

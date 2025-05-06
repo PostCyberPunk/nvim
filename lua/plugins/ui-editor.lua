@@ -1,39 +1,58 @@
+-- local chunk = require("hlchunk.mods.chunk")
 return {
   --- hl chunk
   {
-    -- "shellRaining/hlchunk.nvim",
-    "postcyberpunk/hlchunk.nvim",
-    branch = "pcp-fix",
+    "shellRaining/hlchunk.nvim",
+    lazy = false,
+    -- event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("hlchunk").setup({
+        chunk = {
+          enable = true,
+        },
+        indent = {
+          enable = true,
+          -- chars = { "│󰧟", "¦󰧟", "┆󰧟", "┊󰧟" },
+          chars = { "│" },
+          -- style = {
+          --   vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
+          -- },
+        },
+        line_num = {
+          enable = true,
+        },
+      })
+    end,
     -- dir = "~/Repos/hlchunk.nvim",
     -- enabled = true,
-    lazy = vim.g.isnix ~= 1,
-    keys = {
-      -- { "<leader>uuH", "<cmd>EnableHL<CR>", desc = "EnableHL" },
-      -- { "<leader>uuh", "<cmd>DisableHL<CR>", desc = "DisableHL" },
-      {
-        "<leader>uuh",
-        function()
-          if vim.g.hlchunk then
-            vim.cmd("DisableHL")
-            vim.g.hlchunk = false
-          else
-            vim.cmd("EnableHL")
-            vim.g.hlchunk = true
-          end
-        end,
-        desc = "ToggleHLchunk",
-      },
-    },
-    event = { "UIEnter" },
-    config = function(_, opts)
-      local line_count = 1000
-      opts.blank = { choke_at_linecount = line_count }
-      opts.chunk = { choke_at_linecount = line_count }
-      opts.indent = { choke_at_linecount = line_count }
-      opts.blank = { choke_at_linecount = line_count }
-      opts.line_num = { choke_at_linecount = line_count }
-      require("hlchunk").setup(opts)
-    end,
+    -- "postcyberpunk/hlchunk.nvim",
+    -- keys = {
+    --   -- { "<leader>uuH", "<cmd>EnableHL<CR>", desc = "EnableHL" },
+    --   -- { "<leader>uuh", "<cmd>DisableHL<CR>", desc = "DisableHL" },
+    --   {
+    --     "<leader>uuh",
+    --     function()
+    --       if vim.g.hlchunk then
+    --         vim.cmd("DisableHL")
+    --         vim.g.hlchunk = false
+    --       else
+    --         vim.cmd("EnableHL")
+    --         vim.g.hlchunk = true
+    --       end
+    --     end,
+    --     desc = "ToggleHLchunk",
+    --   },
+    -- },
+    -- event = { "UIEnter" },
+    -- config = function(_, opts)
+    --   local line_count = 1000
+    --   opts.blank = { choke_at_linecount = line_count }
+    --   opts.chunk = { choke_at_linecount = line_count }
+    --   opts.indent = { choke_at_linecount = line_count }
+    --   opts.blank = { choke_at_linecount = line_count }
+    --   opts.line_num = { choke_at_linecount = line_count }
+    --   require("hlchunk").setup(opts)
+    -- end,
   },
   {
     "hiphish/rainbow-delimiters.nvim", -- Powered by Tree-sitter

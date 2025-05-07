@@ -5,7 +5,10 @@ return {
       "s1n7ax/nvim-window-picker",
     },
     ---lazykeys
-    keys = { { "<leader>E", "<cmd>Neotree reveal<CR>", desc = "Explorer NeoTree Focus" } },
+    keys = {
+      { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Explorer NeoTree Focus" },
+      { "<leader>E", "<cmd>Neotree reveal<CR>", desc = "Explorer NeoTree Focus" },
+    },
     --config
     opts = function(_, opts)
       opts.close_if_last_window = true

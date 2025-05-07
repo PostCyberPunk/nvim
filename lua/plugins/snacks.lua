@@ -15,6 +15,7 @@ return {
       { "<leader>g?", function() Snacks.picker.git_status() end, desc = "status", },
       -----dashboard
       { "<leader>qh", function() Snacks.dashboard.open() end, desc = "Open Dashboard", },
+			{ "<leader>e", false},
     },
     opts = function(_, opts)
       opts.dashboard = {
@@ -87,6 +88,7 @@ return {
       opts.indent = { enabled = false }
       opts.scope = { enabled = false }
       opts.notifier = { timeout = 1000 }
+      opts.explorer = { enabled = false }
     end,
   },
 }

@@ -59,7 +59,7 @@
               customRC = # vim
                 ''
                   " Populate paths to neovim
-                  let g:config_path = "${./.}"
+                  " let g:config_path = "${./.}"
                   let g:plugin_path = "${pluginPath}"
                   let g:runtime_path = "${runtimePath}"
                   let g:treesitter_path = "${treesitterPath}"

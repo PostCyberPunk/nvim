@@ -59,11 +59,11 @@
               customRC = # vim
                 ''
                   " Populate paths to neovim
-                  let g:config_path = "${./.}"
+                  " let g:config_path = "${./.}"
                   let g:plugin_path = "${pluginPath}"
                   let g:runtime_path = "${runtimePath}"
                   let g:treesitter_path = "${treesitterPath}"
-                  let g:isnix = 1
+                  " let g:isnix = 1
                   " Begin initialization
                   source ${./nixinit.lua}
                 '';

@@ -49,6 +49,7 @@ in pkgs.symlinkJoin {
     (make-lazy "stylua" "stylua")
     (make-lazy "nixpkgs-fmt" "nixpkgs-fmt")
     (make-lazy "nixfmt" "nixfmt")
+    (make-lazy "alejandra" "alejandra")
     (make-lazy "jq" "jq")
 
     # Linters

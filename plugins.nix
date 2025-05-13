@@ -1,5 +1,9 @@
-{ pkgs, inputs, lib, ... }:
-let
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: let
   # Build plugins from github
   cmake-tools-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "cmake-tools.nvim";
@@ -35,11 +39,12 @@ let
   };
 
   mkEntryFromDrv = drv:
-    if lib.isDerivation drv then {
+    if lib.isDerivation drv
+    then {
       name = "${lib.getName drv}";
       path = drv;
-    } else
-      drv;
+    }
+    else drv;
 
   plugins = with pkgs.vimPlugins; [
     LazyVim
@@ -113,7 +118,6 @@ let
     colorful-winsep-nvim
     diffview-nvim
     {
-
       name = "hlchunk.nvim";
       path = hlchunk-nvim-my;
     }
@@ -187,4 +191,5 @@ let
     }
   ];
   # Link together all plugins into a single derivation
-in pkgs.linkFarm "lazyvim-nix-plugins" (builtins.map mkEntryFromDrv plugins)
+in
+  pkgs.linkFarm "lazyvim-nix-plugins" (builtins.map mkEntryFromDrv plugins)

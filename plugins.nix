@@ -131,6 +131,7 @@
     substitute-nvim
     smear-cursor-nvim
     tabout-nvim
+    windsurf-nvim
     {
       name = "LuaSnip";
       path = luasnip;

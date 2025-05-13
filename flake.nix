@@ -41,14 +41,16 @@
       systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin"];
 
       perSystem = {
-        pkgs,
         lib,
         system,
         ...
       }: let
         # Derivation containing all plugins
+        pkgs = import (inputs.nixpkgs) {
+          inherit system;
+          config.allowUnfree = true;
+        };
         pluginPath = import ./plugins.nix {inherit pkgs lib inputs;};
-
         # Derivation containing all runtime dependencies
         runtimePath = import ./runtime.nix {inherit pkgs;};
 

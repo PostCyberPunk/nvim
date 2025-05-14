@@ -26,6 +26,7 @@ return {
   --TODO: highlight will cause an error
   {
     "gbprod/substitute.nvim",
+    lazy = vim.g.isnix ~= 1,
     config = function()
       require("substitute").setup()
       vim.keymap.set("n", "<leader>mx", require("substitute.exchange").operator, { noremap = true })

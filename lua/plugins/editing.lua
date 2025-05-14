@@ -29,8 +29,9 @@ return {
     lazy = vim.g.isnix ~= 1,
     config = function()
       require("substitute").setup()
-      vim.keymap.set("n", "<leader>mx", require("substitute.exchange").operator, { noremap = true })
-      vim.keymap.set("x", "<leader>mx", require("substitute.exchange").visual, { noremap = true })
+			-- stylua: ignore
+      vim.keymap.set("n", "<leader>mx", require("substitute.exchange").operator, { noremap = true, desc = "Substitute" })
+      vim.keymap.set("x", "<leader>mx", require("substitute.exchange").visual, { noremap = true, desc = "Substitute" })
     end,
   },
   {

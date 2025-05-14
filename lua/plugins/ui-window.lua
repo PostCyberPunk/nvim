@@ -121,13 +121,16 @@ return {
 ]]
       Hydra({
         name = "Windows",
-        hint = "window mdoe",
-        -- hint = window_hint,
+        -- hint = "window mdoe",
+        hint = window_hint,
         config = {
           invoke_on_body = true,
           -- hint = false,
           hint = {
-            border = "rounded",
+            -- border = "rounded",
+            float_opts = {
+              style = "minimal",
+            },
             offset = -1,
             show_name = false,
           },

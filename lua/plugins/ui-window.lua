@@ -98,6 +98,7 @@ return {
   },
   {
     "anuvyklack/hydra.nvim",
+    lazy = vim.g.isnix ~= 1,
     dependencies = {
       "mrjones2014/smart-splits.nvim",
       "sindrets/winshift.nvim",

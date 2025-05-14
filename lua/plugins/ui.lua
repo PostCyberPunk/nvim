@@ -60,9 +60,9 @@ return {
     opts = function(_, opts)
       local function format_toggle()
         if vim.g.autoformat then
-          return [[♥]]
+          return [[ ]]
         else
-          return [[]]
+          return [[󱙜 ]]
         end
       end
       opts.options.component_separators = { left = "|", right = "|" }
@@ -94,7 +94,7 @@ return {
       opts.sections.lualine_x[4] = {
         -- Lsp server name .
         function()
-          local msg = "No LSP"
+          local msg = "󰩆 No LSP"
           local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
           local clients = vim.lsp.get_clients()
           if next(clients) == nil then
@@ -109,7 +109,7 @@ return {
           end
           return msg
         end,
-        icon = ":",
+        -- icon = "󰇺 :",
         color = { fg = mocha.green },
         separator = "",
       }
@@ -155,22 +155,14 @@ return {
     opts = {
       defaults = {},
       spec = {
-        { "<leader><tab>", group = "󰌕Tabs" },
-        { "<leader>U", group = " Unity" },
-        { "<leader>b", group = "󰓩 Buffers" },
-        { "<leader>c", group = " Coding" },
-        { "<leader>d", group = " Debugger" },
-        { "<leader>f", group = "󰜏 file/find" },
-        { "<leader>g", group = "󰊢 Git" },
-        { "<leader>m", group = "烙More" },
-        { "<leader>n", group = "󰽱Notes" },
-        { "<leader>q", group = "󱂬 Session" },
-        { "<leader>s", group = "󰍉 Search" },
-        { "<leader>t", group = " Terminal" },
-        { "<leader>u", group = " UI" },
-        { "<leader>uu", group = "烙More" },
-        { "<leader>w", group = "󰨡 Windows" },
-        { "<leader>x", group = " Diagnosing" },
+        { "<leader>U", group = "Unity", icon = { icon = "" } },
+        { "<leader>c", group = "Coding", icon = { icon = "󰼭" } },
+        { "<leader>m", group = "More", icon = { icon = "" } },
+        { "<leader>n", group = "Notes/Notify", icon = { icon = "󰽶" } },
+        { "<leader>uu", group = "More", icon = { icon = "" } },
+        { "<leader>w", group = "Windows", icon = { icon = "󰨡" } },
+        { "<leader>x", group = "Diagnosing", icon = { icon = "" } },
+        { "<leader>t", group = "Terminal", icon = { icon = "" } },
       },
     },
   },

@@ -8,10 +8,12 @@
   cmake-tools-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "cmake-tools.nvim";
     src = inputs.cmake-tools-nvim;
+    doCheck = false;
   };
   cmake-gtest-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "cmake-gtest.nvim";
     src = inputs.cmake-gtest-nvim;
+    doCheck = false;
   };
   color-picker-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "color-picker-nvim";
@@ -152,7 +154,14 @@
       name = "colorful-winsep.nvim";
       path = colorful-winsep-nvim;
     }
-    # { name = "cmake-tools.nvim"; path = cmake-tools-nvim; }
+    {
+      name = "cmake-tools.nvim";
+      path = cmake-tools-nvim;
+    }
+    {
+      name = "cmake-gtest.nvim";
+      path = cmake-gtest-nvim;
+    }
     {
       name = "mini.ai";
       path = mini-nvim;

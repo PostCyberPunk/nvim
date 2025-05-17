@@ -30,6 +30,7 @@ in
       lazygit
       ripgrep
       fd
+      luarocks
 
       # LSP's
       #(make-lazy "clang-tools_16" "clangd")
@@ -41,16 +42,16 @@ in
       (make-lazy "neocmakelsp" "neocmakelsp")
       (make-lazy "yaml-language-server" "yaml-language-server")
       (make-lazy "lua-language-server" "lua-language-server")
+      (make-lazy "bash-language-server" "bash-language-server")
 
       # Debuggers
       codelldb
 
       # Formatters
       (make-lazy "stylua" "stylua")
-      (make-lazy "nixpkgs-fmt" "nixpkgs-fmt")
-      (make-lazy "nixfmt" "nixfmt")
       (make-lazy "alejandra" "alejandra")
       (make-lazy "jq" "jq")
+      (make-lazy "shfmt" "shfmt")
 
       # Linters
       (make-lazy "markdownlint-cli" "markdownlint-cli")

@@ -7,6 +7,5 @@ M.imports = {
   neorg = false,
   cmp = false,
   coq = false,
-  rust = false,
 }
 return M

@@ -4,6 +4,8 @@
     "lazyvim.plugins.extras.editor.dial",
     "lazyvim.plugins.extras.editor.snacks_picker",
     "lazyvim.plugins.extras.formatting.prettier",
+    "lazyvim.plugins.extras.lang.rust",
+    "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.ui.treesitter-context",
     "lazyvim.plugins.extras.util.mini-hipatterns"
   ],
@@ -12,4 +14,3 @@
   },
   "version": 8
 }
-

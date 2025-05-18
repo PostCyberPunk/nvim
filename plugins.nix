@@ -85,7 +85,6 @@
     persistence-nvim
     plenary-nvim
     project-nvim
-    rust-tools-nvim
     sqlite-lua
     todo-comments-nvim
     tokyonight-nvim

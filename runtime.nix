@@ -44,6 +44,7 @@ in
       (make-lazy "yaml-language-server" "yaml-language-server")
       (make-lazy "lua-language-server" "lua-language-server")
       (make-lazy "bash-language-server" "bash-language-server")
+      (make-lazy "nodePackages.prettier" "prettier")
 
       # Debuggers
       codelldb

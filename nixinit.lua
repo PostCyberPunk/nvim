@@ -15,7 +15,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.ui.smear-cursor" },
     { import = "lazyvim.plugins.extras.ui.treesitter-context" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
-    -- { import = "lazyvim.plugins.extras.lang.nix" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- The following configs are needed for fixing lazyvim on nix
     -- disable mason.nvim, use config.extraPackages
     { "williamboman/mason-lspconfig.nvim", enabled = false },

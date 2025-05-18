@@ -35,7 +35,8 @@ in
       # LSP's
       #(make-lazy "clang-tools_16" "clangd")
       clangd
-      (make-lazy "nil" "nil")
+      # (make-lazy "nil" "nil")
+      (make-lazy "nixd" "nixd")
       (make-lazy "taplo" "taplo")
       (make-lazy "rust-analyzer" "rust-analyzer")
       (make-lazy "marksman" "marksman")

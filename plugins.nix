@@ -65,6 +65,10 @@
     neoconf-nvim
     neodev-nvim
     neorg
+    {
+      name = "auto-save.nvim";
+      path = autosave-nvim;
+    }
     nix-develop-nvim
     noice-nvim
     none-ls-nvim

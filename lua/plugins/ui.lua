@@ -35,14 +35,14 @@ return {
       },
       options = {
         -- separator_style = "padded_slant",
-        separator_style = { "|", "|" },
+        separator_style = { "", "" },
         -- indicator = { icon = "", style = "icon" },
         tab_size = 16,
         indicator = { style = "none" },
-        buffer_close_icon = "",
+        buffer_close_icon = "",
         diagnostics = "nvim_lsp",
         diagnostics_update_in_insert = false,
-        diagnostics_indicator = function(count, level, diagnostics_dict, context)
+        diagnostics_indicator = function(_, _, diagnostics_dict, _)
           local s = " "
           for e, n in pairs(diagnostics_dict) do
             if e == "error" then

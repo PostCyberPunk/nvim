@@ -30,8 +30,7 @@ in
       lazygit
       ripgrep
       fd
-      luarocks
-      luajitPackages.lua-utils-nvim
+      # luarocks
 
       # LSP's
       #(make-lazy "clang-tools_16" "clangd")

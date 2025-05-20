@@ -1,7 +1,8 @@
 if require("pcp.extra").imports.unity then
   return {
     {
-      dir = "~/Repos/UniVim.nvim",
+      "PostCybepunk/UniVim.nvim",
+      -- dir = "~/Repos/UniVim.nvim",
       ft = "cs",
       keys = {
         { "<leader>UU", "<cmd>UnivimQutiPlayMode<cr>", desc = "Unity enter play Mode" },

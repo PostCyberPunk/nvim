@@ -20,11 +20,12 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.rust" },
     -- The following configs are needed for fixing lazyvim on nix
     -- disable mason.nvim, use config.extraPackages
+    { import = "plugins" },
+    { import = "plugins/unity" },
     { "williamboman/mason-lspconfig.nvim", enabled = false },
     { "williamboman/mason.nvim", enabled = false },
     { "jaybaby/mason-nvim-dap.nvim", enabled = false },
     -- uncomment to import/override with your plugins
-    { import = "plugins" },
     -- put this line at the end of spec to clear ensure_installed
     {
       "nvim-treesitter/nvim-treesitter",

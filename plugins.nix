@@ -28,6 +28,12 @@
     src = inputs.hlchunk-nvim;
     doCheck = false;
   };
+
+  univim-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "univim-nvim";
+    src = inputs.univim-nvim;
+    doCheck = false;
+  };
   # find sha256 nix-prefetch-url --unpack https://github.com/catppuccin/nvim/archive/0b2437bcc12b4021614dc41fcea9d0f136d94063.tar.gz
   catppuccin-nvim-patch = pkgs.vimUtils.buildVimPlugin {
     name = "catppuccin-nvim";
@@ -108,6 +114,10 @@
     lazydev-nvim
     # lsp-lens-nvim
     omnisharp-extended-lsp-nvim
+    {
+      name = "UniVim.nvim";
+      path = univim-nvim;
+    }
     markdown-preview-nvim
     neotest
     nvim-nio

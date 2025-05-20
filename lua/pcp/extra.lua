@@ -1,10 +1,10 @@
 local M = {}
 M.imports = {
-  unity = false,
+  unity = true,
   dap = false,
   fancylsp = false,
   ai = false,
-  neorg = true,
+  neorg = false,
   cmp = false,
   coq = false,
 }

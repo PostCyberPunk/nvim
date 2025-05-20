@@ -104,5 +104,23 @@ function M.get_selected_text()
   return table.concat(lines, "\n")
 end
 ---------------------------------------------------------------
+function M.replace_keys(Keys, new_mappings)
+  local key_index = {}
+  -- Build an index for fast lookup
+  for i, item in ipairs(Keys) do
+    key_index[item[1]] = i
+  end
+  -- Replace or insert
+  for _, mapping in ipairs(new_mappings) do
+    local key = mapping[1]
+    if key_index[key] then
+      Keys[key_index[key]] = mapping
+    else
+      table.insert(Keys, mapping)
+    end
+  end
+  return Keys
+end
+---------------------------------------------------------------
 return M
 ---------------------------------------------------------------

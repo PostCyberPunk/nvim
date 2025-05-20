@@ -13,7 +13,19 @@ vim.keymap.set("n", "<leader>wx", "<C-w>x", { desc = "Swap windows" })
 -- vim.keymap.set("n", "<c-k>", "<c-w>k")
 vim.keymap.set({ "n", "x" }, "gh", vim.lsp.buf.hover, { desc = "Hover" })
 -------------- Copy and Paste
-vim.keymap.set("n", "<leader><c-a>", "gg<s-v>G", { desc = "Select All" })
+vim.keymap.set("n", "<leader><c-a>", function()
+  local state = false
+  if vim.g.snacks_animate then
+    vim.g.snacks_animate = false
+    state = true
+  end
+  local keys = vim.api.nvim_replace_termcodes("gg<s-v>G", true, false, true)
+  vim.api.nvim_feedkeys(keys, "n", true)
+  -- FIX: maybe i need a better way to do that use <leader>ua
+  vim.defer_fn(function()
+    vim.g.snacks_animate = state
+  end, 500)
+end, { desc = "Select All" })
 vim.keymap.set({ "n", "x" }, "<c-v>", '"+p', { desc = "Paste(system)" })
 vim.keymap.set({ "i" }, "<c-v>", "<c-r>+", { desc = "Paste(system)" })
 vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste(system)" })

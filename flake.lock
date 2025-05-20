@@ -125,7 +125,24 @@
         "colorful-winsep-nvim": "colorful-winsep-nvim",
         "flake-parts": "flake-parts",
         "hlchunk-nvim": "hlchunk-nvim",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "univim-nvim": "univim-nvim"
+      }
+    },
+    "univim-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706432477,
+        "narHash": "sha256-s//qwdWS1o66zEr+p6/3569t1Y+Ks0ELEzhmJ5t41wU=",
+        "owner": "postcyberpunk",
+        "repo": "univim.nvim",
+        "rev": "bec0589dd3ac812154e4e1d008bc1f394f049d34",
+        "type": "github"
+      },
+      "original": {
+        "owner": "postcyberpunk",
+        "repo": "univim.nvim",
+        "type": "github"
       }
     }
   },

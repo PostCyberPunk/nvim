@@ -29,6 +29,10 @@
       url = "github:nvim-zh/colorful-winsep.nvim";
       flake = false;
     };
+    univim-nvim = {
+      url = "github:postcyberpunk/univim.nvim";
+      flake = false;
+    };
   };
 
   outputs = {

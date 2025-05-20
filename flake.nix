@@ -68,6 +68,7 @@
         # Use nightly neovim only ;)
         # neovimNightly = inputs.neovim-nightly.packages.${system}.default;
         # Wrap neovim with custom init and plugins
+        lua = pkgs.lua;
         neovimWrapped = pkgs.wrapNeovim pkgs.neovim-unwrapped {
           configure = {
             customRC =
@@ -80,7 +81,7 @@
                 let g:treesitter_path = "${treesitterPath}"
                 let g:isnix = 1
                 " Begin initialization
-                source ${./nixinit.lua}
+                source ${./init.lua}
               '';
             packages.all.start = [pkgs.vimPlugins.lazy-nvim];
           };

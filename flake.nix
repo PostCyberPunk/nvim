@@ -84,6 +84,7 @@
               '';
             packages.all.start = [pkgs.vimPlugins.lazy-nvim];
           };
+          extraLuaPackages = ps: with ps; [lua-utils-nvim pathlib-nvim];
         };
       in {
         packages = rec {

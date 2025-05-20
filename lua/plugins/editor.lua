@@ -1,6 +1,7 @@
 local utils = require("utils")
 return {
   {
+    -- c-q to exit ,c-esc enter normal mode
     "akinsho/toggleterm.nvim",
     version = "*",
     cmd = { "ToggleTerm", "TermExec" },
@@ -132,6 +133,7 @@ return {
         end
       end,
       on_create = function()
+        vim.api.nvim_set_keymap("t", "<c-Esc>", [[<C-\><C-n>]], { noremap = true, silent = true, nowait = true })
         vim.opt.foldcolumn = "0"
         vim.opt.signcolumn = "no"
       end,

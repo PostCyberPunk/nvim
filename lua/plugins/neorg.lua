@@ -1,5 +1,13 @@
 if require("pcp.extra").imports.neorg then
   return {
+    -- {
+    --   "okuuva/auto-save.nvim",
+    --   cmd = "ASToggle", -- optional for lazy loading on command
+    --   event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
+    --   opts = function(_, _)
+    --     require("autosave").enabled = false
+    --   end,
+    -- },
     {
       "nvim-neorg/neorg",
       -- lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
@@ -68,15 +76,6 @@ if require("pcp.extra").imports.neorg then
         { "<leader>nb", "<cmd>Neorg toc right<cr>", desc = "Neorg Toc", { noremap = true, silent = true } },
         { "<leader>nq", "<cmd>Neorg return<cr>", desc = "Neorg Return", { noremap = true, silent = true } },
         { "<leader>nc", "<cmd>Neorg toggle-concealer<cr>", desc = "Neorg Toggle Concealer", { noremap = true, silent = true }, },
-      },
-    },
-    {
-      "okuuva/auto-save.nvim",
-      cmd = "ASToggle", -- optional for lazy loading on command
-      event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
-      opts = {
-        enabled = false,
-        -- or just leave it empty :)
       },
     },
   }

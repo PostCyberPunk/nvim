@@ -3,7 +3,7 @@ if vim.g.vscode then
 elseif vim.g.roller then
   require("scroller")
 elseif vim.g.isnix == 1 then
-  require("config.nixlazy")
+  require("lazynix")
 else
   require("config.lazy")
 end

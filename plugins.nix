@@ -107,6 +107,7 @@
     grug-far-nvim
     lazydev-nvim
     # lsp-lens-nvim
+    omnisharp-extended-lsp-nvim
     markdown-preview-nvim
     neotest
     nvim-nio

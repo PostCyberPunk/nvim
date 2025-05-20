@@ -87,6 +87,7 @@
           nvim = pkgs.writeShellApplication {
             name = "nvim";
             runtimeInputs = [runtimePath];
+            runtimeEnv = {OMNISHARP_PATH = "${pkgs.omnisharp-roslyn}/lib/omnisharp-roslyn/OmniSharp.dll";};
             text = ''${neovimWrapped}/bin/nvim "$@"'';
           };
           default = nvim;

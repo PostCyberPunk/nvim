@@ -47,6 +47,10 @@ in
       (make-lazy "bash-language-server" "bash-language-server")
       (make-lazy "nodePackages.prettier" "prettier")
 
+      #csharp
+      dotnet-sdk
+      omnisharp-roslyn
+
       # Debuggers
       codelldb
 

@@ -42,11 +42,10 @@ return {
 █▓▓█▌ ▐█▀▀████████████████████▀▀█▌ ▐█▓▓█
 ████  ██▄▄████████████████▓▓██▄▄██  ████
 
-   Spleen Artpack #03 ■ November 2011
-
  ▄█ ▄█  ▓▄   ▐█ ▓▌  █████  ▄█▓▓▄  █▄ █▄
 ▀▓▓▀██  ██▀  ▐█ █▌  █▓▓██  █████  ██▀▓▓▀
  ▀  ▀  ▀     ▀ ▀   ▀▀▀▀▀   ▀▀▀   ▀  ▀
+   Spleen Artpack #03 ■ November 2011
 ]],
         -- stylua: ignore
         ---@type snacks.dashboard.Item[]
@@ -57,7 +56,7 @@ return {
           { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
           { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
           { icon = " ", key = "p", desc = "Projects", action = ":SessionSelect" },
-          { icon = " ", key = "L", desc = "Restore Session", action = ":SessionLoadLast" },
+          { icon = "󰜉 ", key = "L", desc = "Restore Session", action = ":SessionLoadLast" },
           { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
@@ -65,7 +64,21 @@ return {
         },
         sections = {
           { section = "header", padding = 0 },
-          { section = "startup", padding = 1 },
+          {
+            pane = 1,
+            icon = false,
+            title = false,
+            padding = 0,
+            section = "terminal",
+            enabled = function()
+              return vim.api.nvim_win_get_width(0) >= 126
+            end,
+            cmd = "colorscript -e crunchbang-mini",
+            height = 6,
+            ttl = 5 * 60,
+            indent = 6,
+          },
+          { section = "startup", padding = 0 },
           { pane = 2, icon = " ", section = "keys", padding = 1 },
           { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
           { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
@@ -75,7 +88,7 @@ return {
             title = "Git Status",
             section = "terminal",
             enabled = function()
-              return Snacks.git.get_root() ~= nil
+              return Snacks.git.get_root() ~= nil and vim.api.nvim_win_get_width(0) >= 126
             end,
             cmd = "git status --short --branch --renames",
             height = 5,

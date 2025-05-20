@@ -63,3 +63,4 @@ require("lazy").setup({
   checker = { enabled = true, notify = false }, -- automatically check for plugin updates
 })
 vim.cmd([[colorscheme catppuccin-mocha]])
+require("autosave").enabled = false

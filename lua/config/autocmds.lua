@@ -43,8 +43,9 @@ vim.api.nvim_create_user_command("NeoTodo", function()
       autocmd BufAdd *.norg :BufferLineCloseOthers
     augroup END
     ]])
-  vim.cmd("ASToggle")
-end, { desc = "auto close other buffer" })
+  require("autosave").enabled = true
+  -- vim.cmd("ASToggle")
+end, { desc = "Auto save when in neorg mode" })
 
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("user_close_with_q"),

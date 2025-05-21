@@ -147,4 +147,14 @@ return {
       },
     },
   },
+  {
+    "folke/todo-comments.nvim",
+    opts = {
+      keywords = {
+        HACK = {
+          alt = { "REFACTOR", "RFCT", "REFT" },
+        },
+      },
+    },
+  },
 }

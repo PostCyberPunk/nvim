@@ -5,7 +5,15 @@ return {
     opts = function(_, opts)
       opts.modes = {
         search = { enabled = true },
-        char = { jump_labels = true, multi_line = false },
+        char = {
+
+          -- abcdeffffghijkllllllllllllll
+          keys = {}, --Disable  "f", "F", "t", "T", ";", ","
+          ------------------------------
+          -- autojump = true,
+          -- jump_labels = true,
+          -- multi_line = false,
+        },
       }
       opts.label = {
         current = false,

@@ -62,6 +62,7 @@ in
       # Linters
       (make-lazy "markdownlint-cli" "markdownlint-cli")
       (make-lazy "cmake-format" "cmake-format")
+      (make-lazy "shellcheck" "shellcheck")
       cmakelint
 
       # Bundle also cmake

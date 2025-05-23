@@ -34,6 +34,11 @@
     src = inputs.univim-nvim;
     doCheck = false;
   };
+  evergarden-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "evergaden-nvim";
+    src = inputs.evergarden-nvim;
+    doCheck = false;
+  };
   # find sha256 nix-prefetch-url --unpack https://github.com/catppuccin/nvim/archive/0b2437bcc12b4021614dc41fcea9d0f136d94063.tar.gz
   catppuccin-nvim-patch = pkgs.vimUtils.buildVimPlugin {
     name = "catppuccin-nvim";
@@ -148,6 +153,17 @@
     smear-cursor-nvim
     tabout-nvim
     windsurf-nvim
+    #theme
+    dracula-nvim
+    oxocarbon-nvim
+    nord-nvim
+    nordic-nvim
+    gruvbox-nvim
+    {
+      name = "evergarden";
+      path = evergarden-nvim;
+    }
+
     {
       name = "LuaSnip";
       path = luasnip;

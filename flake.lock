@@ -64,6 +64,22 @@
         "type": "github"
       }
     },
+    "evergarden-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1747603028,
+        "narHash": "sha256-0+I2Y0bE1IYiHQo1ELkLcxWPmWg5g3d2KIlqNnFbaZI=",
+        "owner": "everviolet",
+        "repo": "nvim",
+        "rev": "d4612a121151ccc98a45802a93ce8321700a2a52",
+        "type": "github"
+      },
+      "original": {
+        "owner": "everviolet",
+        "repo": "nvim",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -123,6 +139,7 @@
         "cmake-tools-nvim": "cmake-tools-nvim",
         "color-picker-nvim": "color-picker-nvim",
         "colorful-winsep-nvim": "colorful-winsep-nvim",
+        "evergarden-nvim": "evergarden-nvim",
         "flake-parts": "flake-parts",
         "hlchunk-nvim": "hlchunk-nvim",
         "nixpkgs": "nixpkgs",

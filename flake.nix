@@ -7,7 +7,10 @@
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     # neovim-nightly.url = "github:neovim/neovim?dir=contrib";
     # neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
-
+    evergarden-nvim = {
+      url = "github:everviolet/nvim";
+      flake = false;
+    };
     # Plugins not available in nixpkgs
     hlchunk-nvim = {
       url = "github:postcyberpunk/hlchunk.nvim?ref=pcp-fix";

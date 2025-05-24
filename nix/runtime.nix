@@ -78,6 +78,7 @@ in
         vscode-extensions.visualstudiotoolsforunity.vstuc
       ]
       ++ lib.optionals (lib.elem "java" extraPlugins) [
-        (make-lazy "jdt-language-server" "jdtls")
+        # (make-lazy "jdt-language-server" "jdtls")
+        jdt-language-server
       ];
   }

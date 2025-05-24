@@ -4,7 +4,9 @@ return {
     opts = function(_, _)
       --https://nix-community.github.io/nixvim/plugins/lsp/servers/omnisharp/index.html
       require("lspconfig").omnisharp.setup({
-        cmd = { "dotnet", vim.fn.getenv("OMNISHARP_PATH") },
+        --FIX: OS specifaction
+        cmd = { "dotnet", vim.g.runtime_path .. "/lib/omnisharp-roslyn/OmniSharp.dll" },
+        -- cmd = { "OmniSharp" },
         settings = {
           FormattingOptions = {
             EnableEditorConfigSupport = true,

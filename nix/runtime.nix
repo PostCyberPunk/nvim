@@ -7,7 +7,6 @@
   codelldb = pkgs.writeShellScriptBin "codelldb" ''
     nix shell --impure --expr 'with import (builtins.getFlake "nixpkgs") {}; writeShellScriptBin "codelldb" "''${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb $@"' --command codelldb "$@"
   '';
-
   # cmake-lint is used as cmakelint
   cmakelint = pkgs.writeShellScriptBin "cmakelint" ''
     nix shell nixpkgs#cmake-format --command cmake-lint "$@"
@@ -74,7 +73,8 @@ in
       ]
       ++ lib.optionals (lib.elem "unity" extraPlugins) [
         #csharp
-        dotnet-sdk
+        dotnet-sdk_9
         omnisharp-roslyn
+        vscode-extensions.visualstudiotoolsforunity.vstuc
       ];
   }

@@ -217,6 +217,7 @@
         name = "cmake-gtest.nvim";
         path = cmake-gtest-nvim;
       }
+      clangd_extensions-nvim
     ]
     ++ lib.optionals (lib.elem "rust" extraPlugins) [
       crates-nvim

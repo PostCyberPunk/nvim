@@ -111,6 +111,7 @@
 
       glance-nvim
       glow-nvim
+      render-markdown-nvim
       markdown-preview-nvim
 
       grug-far-nvim

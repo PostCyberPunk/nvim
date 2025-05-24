@@ -52,7 +52,7 @@ in
         (make-lazy "shfmt" "shfmt")
 
         # Linters
-        (make-lazy "markdownlint-cli" "markdownlint-cli")
+        (make-lazy "markdownlint-cli2" "markdownlint-cli2")
         (make-lazy "shellcheck" "shellcheck")
       ]
       ++ lib.optionals (lib.elem "dap" extraPlugins) [

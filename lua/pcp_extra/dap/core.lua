@@ -1,3 +1,6 @@
+if true then
+  return { import = "lazyvim.plugins.extras.dap.core" }
+end
 return {
   {
     "nvim-neotest/nvim-nio",

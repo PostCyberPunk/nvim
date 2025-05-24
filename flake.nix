@@ -48,9 +48,9 @@
         overlays =
           inputs.overlays or [
             (self: super: {
-              pcp_nvim = {
+              pcp-nvim = {
                 useXDG = false;
-                extraArgs = [];
+                extraPlugins = [];
               };
             })
           ];
@@ -58,15 +58,16 @@
       lib = pkgs.lib;
       nvim = import ./nix {inherit pkgs lib inputs;};
     in {
+      inherit nvim;
       default = nvim {};
       full = nvim {
         useXDG = true;
-        extraArgs = ["dap" "cpp" "rust" "unity" "ai" "neorg" "extraTheme"];
+        extraPlugins = ["dap" "cpp" "rust" "unity" "ai" "neorg" "extraTheme"];
       };
-      extra = nvim pkgs.pcp_nvim;
+      extra = nvim pkgs.pcp-nvim;
     };
   in {
     packages = forAllSystems mkPkg;
-    modules = import ./nix/module.nix;
+    modules.default = import ./nix/module.nix inputs;
   };
 }

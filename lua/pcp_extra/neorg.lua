@@ -1,47 +1,46 @@
-if require("pcp.extra").imports.neorg then
-  return {
-    {
-      "okuuva/auto-save.nvim",
-      cmd = "ASToggle", -- optional for lazy loading on command
-      event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
-      opts = {
-        enabled = false,
-      },
+return {
+  {
+    "okuuva/auto-save.nvim",
+    cmd = "ASToggle", -- optional for lazy loading on command
+    event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
+    opts = {
+      enabled = false,
     },
-    {
-      "nvim-neorg/neorg",
-      -- lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-      version = "*", -- Pin Neorg to the latest stable release
-      cmd = { "Neorg" },
-      ft = { "norg" },
-      config = function()
-        require("neorg").setup({
-          load = {
-            ["core.defaults"] = {}, -- Loads default behaviour
-            ["core.concealer"] = {
-              config = {
-                icon_preset = "varied",
-              },
-            }, -- Adds pretty icons to your documents
-            ["core.itero"] = {},
-            ["core.dirman"] = { -- Manages Neorg workspaces
-              config = {
-                workspaces = {
-                  notes = "~/notes",
-                },
-                default_workspace = "notes",
-              },
+  },
+  {
+    "nvim-neorg/neorg",
+    -- lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+    version = "*", -- Pin Neorg to the latest stable release
+    cmd = { "Neorg" },
+    ft = { "norg" },
+    config = function()
+      require("neorg").setup({
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {
+            config = {
+              icon_preset = "varied",
             },
-            ["core.qol.todo_items"] = {
-              config = {
-                order = { { "undone", " " }, { "done", "x" } },
+          }, -- Adds pretty icons to your documents
+          ["core.itero"] = {},
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/notes",
               },
+              default_workspace = "notes",
             },
           },
-        })
-        --Keymaps for norg file only
-        vim.api.nvim_create_autocmd("Filetype", {
-          pattern = "norg",
+          ["core.qol.todo_items"] = {
+            config = {
+              order = { { "undone", " " }, { "done", "x" } },
+            },
+          },
+        },
+      })
+      --Keymaps for norg file only
+      vim.api.nvim_create_autocmd("Filetype", {
+        pattern = "norg",
       -- stylua: ignore
         callback = function()
 					-- vim.keymap.del("n", "<leader>n",{})
@@ -66,8 +65,8 @@ if require("pcp.extra").imports.neorg then
 					vim.keymap.set( "n", "<leader>nS", function() vim.cmd("!rclone copy ~/notes/ tera:/notes -Iv") end, { desc = "Neorg Sync" })
 					vim.keymap.set("n", "o", "i<Plug>(neorg.itero.next-iteration)", { silent = true })
         end,
-        })
-      end,
+      })
+    end,
 			-- stylua: ignore
       keys = {
         { "<leader>n", false },
@@ -76,8 +75,5 @@ if require("pcp.extra").imports.neorg then
         { "<leader>nq", "<cmd>Neorg return<cr>", desc = "Neorg Return", { noremap = true, silent = true } },
         { "<leader>nc", "<cmd>Neorg toggle-concealer<cr>", desc = "Neorg Toggle Concealer", { noremap = true, silent = true }, },
       },
-    },
-  }
-else
-  return {}
-end
+  },
+}

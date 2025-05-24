@@ -1,6 +1,6 @@
 {
   pkgs,
-  extraArgs,
+  extraPlugins,
   ...
 }: let
   # codelldb executable is not exported by default
@@ -56,11 +56,11 @@ in
         (make-lazy "markdownlint-cli" "markdownlint-cli")
         (make-lazy "shellcheck" "shellcheck")
       ]
-      ++ lib.optionals (lib.elem "dap" extraArgs) [
+      ++ lib.optionals (lib.elem "dap" extraPlugins) [
         # Debuggers
         codelldb
       ]
-      ++ lib.optionals (lib.elem "cpp" extraArgs) [
+      ++ lib.optionals (lib.elem "cpp" extraPlugins) [
         clangd
         cmakelint
         (make-lazy "neocmakelsp" "neocmakelsp")
@@ -68,11 +68,11 @@ in
         # Bundle also cmake
         (make-lazy "cmake" "cmake")
       ]
-      ++ lib.optionals (lib.elem "rust" extraArgs) [
+      ++ lib.optionals (lib.elem "rust" extraPlugins) [
         (make-lazy "taplo" "taplo")
         (make-lazy "rust-analyzer" "rust-analyzer")
       ]
-      ++ lib.optionals (lib.elem "unity" extraArgs) [
+      ++ lib.optionals (lib.elem "unity" extraPlugins) [
         #csharp
         dotnet-sdk
         omnisharp-roslyn

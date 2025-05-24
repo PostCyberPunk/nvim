@@ -5,17 +5,24 @@ inputs: {
   ...
 }:
 with lib; let
-  inherit (pkgs.stdenv.platform) system;
-  pacakge = inputs.self.${system}.nvim;
-  cfg = config.pcpNvim;
+  inherit (pkgs.stdenv.hostPlatform) system;
+  cfg = config.pcp-nvim;
+  package = inputs.self.packages.${system}.nvim {inherit (cfg) useXDG extraPlugins;};
 in {
-  options.myNvimModule = {
+  options.pcp-nvim = with types; {
     enable = mkEnableOption "Enable my custom nvim setup.";
-    ominisharp = mkEnableOption "Enable ominisharp related plugins and runtime.";
-    extraThemes = mkEnableOption "Extra colorschemes";
+    useXDG = mkEnableOption "Enable my custom nvim setup.";
+    extraPlugins = mkOption {
+      type = listOf str;
+      description = "extra plugin sets";
+      default = [];
+      example = ["dap" "cpp" "rust" "unity" "ai" "neorg" "extraTheme"];
+    };
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [pacakge];
+    environment.systemPackages = [
+      package
+    ];
   };
 }

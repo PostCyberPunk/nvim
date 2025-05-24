@@ -1,5 +1,5 @@
 if true then
-  return {}
+  return { import = "lazyvim.plugins.extras.lang.markdown" }
 end
 return {
   {

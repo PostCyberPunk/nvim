@@ -2,7 +2,7 @@
   pkgs,
   inputs,
   lib,
-  extraArgs,
+  extraPlugins,
   ...
 }: let
   # Build plugins from github
@@ -203,12 +203,12 @@
         path = yanky-nvim;
       }
     ]
-    ++ lib.optionals (lib.elem "dap" extraArgs) [
+    ++ lib.optionals (lib.elem "dap" extraPlugins) [
       nvim-dap
       nvim-dap-ui
       nvim-dap-virtual-text
     ]
-    ++ lib.optionals (lib.elem "cpp" extraArgs) [
+    ++ lib.optionals (lib.elem "cpp" extraPlugins) [
       {
         name = "cmake-tools.nvim";
         path = cmake-tools-nvim;
@@ -218,32 +218,32 @@
         path = cmake-gtest-nvim;
       }
     ]
-    ++ lib.optionals (lib.elem "rust" extraArgs) [
+    ++ lib.optionals (lib.elem "rust" extraPlugins) [
       crates-nvim
       rustaceanvim
     ]
-    ++ lib.optionals (lib.elem "unity" extraArgs) [
+    ++ lib.optionals (lib.elem "unity" extraPlugins) [
       omnisharp-extended-lsp-nvim
       {
         name = "UniVim.nvim";
         path = univim-nvim;
       }
     ]
-    ++ lib.optionals (lib.elem "fancy" extraArgs) [
+    ++ lib.optionals (lib.elem "fancy" extraPlugins) [
       lsp-lens-nvim
       aerial-nvim
     ]
-    ++ lib.optionals (lib.elem "neorg" extraArgs) [
+    ++ lib.optionals (lib.elem "neorg" extraPlugins) [
       neorg
       {
         name = "auto-save.nvim";
         path = autosave-nvim;
       }
     ]
-    ++ lib.optionals (lib.elem "ai" extraArgs) [
+    ++ lib.optionals (lib.elem "ai" extraPlugins) [
       windsurf-nvim
     ]
-    ++ lib.optionals (lib.elem "extraTheme" extraArgs) [
+    ++ lib.optionals (lib.elem "extraTheme" extraPlugins) [
       dracula-nvim
       oxocarbon-nvim
       nord-nvim

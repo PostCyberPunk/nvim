@@ -143,10 +143,10 @@ return {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = function(_, opts)
-      if require("pcp.extra").imports.coq then
-        opts.map_bs = false
-        opts.map_cr = false
-      end
+      -- if require("pcp_extra.extra").imports.coq then
+      --   opts.map_bs = false
+      --   opts.map_cr = false
+      -- end
     end,
   },
 }

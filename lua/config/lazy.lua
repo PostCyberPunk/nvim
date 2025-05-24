@@ -39,6 +39,6 @@ require("lazy").setup({
   },
 })
 -- extra check for unityIDE
-if require("pcp.extra").imports.unity then
-  require("config.UnityIDE")
-end
+-- if require("pcp_extra.extra").imports.unity then
+--   require("config.UnityIDE")
+-- end

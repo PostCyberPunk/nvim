@@ -4,7 +4,7 @@
   inputs,
 }: {
   useXDG ? false,
-  extraArgs ? [],
+  extraPlugins ? [],
 }: let
   treesitterPath = pkgs.symlinkJoin {
     name = "lazyvim-nix-treesitter-parsers";
@@ -12,10 +12,10 @@
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
   };
 
-  pluginPath = import ./plugins.nix {inherit pkgs lib inputs extraArgs;};
-  runtimePath = import ./runtime.nix {inherit pkgs extraArgs;};
+  pluginPath = import ./plugins.nix {inherit pkgs lib inputs extraPlugins;};
+  runtimePath = import ./runtime.nix {inherit pkgs extraPlugins;};
 
-  _extraArgs = lib.concatStringsSep "," extraArgs;
+  _extraPlugins = lib.concatStringsSep "," extraPlugins;
   customRC = lib.concatStrings (builtins.filter (x: x != null) [
     (
       if useXDG
@@ -24,7 +24,7 @@
       ''
     )
     ''
-      let g:pcp_extra = "${_extraArgs}"
+      let g:pcp_extra = "${_extraPlugins}"
       let g:plugin_path = "${pluginPath}"
       let g:runtime_path = "${runtimePath}"
       let g:treesitter_path = "${treesitterPath}"
@@ -40,7 +40,7 @@
     extraLuaPackages = ps:
       with ps;
       #HACK: extra
-        lib.optionals (lib.elem "neorg" extraArgs)
+        lib.optionals (lib.elem "neorg" extraPlugins)
         [lua-utils-nvim pathlib-nvim];
   };
 in
@@ -48,6 +48,6 @@ in
     name = "nvim";
     runtimeInputs = [runtimePath];
     #HACK: extra
-    runtimeEnv = lib.mkIf (lib.elem "unity" extraArgs) {OMNISHARP_PATH = "${pkgs.omnisharp-roslyn}/lib/omnisharp-roslyn/OmniSharp.dll";};
+    runtimeEnv = lib.mkIf (lib.elem "unity" extraPlugins) {OMNISHARP_PATH = "${pkgs.omnisharp-roslyn}/lib/omnisharp-roslyn/OmniSharp.dll";};
     text = ''${neovimWrapped}/bin/nvim "$@"'';
   }

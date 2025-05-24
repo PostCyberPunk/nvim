@@ -122,5 +122,32 @@ function M.replace_keys(Keys, new_mappings)
   return Keys
 end
 ---------------------------------------------------------------
+function M.getImports()
+  local _arg = vim.g.pcp_extra
+  if _arg == nil then
+    _arg = vim.fn.getenv("PCP_NVIM_EXTRA")
+  end
+  if _arg == nil or _arg == "" then
+    return {}
+  end
+  return vim.tbl_map(function(x)
+    return { import = "pcp_extra." .. x }
+  end, vim.split(_arg, ","))
+end
+---------------------------------------------------------------
+function M.print_table(tbl, indent)
+  indent = indent or 0
+  local prefix = string.rep("  ", indent)
+  for k, v in pairs(tbl) do
+    if type(v) == "table" then
+      print(prefix .. tostring(k) .. " = {")
+      M.print_table(v, indent + 1)
+      print(prefix .. "}")
+    else
+      print(prefix .. tostring(k) .. " = " .. tostring(v))
+    end
+  end
+end
+---------------------------------------------------------------
 return M
 ---------------------------------------------------------------

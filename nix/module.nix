@@ -16,7 +16,7 @@ in {
       type = listOf str;
       description = "extra plugin sets";
       default = [];
-      example = ["dap" "cpp" "rust" "unity" "ai" "neorg" "extraTheme"];
+      example = ["dap" "cpp" "rust" "unity" "java" "ai" "neorg" "extraTheme"];
     };
   };
 

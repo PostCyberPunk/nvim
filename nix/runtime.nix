@@ -76,5 +76,8 @@ in
         dotnet-sdk_9
         omnisharp-roslyn
         vscode-extensions.visualstudiotoolsforunity.vstuc
+      ]
+      ++ lib.optionals (lib.elem "java" extraPlugins) [
+        (make-lazy "jdt-language-server" "jdtls")
       ];
   }

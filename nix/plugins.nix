@@ -230,6 +230,9 @@
         path = univim-nvim;
       }
     ]
+    ++ lib.optionals (lib.elem "java" extraPlugins) [
+      nvim-jdtls
+    ]
     ++ lib.optionals (lib.elem "fancy" extraPlugins) [
       lsp-lens-nvim
       aerial-nvim

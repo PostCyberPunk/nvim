@@ -5,6 +5,8 @@
 }: {
   useXDG ? false,
   extraPlugins ? [],
+  viAlias ? false,
+  vimAlias ? false,
 }: let
   treesitterPath = pkgs.symlinkJoin {
     name = "lazyvim-nix-treesitter-parsers";
@@ -33,6 +35,7 @@
     ''
   ]);
   neovimWrapped = pkgs.wrapNeovim pkgs.neovim-unwrapped {
+    inherit vimAlias viAlias;
     configure = {
       inherit customRC;
       packages.all.start = [pkgs.vimPlugins.lazy-nvim];

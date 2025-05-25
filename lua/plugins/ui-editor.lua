@@ -5,6 +5,10 @@ return {
     "shellRaining/hlchunk.nvim",
     lazy = false,
     -- event = { "BufReadPre", "BufNewFile" },
+    keys = {
+      { "<leader>uuh", "<cmd>DisableHLIndent<cr>", desc = "DisableHLIndent" },
+      { "<leader>uuH", "<cmd>EnableHLIndent<cr>", desc = "EnableHLIndent" },
+    },
     config = function()
       require("hlchunk").setup({
         chunk = {

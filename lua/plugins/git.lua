@@ -32,6 +32,12 @@ return {
       status = {
         recent_commit_count = 20,
       },
+      rebase_editor = {
+        kind = "vsplit",
+      },
+      merge_editor = {
+        kind = "vsplit",
+      },
       sections = {
         recent = {
           folded = false,
@@ -39,6 +45,14 @@ return {
       },
       mappings = {
         commit_editor = {
+          ["<CR><CR>"] = "Submit",
+          ["<CR><ESC>"] = "Abort",
+        },
+        rebase_editor = {
+          ["<CR><CR>"] = "Submit",
+          ["<CR><ESC>"] = "Abort",
+        },
+        merge_editor = {
           ["<CR><CR>"] = "Submit",
           ["<CR><ESC>"] = "Abort",
         },
@@ -63,6 +77,7 @@ return {
       { "<leader>gdM", "<cmd>DiffviewOpen main<cr>", desc = "Diff main", { noremap = true, silent = false } },
       { "<leader>gdD", "<cmd>DiffviewOpen dev<cr>", desc = "Diff dev", { noremap = true, silent = false } },
       { "<leader>gdd", "<cmd>DiffviewOpen<cr>", desc = "Diffview Open", { noremap = true, silent = false } },
+      { "<leader>gdi", ":DiffviewOpen ", desc = "Diffview Open", { noremap = true, silent = false } },
       { "<leader>gdq", "<cmd>DiffviewClose<cr>", desc = "Diffview Close", { noremap = true, silent = false } }, --FIX:nvim_exec2 error
       { "<leader>gdr", "<cmd>DiffviewRefresh<cr>", desc = "Diffview Rfresh", { noremap = true, silent = false } },
     },

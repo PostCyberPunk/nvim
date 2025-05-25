@@ -24,6 +24,14 @@ return {
       -- TODO:Not perfect sometime not working
       --Tabout compatibility
       opts.keymap = vim.tbl_extend("force", opts.keymap, {
+        ["<ESC>"] = {
+          function(cmp)
+            if cmp.is_visible() then
+              return cmp.hide()
+            end
+          end,
+          "fallback",
+        },
         ["<Tab>"] = {
           "select_next",
           function(cmp)

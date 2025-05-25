@@ -4,7 +4,8 @@
 -- vim.g.lazy_nvim_auto_update = 0
 
 local opt = vim.opt
---------------------change LeapBackdrop
+--------------------
+opt.jumpoptions = "stack"
 opt.signcolumn = "auto"
 opt.clipboard = ""
 opt.expandtab = false

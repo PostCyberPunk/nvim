@@ -14,8 +14,13 @@ vim.keymap.set("n", "<M-x>", function()
 end, { desc = "Close buffer" })
 -- vim.keymap.set("n", "<c-j>", "<c-w>j")
 -- vim.keymap.set("n", "<c-k>", "<c-w>k")
+------ Selection and Motion--------
 vim.keymap.set({ "n", "x" }, "gh", vim.lsp.buf.hover, { desc = "Hover" })
--------------- Copy and Paste
+vim.keymap.set("x", "iL", "$h", { desc = "Till line end" })
+vim.keymap.set("o", "iL", ":normal viL<CR>", { desc = "Till line end" })
+vim.keymap.set("x", "il", "^o$h", { desc = "Whole line" })
+vim.keymap.set("o", "il", ":normal vil<CR>", { desc = "Whole line" })
+
 vim.keymap.set("n", "<leader><c-a>", function()
   local state = false
   if vim.g.snacks_animate then
@@ -29,6 +34,7 @@ vim.keymap.set("n", "<leader><c-a>", function()
     vim.g.snacks_animate = state
   end, 500)
 end, { desc = "Select All" })
+-------------- Copy and Paste
 vim.keymap.set({ "n", "x" }, "<c-v>", '"+p', { desc = "Paste(system)" })
 vim.keymap.set({ "i" }, "<c-v>", "<c-r>+", { desc = "Paste(system)" })
 vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste(system)" })

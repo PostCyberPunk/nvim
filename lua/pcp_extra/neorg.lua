@@ -62,8 +62,13 @@ return {
           vim.keymap.set( "n", "ti", "<Plug>(neorg.qol.todo-items.todo.task-important)", { desc = "Task Important" })
 					-- QOL funcitons
 					vim.keymap.set( "n", "<leader>ns", function() vim.api.nvim_feedkeys("Egsa", "m", false) end, { desc = "Neorg add surround" })
-					vim.keymap.set( "n", "<leader>nS", function() vim.cmd("!rclone copy ~/notes/ tera:/notes -Iv") end, { desc = "Neorg Sync" })
 					vim.keymap.set("n", "o", "i<Plug>(neorg.itero.next-iteration)", { silent = true })
+					vim.keymap.set("n", "<leader>nS", function()
+						require("utils").shell_cmd(
+							"rclone copy ~/notes/ tera:/notes -Iv",
+							{ pre_msg = " Syncing", post_msg = " Synced finishied" }
+						)
+					end, { desc = "Neorg Sync" })
         end,
       })
     end,

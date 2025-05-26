@@ -1,27 +1,7 @@
 # Univerasl Neovim configuration
 
 > for nix,linux,windows,code...
-
-```
-▓█▄▄█▓▓█████████████████████▓▓▓██▓▄▄██▓█
-███▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█▓█
-███ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ █▓█
-█▓█ ██▀▄ ▄▀██ ███▄▀▀▀▄▓▓██ ██▀▄ ▄▀▓▓ █▓█
-███ █▌■   ■▐█ ██▓▓▌ ▐█████ █▌■   ■▐█ █▓█
-█▓█ ▓▓▄▀ ▀▄██ █▓▓▀▄▄▄▀█▓▓█ ██▄▀ ▀▄██ █▓█
-█▓█ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ ███
-█▓█             NEOVIM               █▓█
-█▓█       Powered by Lazy.Nvim       ███
-█████▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█████
-█▓▓█▌ ▐█▀▀████████████████████▀▀█▌ ▐█▓▓█
-████  ██▄▄████████████████▓▓██▄▄██  ████
-
-   Spleen Artpack #03 ■ November 2011
-
- ▄█ ▄█  ▓▄   ▐█ ▓▌  █████  ▄█▓▓▄  █▄ █▄
-▀▓▓▀██  ██▀  ▐█ █▌  █▓▓██  █████  ██▀▓▓▀
-  ▀  ▀  ▀     ▀ ▀   ▀▀▀▀▀   ▀▀▀   ▀  ▀
-```
+> ![screenshot](https://raw.githubusercontent.com/PostCyberPunk/assets/refs/heads/main/screnshot/nvim.png)
 
 ## Installl
 
@@ -37,11 +17,11 @@ nix run github:PostCyberpunk/nvim#full
 Add to your flake input first
 
 ```nix
-pcp-nvim.url = "github:PostCyberPunk/nvim?ref=dev";
+pcp-nvim.url = "github:PostCyberPunk/nvim";
 ```
 
 > [!TIP]
-> clone this repo to your XDG_CONFIG_HOME if you don't don't want to build every time when config changed..
+> clone this repo to your `XDG_CONFIG_HOME` if you don't don't want to build every time when config changed..
 >
 > ```sh
 > git clone https://github.com/postcyberpunk/nvim ~/.config/nvim
@@ -96,4 +76,25 @@ mv ~/.config/nvim{,.bak}
 mv ~/.local/share/nvim{,.bak}
 mv ~/.local/state/nvim{,.bak}
 mv ~/.cache/nvim{,.bak}
+```
+
+```
+▓█▄▄█▓▓█████████████████████▓▓▓██▓▄▄██▓█
+███▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█▓█
+███ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ █▓█
+█▓█ ██▀▄ ▄▀██ ███▄▀▀▀▄▓▓██ ██▀▄ ▄▀▓▓ █▓█
+███ █▌■   ■▐█ ██▓▓▌ ▐█████ █▌■   ■▐█ █▓█
+█▓█ ▓▓▄▀ ▀▄██ █▓▓▀▄▄▄▀█▓▓█ ██▄▀ ▀▄██ █▓█
+█▓█ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ ███
+█▓█             NEOVIM               █▓█
+█▓█       Powered by Lazy.Nvim       ███
+█████▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█████
+█▓▓█▌ ▐█▀▀████████████████████▀▀█▌ ▐█▓▓█
+████  ██▄▄████████████████▓▓██▄▄██  ████
+
+   Spleen Artpack #03 ■ November 2011
+
+ ▄█ ▄█  ▓▄   ▐█ ▓▌  █████  ▄█▓▓▄  █▄ █▄
+▀▓▓▀██  ██▀  ▐█ █▌  █▓▓██  █████  ██▀▓▓▀
+  ▀  ▀  ▀     ▀ ▀   ▀▀▀▀▀   ▀▀▀   ▀  ▀
 ```

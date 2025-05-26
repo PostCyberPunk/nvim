@@ -60,7 +60,7 @@ return {
         },
       },
       highlight_overrides = {
-        all = function(colors)
+        all = function(_)
           return {
             Visual = { bg = "#585b70" },
             VertSplit = { fg = "#6670b0" },
@@ -70,18 +70,17 @@ return {
     },
   },
   ------------------tokyonight-----
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   opts = {
-  --     dim_inactive = true,
-  --     on_colors = function(colors)
-  --       colors.border = "#565f89"
-  --       colors.bg_visual = "#2d8fb6"
-  --     end,
-  --     styles = "moon",
-  --   },
-  --   config = true,
-  -- },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      dim_inactive = true,
+      on_colors = function(colors)
+        colors.border = "#565f89"
+        colors.bg_visual = "#6b1e00"
+      end,
+    },
+    config = true,
+  },
 }
 --#region
 --#region_end

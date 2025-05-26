@@ -34,7 +34,15 @@ return {
         tab_selected = { fg = mocha.peach, sp = mocha.peach, underline = true },
       },
       options = {
+        pick = {
+          alphabet = "asdfghjkl",
+        },
         -- separator_style = "padded_slant",
+        groups = {
+          items = {
+            require("bufferline.groups").builtin.pinned:with({ icon = "󰐃 " }),
+          },
+        },
         separator_style = { "", "" },
         -- indicator = { icon = "", style = "icon" },
         tab_size = 16,

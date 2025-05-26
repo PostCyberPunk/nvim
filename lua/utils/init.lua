@@ -8,6 +8,11 @@ function M.extend_tbl(default, opts)
   opts = opts or {}
   return default and vim.tbl_deep_extend("force", default, opts) or opts
 end
+---------------------------
+function M.switch(x, cases)
+  local match = cases[x] or cases.default or function() end
+  return match()
+end
 ----------------------------toggle terms
 local terms = {}
 function M.toggle_term_cmd(opts)

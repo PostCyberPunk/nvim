@@ -29,7 +29,19 @@ return {
       {
         "<leader>tcr",
         function()
-          require("toggleterm").exec("cargo run")
+          local term = require("toggleterm")
+          local ft = vim.bo[vim.api.nvim_get_current_buf()].filetype
+          utils.switch(ft, {
+            ["rust"] = function()
+              term.exec("cargo run")
+            end,
+            ["nix"] = function()
+              term.exec("nix repl", nil, nil, nil, "float", nil, false)
+            end,
+            default = function()
+              vim.notify("No preset for filetype:" .. ft)
+            end,
+          })
         end,
         desc = "Term - cargo run",
       },

@@ -7,7 +7,18 @@ vim.keymap.set("i", "jj", "<ESC>")
 -----------window operetions
 vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "Split Down" })
 vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split Right" })
-vim.keymap.set("n", "<leader>wx", "<C-w>x", { desc = "Swap windows" })
+vim.keymap.set("n", "<leader>wx", function()
+  local win1 = vim.api.nvim_get_current_win()
+  vim.cmd("wincmd w")
+  local win2 = vim.api.nvim_get_current_win()
+
+  local buf1 = vim.api.nvim_win_get_buf(win1)
+  local buf2 = vim.api.nvim_win_get_buf(win2)
+
+  vim.api.nvim_win_set_buf(win1, buf2)
+  vim.api.nvim_win_set_buf(win2, buf1)
+  vim.cmd("wincmd w")
+end, { desc = "Swap windows" })
 
 vim.keymap.set("n", "<M-x>", function()
   Snacks.bufdelete()
@@ -40,9 +51,20 @@ vim.keymap.set({ "i" }, "<c-v>", "<c-r>+", { desc = "Paste(system)" })
 vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste(system)" })
 vim.keymap.set({ "n", "x" }, "<leader>P", '"+P', { desc = "Paste(system) Before" })
 vim.keymap.set("x", "Y", '"+y', { desc = "Copy(system)" })
+vim.keymap.set("x", "<c-y>", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("x", "<leader>y", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("x", "<C-c>", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("n", "gV", "`[v`]", { desc = "Select last Paste" })
+--toggle p
+vim.keymap.set("n", "<leader>uP", function()
+  if vim.g.pasteRing then
+    vim.keymap.set("x", "p", "p", { desc = "Paste", noremap = true })
+    vim.g.pasteRing = false
+  else
+    vim.keymap.set("x", "p", "P", { desc = "Paste!ring", noremap = true })
+    vim.g.pasteRing = true
+  end
+end, { desc = "Toggle Paste RegisterRing" })
 -----------SerachReplace(spectre)-------------
 vim.keymap.set({ "x" }, "<leader>sr", function()
   require("grug-far").open({ visualSelectionUsage = "prefill-search", prefills = { paths = vim.fn.expand("%") } })

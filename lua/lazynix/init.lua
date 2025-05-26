@@ -66,9 +66,13 @@ require("lazy").setup({
   },
   checker = { enabled = true, notify = false }, -- automatically check for plugin updates
 })
-vim.cmd([[colorscheme catppuccin-mocha]])
+
+local my_theme = "tokyonight"
+-- local my_theme = "catppuccin-mocha"
+vim.cmd("colorscheme " .. my_theme)
 
 local status, autosave = pcall(require, "autosave")
 if status then
   autosave.enabled = false
 end
+vim.g.snacks_animate = false

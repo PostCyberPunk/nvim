@@ -1,3 +1,4 @@
+---@class utils
 local M = {}
 
 local function bool2str(bool)
@@ -148,6 +149,70 @@ function M.print_table(tbl, indent)
     end
   end
 end
+---------------------------------------------------------------
+---@class utils.shell_cmd.opts
+---@field show_stdout boolean? Show output after command (default: false)
+---@field pre_msg string? Message before execution
+---@field post_msg string? Message after execution
+---@field on_success fun(output:string)? Callback when command succeeds
+---@param opts utils.shell_cmd.opts Options table
+function M.shell_cmd(cmd, opts)
+  -- opts:
+  --   cmd: (string) Shell command to execute
+  --   show_stdout: (boolean, default true) Whether to notify with stdout after execution
+  --   pre_msg: (string|nil) Notify message before command execution (optional)
+  --   post_msg: (string|nil) Notify message after command execution (optional, shown only on success)
+
+  opts = opts or {}
+  local show_stdout = opts.show_stdout
+  if show_stdout == nil then
+    show_stdout = false
+  end
+  local pre_msg = opts.pre_msg
+  local post_msg = opts.post_msg
+  local on_success = opts.on_success
+
+  if not cmd or type(cmd) ~= "string" then
+    vim.notify("notify_shell_command: cmd is required and must be a string", vim.log.levels.ERROR)
+    return
+  end
+
+  if pre_msg then
+    vim.notify(pre_msg, vim.log.levels.INFO)
+  else
+    vim.notify("About to execute: " .. cmd, vim.log.levels.INFO)
+  end
+
+  local handle
+  local stdout = {}
+
+  ---@diagnostic disable: undefined-field
+  handle = vim.loop.spawn("sh", {
+    args = { "-c", cmd },
+    stdio = { nil, vim.loop.new_pipe(false), vim.loop.new_pipe(false) },
+  }, function(code, _)
+    handle:close()
+    local output = table.concat(stdout)
+    vim.schedule(function()
+      if show_stdout then
+        vim.notify("Command finished. Output:\n" .. output, vim.log.levels.INFO)
+      end
+      if code == 0 then
+        if post_msg then
+          vim.notify(post_msg, vim.log.levels.INFO)
+        else
+          vim.notify("Command succeeded", vim.log.levels.INFO)
+        end
+        if on_success then
+          on_success(output)
+        end
+      else
+        vim.notify("Command failed with exit code: " .. code, vim.log.levels.ERROR)
+      end
+    end)
+  end)
+end
+
 ---------------------------------------------------------------
 return M
 ---------------------------------------------------------------

@@ -13,11 +13,6 @@ return {
     end,
     keys = {
       {
-        "<leader>qp",
-        "<cmd>SessionSelect<cr>",
-        desc = "Search Sessions",
-      },
-      {
         "<leader>qs",
         function()
           require("persisted").load()
@@ -39,15 +34,14 @@ return {
         desc = "Don't Save Current Session",
       },
       {
-        "<leader>qd",
+        "<leader>qp",
         function()
-          vim.cmd("SessionSave")
-          vim.cmd("SessionStop")
+          require("persisted").save({ session = vim.g.persisted_loaded_session })
           vim.cmd("%bd")
-          Snacks.dashboard.open()
-          vim.cmd("bd#")
+          require("persisted").stop()
+          require("persisted").select()
         end,
-        desc = "Quit all and open dashboard",
+        desc = "Switch Session([P]roject)",
       },
     },
   },

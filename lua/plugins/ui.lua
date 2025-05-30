@@ -35,6 +35,11 @@ return {
       },
       options = {
         -- separator_style = "padded_slant",
+        groups = {
+          items = {
+            require("bufferline.groups").builtin.pinned:with({ icon = "󰐃 " }),
+          },
+        },
         separator_style = { "", "" },
         -- indicator = { icon = "", style = "icon" },
         tab_size = 16,

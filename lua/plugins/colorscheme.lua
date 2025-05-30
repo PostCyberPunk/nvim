@@ -60,7 +60,7 @@ return {
         },
       },
       highlight_overrides = {
-        all = function(colors)
+        all = function(_)
           return {
             Visual = { bg = "#585b70" },
             VertSplit = { fg = "#6670b0" },

@@ -44,6 +44,16 @@ vim.keymap.set("x", "<c-y>", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("x", "<leader>y", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("x", "<C-c>", '"+y', { desc = "Copy(system)" })
 vim.keymap.set("n", "gV", "`[v`]", { desc = "Select last Paste" })
+--toggle p
+vim.keymap.set("n", "<leader>uP", function()
+  if vim.g.pasteRing then
+    vim.keymap.set("x", "p", "p", { desc = "Paste", noremap = true })
+    vim.g.pasteRing = false
+  else
+    vim.keymap.set("x", "p", "P", { desc = "Paste!ring", noremap = true })
+    vim.g.pasteRing = true
+  end
+end, { desc = "Toggle Paste RegisterRing" })
 -----------SerachReplace(spectre)-------------
 vim.keymap.set({ "x" }, "<leader>sr", function()
   require("grug-far").open({ visualSelectionUsage = "prefill-search", prefills = { paths = vim.fn.expand("%") } })

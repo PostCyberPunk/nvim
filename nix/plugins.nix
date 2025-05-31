@@ -253,7 +253,10 @@
       oxocarbon-nvim
       nord-nvim
       nordic-nvim
-      gruvbox-nvim
+      {
+        name = "gruvbox-material";
+        path = gruvbox-material-nvim;
+      }
       {
         name = "evergarden";
         path = evergarden-nvim;

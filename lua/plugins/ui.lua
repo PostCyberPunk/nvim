@@ -34,6 +34,9 @@ return {
         tab_selected = { fg = mocha.peach, sp = mocha.peach, underline = true },
       },
       options = {
+        pick = {
+          alphabet = "asdfghjkl",
+        },
         -- separator_style = "padded_slant",
         separator_style = { "", "" },
         -- indicator = { icon = "", style = "icon" },

@@ -75,3 +75,4 @@ local status, autosave = pcall(require, "autosave")
 if status then
   autosave.enabled = false
 end
+vim.g.snacks_animate = false

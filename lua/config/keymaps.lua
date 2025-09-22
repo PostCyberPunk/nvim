@@ -7,7 +7,18 @@ vim.keymap.set("i", "jj", "<ESC>")
 -----------window operetions
 vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "Split Down" })
 vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split Right" })
-vim.keymap.set("n", "<leader>wx", "<C-w>x", { desc = "Swap windows" })
+vim.keymap.set("n", "<leader>wx", function()
+  local win1 = vim.api.nvim_get_current_win()
+  vim.cmd("wincmd w")
+  local win2 = vim.api.nvim_get_current_win()
+
+  local buf1 = vim.api.nvim_win_get_buf(win1)
+  local buf2 = vim.api.nvim_win_get_buf(win2)
+
+  vim.api.nvim_win_set_buf(win1, buf2)
+  vim.api.nvim_win_set_buf(win2, buf1)
+  vim.cmd("wincmd w")
+end, { desc = "Swap windows" })
 
 vim.keymap.set("n", "<M-x>", function()
   Snacks.bufdelete()
